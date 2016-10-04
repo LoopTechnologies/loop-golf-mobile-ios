@@ -11,11 +11,12 @@ import UIKit
 class ChooseCourseViewController: UIViewController {
     
     //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
-    var courseNames = ["Hearthstone Country Club", "Black Hawk Country Club"]
-    var courseLocations = ["Cypress, Texas","Richmond, Texas"]
+    var courseNames = ["Hearthstone Country Club", "Black Hawk Country Club", "The Club at Falcon Point"]
+    var courseLocations = ["Cypress, Texas","Richmond, Texas", "Katy, Texas"]
     // --------------------------------------------------------------------------------//
     
     @IBOutlet weak var segmentedControlBackgroundView: UIView!
+    @IBOutlet weak var progressBarView: UIView!
     @IBOutlet weak var nearbyCoursesContainer: UIView!
     @IBOutlet weak var favoriteCoursesContainer: UIView!
     
@@ -33,6 +34,9 @@ class ChooseCourseViewController: UIViewController {
         segmentedControlBackgroundView.layer.shadowOpacity = 0.5
         segmentedControlBackgroundView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
         
+        progressBarView.layer.shadowColor = UIColor.blackColor().CGColor
+        progressBarView.layer.shadowOpacity = 0.5
+        progressBarView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
         
         favoriteCoursesContainer.hidden = true
         

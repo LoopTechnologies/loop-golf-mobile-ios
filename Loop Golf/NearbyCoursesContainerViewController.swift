@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NearbyCoursesContainerViewController: UITableViewController {
+class NearbyCoursesContainerViewController: UITableViewController, UIGestureRecognizerDelegate {
     
     var courseNamesReceived: [String]?
     var courseLocationsReceived: [String]?
@@ -18,9 +18,14 @@ class NearbyCoursesContainerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         courseNames = courseNamesReceived!
         courseLocations = courseLocationsReceived!
+        
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
+        longPressRecognizer.minimumPressDuration = 0.35
+        longPressRecognizer.delaysTouchesBegan = true
+        longPressRecognizer.delegate = self
+        self.tableView?.addGestureRecognizer(longPressRecognizer)
         
     }
 }
@@ -62,12 +67,37 @@ extension NearbyCoursesContainerViewController {
         cell.golfCourseImageView.image = UIImage(named: "GolfCourseImage")
         cell.courseNameLabel.text = courseNames[indexPath.row] as? String
         cell.courseLocationLabel.text = courseLocations[indexPath.row] as? String
-        //cell.viewDetailsButton.layer.borderWidth = 1
-        //cell.viewDetailsButton.layer.borderColor = UIColor.whiteColor().CGColor
-        //cell.viewDetailsButton.layer.cornerRadius = 15
-        
         
         return cell
+    }
+    
+    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        let cell = tableView.cellForRowAtIndexPath(indexPath) as! ChooseCourseTableViewCell
+        
+    }
+    
+    func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
+        if (gestureRecognizer.state != .Began) {
+            return
+        }
+        let touchPoint = gestureRecognizer.locationInView(self.tableView)
+        let indexPath = tableView.indexPathForRowAtPoint(touchPoint)
+        
+        if let index = indexPath {
+            var cell = self.tableView?.cellForRowAtIndexPath(index) as! ChooseCourseTableViewCell
+            //selectedCourseNameToSend = nearbyCourseNamesToDisplay[index.row]
+            performSegueWithIdentifier("nearbyCourseDetailsSegue", sender: indexPath)
+        }
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        
+        if (segue.identifier == "nearbyCourseDetailsSegue") {
+            var indexPath: NSIndexPath = (sender as! NSIndexPath)
+            let cell = tableView.cellForRowAtIndexPath(indexPath) as! ChooseCourseTableViewCell
+            let navigationController = segue.destinationViewController as? UINavigationController
+            let destinationVC = navigationController!.topViewController as! CourseDetailsViewController
+        }
     }
     
 }

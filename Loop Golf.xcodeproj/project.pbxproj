@@ -25,6 +25,7 @@
 		C944D6301DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D62F1DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift */; };
 		C944D6321DA35C2400E56C25 /* FavoriteCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6311DA35C2400E56C25 /* FavoriteCoursesViewController.swift */; };
 		C944D6341DA361A700E56C25 /* ChooseCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6331DA361A700E56C25 /* ChooseCourseTableViewCell.swift */; };
+		C944D6381DA3704200E56C25 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6371DA3704200E56C25 /* CourseDetailsViewController.swift */; };
 		C9B0D3A21DA20DD4008C4DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */; };
 		C9B0D3A41DA20DD4008C4DDA /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A31DA20DD4008C4DDA /* HomeTabViewController.swift */; };
 		C9B0D3A61DA20DD4008C4DDA /* ConnectionsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A51DA20DD4008C4DDA /* ConnectionsTabViewController.swift */; };
@@ -76,6 +77,7 @@
 		C944D62F1DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyCoursesContainerViewController.swift; sourceTree = "<group>"; };
 		C944D6311DA35C2400E56C25 /* FavoriteCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCoursesViewController.swift; sourceTree = "<group>"; };
 		C944D6331DA361A700E56C25 /* ChooseCourseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCourseTableViewCell.swift; sourceTree = "<group>"; };
+		C944D6371DA3704200E56C25 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
 		C9B0D39E1DA20DD3008C4DDA /* Loop Golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loop Golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9B0D3A31DA20DD4008C4DDA /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
@@ -257,12 +259,29 @@
 		C944D62A1DA3546000E56C25 /* New Reservation */ = {
 			isa = PBXGroup;
 			children = (
+				C944D6351DA3701900E56C25 /* Choose Course */,
+			);
+			name = "New Reservation";
+			sourceTree = "<group>";
+		};
+		C944D6351DA3701900E56C25 /* Choose Course */ = {
+			isa = PBXGroup;
+			children = (
 				C944D62B1DA354BD00E56C25 /* ChooseCourseViewController.swift */,
 				C944D62D1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift */,
 				C944D62F1DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift */,
 				C944D6311DA35C2400E56C25 /* FavoriteCoursesViewController.swift */,
+				C944D6361DA3702900E56C25 /* Course Details */,
 			);
-			name = "New Reservation";
+			name = "Choose Course";
+			sourceTree = "<group>";
+		};
+		C944D6361DA3702900E56C25 /* Course Details */ = {
+			isa = PBXGroup;
+			children = (
+				C944D6371DA3704200E56C25 /* CourseDetailsViewController.swift */,
+			);
+			name = "Course Details";
 			sourceTree = "<group>";
 		};
 		C9B0D3951DA20DD3008C4DDA = {
@@ -587,6 +606,7 @@
 			files = (
 				C944D6211DA2F8D100E56C25 /* GolfersContainerViewController.swift in Sources */,
 				C9B0D3A61DA20DD4008C4DDA /* ConnectionsTabViewController.swift in Sources */,
+				C944D6381DA3704200E56C25 /* CourseDetailsViewController.swift in Sources */,
 				C944D62C1DA354BD00E56C25 /* ChooseCourseViewController.swift in Sources */,
 				C944D6161DA2CF9B00E56C25 /* ProfileTabViewController.swift in Sources */,
 				C944D6101DA2BB1A00E56C25 /* ReservationsTabViewController.swift in Sources */,
