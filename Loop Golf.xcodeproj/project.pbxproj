@@ -7,14 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		33A06353E2E341FD6AD17BD0 /* Pods_Loop_GolfTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DEAA4669C0FCCFDDAE1628FE /* Pods_Loop_GolfTests.framework */; };
+		71B72FBE4EDD2E9F12835705 /* Pods_Loop_Golf.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A4843E180C5D4A06F35A75A1 /* Pods_Loop_Golf.framework */; };
+		C944D6101DA2BB1A00E56C25 /* ReservationsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D60F1DA2BB1A00E56C25 /* ReservationsTabViewController.swift */; };
+		C944D6121DA2BC4B00E56C25 /* ConnectionsSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6111DA2BC4B00E56C25 /* ConnectionsSegmentedControl.swift */; };
+		C944D6141DA2C0E800E56C25 /* ReservationsSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6131DA2C0E800E56C25 /* ReservationsSegmentedControl.swift */; };
+		C944D6161DA2CF9B00E56C25 /* ProfileTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6151DA2CF9B00E56C25 /* ProfileTabViewController.swift */; };
+		C944D6191DA2E73500E56C25 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6181DA2E73500E56C25 /* SettingsViewController.swift */; };
+		C944D61C1DA2F0DD00E56C25 /* CaddiesContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D61B1DA2F0DD00E56C25 /* CaddiesContainerViewController.swift */; };
+		C944D61E1DA2F51C00E56C25 /* ConnectionsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D61D1DA2F51C00E56C25 /* ConnectionsTableViewCell.swift */; };
+		C944D6211DA2F8D100E56C25 /* GolfersContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6201DA2F8D100E56C25 /* GolfersContainerViewController.swift */; };
+		C944D6251DA2FF7400E56C25 /* RequestedContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6241DA2FF7400E56C25 /* RequestedContainerViewController.swift */; };
+		C944D6271DA3005A00E56C25 /* ReservationsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6261DA3005A00E56C25 /* ReservationsTableViewCell.swift */; };
+		C944D6291DA3415C00E56C25 /* ConfirmedContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6281DA3415C00E56C25 /* ConfirmedContainerViewController.swift */; };
+		C944D62C1DA354BD00E56C25 /* ChooseCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D62B1DA354BD00E56C25 /* ChooseCourseViewController.swift */; };
+		C944D62E1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D62D1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift */; };
+		C944D6301DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D62F1DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift */; };
+		C944D6321DA35C2400E56C25 /* FavoriteCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6311DA35C2400E56C25 /* FavoriteCoursesViewController.swift */; };
+		C944D6341DA361A700E56C25 /* ChooseCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6331DA361A700E56C25 /* ChooseCourseTableViewCell.swift */; };
 		C9B0D3A21DA20DD4008C4DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */; };
-		C9B0D3A41DA20DD4008C4DDA /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A31DA20DD4008C4DDA /* FirstViewController.swift */; };
-		C9B0D3A61DA20DD4008C4DDA /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A51DA20DD4008C4DDA /* SecondViewController.swift */; };
+		C9B0D3A41DA20DD4008C4DDA /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A31DA20DD4008C4DDA /* HomeTabViewController.swift */; };
+		C9B0D3A61DA20DD4008C4DDA /* ConnectionsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A51DA20DD4008C4DDA /* ConnectionsTabViewController.swift */; };
 		C9B0D3A91DA20DD4008C4DDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B0D3A71DA20DD4008C4DDA /* Main.storyboard */; };
 		C9B0D3AB1DA20DD4008C4DDA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C9B0D3AA1DA20DD4008C4DDA /* Assets.xcassets */; };
 		C9B0D3AE1DA20DD4008C4DDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B0D3AC1DA20DD4008C4DDA /* LaunchScreen.storyboard */; };
 		C9B0D3B91DA20DD4008C4DDA /* Loop_GolfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3B81DA20DD4008C4DDA /* Loop_GolfTests.swift */; };
 		C9B0D3C41DA20DD4008C4DDA /* Loop_GolfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3C31DA20DD4008C4DDA /* Loop_GolfUITests.swift */; };
+		D577B14E2BC92BEF08510F90 /* Pods_Loop_GolfUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31AFA7F50C3FA8CD61E6902 /* Pods_Loop_GolfUITests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -35,10 +54,32 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		05D0EDEBBA98122B345B285B /* Pods-Loop GolfUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loop GolfUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Loop GolfUITests/Pods-Loop GolfUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		6090383E744B41C4B797028E /* Pods-Loop GolfUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loop GolfUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Loop GolfUITests/Pods-Loop GolfUITests.release.xcconfig"; sourceTree = "<group>"; };
+		7D518CFFEABA0F064653DA75 /* Pods-Loop Golf.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loop Golf.release.xcconfig"; path = "Pods/Target Support Files/Pods-Loop Golf/Pods-Loop Golf.release.xcconfig"; sourceTree = "<group>"; };
+		A31AFA7F50C3FA8CD61E6902 /* Pods_Loop_GolfUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loop_GolfUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		A4843E180C5D4A06F35A75A1 /* Pods_Loop_Golf.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loop_Golf.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B45A30745643AAACBCA91E98 /* Pods-Loop GolfTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loop GolfTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Loop GolfTests/Pods-Loop GolfTests.release.xcconfig"; sourceTree = "<group>"; };
+		C944D60F1DA2BB1A00E56C25 /* ReservationsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationsTabViewController.swift; sourceTree = "<group>"; };
+		C944D6111DA2BC4B00E56C25 /* ConnectionsSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsSegmentedControl.swift; sourceTree = "<group>"; };
+		C944D6131DA2C0E800E56C25 /* ReservationsSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationsSegmentedControl.swift; sourceTree = "<group>"; };
+		C944D6151DA2CF9B00E56C25 /* ProfileTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTabViewController.swift; sourceTree = "<group>"; };
+		C944D6181DA2E73500E56C25 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		C944D61B1DA2F0DD00E56C25 /* CaddiesContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaddiesContainerViewController.swift; sourceTree = "<group>"; };
+		C944D61D1DA2F51C00E56C25 /* ConnectionsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsTableViewCell.swift; sourceTree = "<group>"; };
+		C944D6201DA2F8D100E56C25 /* GolfersContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GolfersContainerViewController.swift; sourceTree = "<group>"; };
+		C944D6241DA2FF7400E56C25 /* RequestedContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RequestedContainerViewController.swift; sourceTree = "<group>"; };
+		C944D6261DA3005A00E56C25 /* ReservationsTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationsTableViewCell.swift; sourceTree = "<group>"; };
+		C944D6281DA3415C00E56C25 /* ConfirmedContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmedContainerViewController.swift; sourceTree = "<group>"; };
+		C944D62B1DA354BD00E56C25 /* ChooseCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCourseViewController.swift; sourceTree = "<group>"; };
+		C944D62D1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCourseSegmentedControl.swift; sourceTree = "<group>"; };
+		C944D62F1DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyCoursesContainerViewController.swift; sourceTree = "<group>"; };
+		C944D6311DA35C2400E56C25 /* FavoriteCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCoursesViewController.swift; sourceTree = "<group>"; };
+		C944D6331DA361A700E56C25 /* ChooseCourseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCourseTableViewCell.swift; sourceTree = "<group>"; };
 		C9B0D39E1DA20DD3008C4DDA /* Loop Golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loop Golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C9B0D3A31DA20DD4008C4DDA /* FirstViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
-		C9B0D3A51DA20DD4008C4DDA /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
+		C9B0D3A31DA20DD4008C4DDA /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
+		C9B0D3A51DA20DD4008C4DDA /* ConnectionsTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionsTabViewController.swift; sourceTree = "<group>"; };
 		C9B0D3A81DA20DD4008C4DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		C9B0D3AA1DA20DD4008C4DDA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C9B0D3AD1DA20DD4008C4DDA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +90,9 @@
 		C9B0D3BF1DA20DD4008C4DDA /* Loop GolfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Loop GolfUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B0D3C31DA20DD4008C4DDA /* Loop_GolfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loop_GolfUITests.swift; sourceTree = "<group>"; };
 		C9B0D3C51DA20DD4008C4DDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D931E8A053717C1C9709E3BC /* Pods-Loop Golf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loop Golf.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Loop Golf/Pods-Loop Golf.debug.xcconfig"; sourceTree = "<group>"; };
+		DE0FE4DBE33B5A61FF4DE061 /* Pods-Loop GolfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loop GolfTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Loop GolfTests/Pods-Loop GolfTests.debug.xcconfig"; sourceTree = "<group>"; };
+		DEAA4669C0FCCFDDAE1628FE /* Pods_Loop_GolfTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loop_GolfTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +100,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				71B72FBE4EDD2E9F12835705 /* Pods_Loop_Golf.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				33A06353E2E341FD6AD17BD0 /* Pods_Loop_GolfTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -70,12 +116,155 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D577B14E2BC92BEF08510F90 /* Pods_Loop_GolfUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		26B6C3B3A05FA7396410741F /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				A4843E180C5D4A06F35A75A1 /* Pods_Loop_Golf.framework */,
+				DEAA4669C0FCCFDDAE1628FE /* Pods_Loop_GolfTests.framework */,
+				A31AFA7F50C3FA8CD61E6902 /* Pods_Loop_GolfUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		86E3366CD1CEB5A7223DF4CF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				D931E8A053717C1C9709E3BC /* Pods-Loop Golf.debug.xcconfig */,
+				7D518CFFEABA0F064653DA75 /* Pods-Loop Golf.release.xcconfig */,
+				DE0FE4DBE33B5A61FF4DE061 /* Pods-Loop GolfTests.debug.xcconfig */,
+				B45A30745643AAACBCA91E98 /* Pods-Loop GolfTests.release.xcconfig */,
+				05D0EDEBBA98122B345B285B /* Pods-Loop GolfUITests.debug.xcconfig */,
+				6090383E744B41C4B797028E /* Pods-Loop GolfUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		C944D6071DA2BA9D00E56C25 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
+		C944D6081DA2BAA400E56C25 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				C944D61D1DA2F51C00E56C25 /* ConnectionsTableViewCell.swift */,
+				C944D6261DA3005A00E56C25 /* ReservationsTableViewCell.swift */,
+				C944D6331DA361A700E56C25 /* ChooseCourseTableViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		C944D60A1DA2BAB200E56C25 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				C944D60B1DA2BAD700E56C25 /* Home Tab */,
+				C944D60C1DA2BADD00E56C25 /* Connections Tab */,
+				C944D60D1DA2BAE700E56C25 /* Reservations Tab */,
+				C944D60E1DA2BAEF00E56C25 /* Profile Tab */,
+				C944D62A1DA3546000E56C25 /* New Reservation */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		C944D60B1DA2BAD700E56C25 /* Home Tab */ = {
+			isa = PBXGroup;
+			children = (
+				C9B0D3A31DA20DD4008C4DDA /* HomeTabViewController.swift */,
+			);
+			name = "Home Tab";
+			sourceTree = "<group>";
+		};
+		C944D60C1DA2BADD00E56C25 /* Connections Tab */ = {
+			isa = PBXGroup;
+			children = (
+				C9B0D3A51DA20DD4008C4DDA /* ConnectionsTabViewController.swift */,
+				C944D6111DA2BC4B00E56C25 /* ConnectionsSegmentedControl.swift */,
+				C944D61A1DA2F0C800E56C25 /* Caddies */,
+				C944D61F1DA2F8AC00E56C25 /* Golfers */,
+			);
+			name = "Connections Tab";
+			sourceTree = "<group>";
+		};
+		C944D60D1DA2BAE700E56C25 /* Reservations Tab */ = {
+			isa = PBXGroup;
+			children = (
+				C944D60F1DA2BB1A00E56C25 /* ReservationsTabViewController.swift */,
+				C944D6131DA2C0E800E56C25 /* ReservationsSegmentedControl.swift */,
+				C944D6221DA2FF5800E56C25 /* Requested */,
+				C944D6231DA2FF6300E56C25 /* Confirmed */,
+			);
+			name = "Reservations Tab";
+			sourceTree = "<group>";
+		};
+		C944D60E1DA2BAEF00E56C25 /* Profile Tab */ = {
+			isa = PBXGroup;
+			children = (
+				C944D6151DA2CF9B00E56C25 /* ProfileTabViewController.swift */,
+				C944D6171DA2E72800E56C25 /* Settings */,
+			);
+			name = "Profile Tab";
+			sourceTree = "<group>";
+		};
+		C944D6171DA2E72800E56C25 /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				C944D6181DA2E73500E56C25 /* SettingsViewController.swift */,
+			);
+			name = Settings;
+			sourceTree = "<group>";
+		};
+		C944D61A1DA2F0C800E56C25 /* Caddies */ = {
+			isa = PBXGroup;
+			children = (
+				C944D61B1DA2F0DD00E56C25 /* CaddiesContainerViewController.swift */,
+			);
+			name = Caddies;
+			sourceTree = "<group>";
+		};
+		C944D61F1DA2F8AC00E56C25 /* Golfers */ = {
+			isa = PBXGroup;
+			children = (
+				C944D6201DA2F8D100E56C25 /* GolfersContainerViewController.swift */,
+			);
+			name = Golfers;
+			sourceTree = "<group>";
+		};
+		C944D6221DA2FF5800E56C25 /* Requested */ = {
+			isa = PBXGroup;
+			children = (
+				C944D6241DA2FF7400E56C25 /* RequestedContainerViewController.swift */,
+			);
+			name = Requested;
+			sourceTree = "<group>";
+		};
+		C944D6231DA2FF6300E56C25 /* Confirmed */ = {
+			isa = PBXGroup;
+			children = (
+				C944D6281DA3415C00E56C25 /* ConfirmedContainerViewController.swift */,
+			);
+			name = Confirmed;
+			sourceTree = "<group>";
+		};
+		C944D62A1DA3546000E56C25 /* New Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				C944D62B1DA354BD00E56C25 /* ChooseCourseViewController.swift */,
+				C944D62D1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift */,
+				C944D62F1DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift */,
+				C944D6311DA35C2400E56C25 /* FavoriteCoursesViewController.swift */,
+			);
+			name = "New Reservation";
+			sourceTree = "<group>";
+		};
 		C9B0D3951DA20DD3008C4DDA = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +272,8 @@
 				C9B0D3B71DA20DD4008C4DDA /* Loop GolfTests */,
 				C9B0D3C21DA20DD4008C4DDA /* Loop GolfUITests */,
 				C9B0D39F1DA20DD3008C4DDA /* Products */,
+				86E3366CD1CEB5A7223DF4CF /* Pods */,
+				26B6C3B3A05FA7396410741F /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,12 +291,13 @@
 			isa = PBXGroup;
 			children = (
 				C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */,
-				C9B0D3A31DA20DD4008C4DDA /* FirstViewController.swift */,
-				C9B0D3A51DA20DD4008C4DDA /* SecondViewController.swift */,
 				C9B0D3A71DA20DD4008C4DDA /* Main.storyboard */,
 				C9B0D3AA1DA20DD4008C4DDA /* Assets.xcassets */,
 				C9B0D3AC1DA20DD4008C4DDA /* LaunchScreen.storyboard */,
 				C9B0D3AF1DA20DD4008C4DDA /* Info.plist */,
+				C944D6071DA2BA9D00E56C25 /* Models */,
+				C944D6081DA2BAA400E56C25 /* Views */,
+				C944D60A1DA2BAB200E56C25 /* Controllers */,
 			);
 			path = "Loop Golf";
 			sourceTree = "<group>";
@@ -135,9 +327,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9B0D3C81DA20DD4008C4DDA /* Build configuration list for PBXNativeTarget "Loop Golf" */;
 			buildPhases = (
+				0097B0898643534F360261A4 /* [CP] Check Pods Manifest.lock */,
 				C9B0D39A1DA20DD3008C4DDA /* Sources */,
 				C9B0D39B1DA20DD3008C4DDA /* Frameworks */,
 				C9B0D39C1DA20DD3008C4DDA /* Resources */,
+				1DCB41A194D31D2CBB9BD572 /* [CP] Embed Pods Frameworks */,
+				19FAEFFB653CD2328BA2485A /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -152,9 +347,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9B0D3CB1DA20DD4008C4DDA /* Build configuration list for PBXNativeTarget "Loop GolfTests" */;
 			buildPhases = (
+				4CFFB5E82EA0120186A80DD6 /* [CP] Check Pods Manifest.lock */,
 				C9B0D3B01DA20DD4008C4DDA /* Sources */,
 				C9B0D3B11DA20DD4008C4DDA /* Frameworks */,
 				C9B0D3B21DA20DD4008C4DDA /* Resources */,
+				A1D789F2771996E855B3ECE4 /* [CP] Embed Pods Frameworks */,
+				F95FE507AB87C96A4CCB4A28 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -170,9 +368,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C9B0D3CE1DA20DD4008C4DDA /* Build configuration list for PBXNativeTarget "Loop GolfUITests" */;
 			buildPhases = (
+				B629C8B59B5F96938151DA0A /* [CP] Check Pods Manifest.lock */,
 				C9B0D3BB1DA20DD4008C4DDA /* Sources */,
 				C9B0D3BC1DA20DD4008C4DDA /* Frameworks */,
 				C9B0D3BD1DA20DD4008C4DDA /* Resources */,
+				B4A7C70F6A0B193B56A530C6 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -257,14 +457,153 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0097B0898643534F360261A4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		19FAEFFB653CD2328BA2485A /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Loop Golf/Pods-Loop Golf-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1DCB41A194D31D2CBB9BD572 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Loop Golf/Pods-Loop Golf-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4CFFB5E82EA0120186A80DD6 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		A1D789F2771996E855B3ECE4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Loop GolfTests/Pods-Loop GolfTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B4A7C70F6A0B193B56A530C6 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Loop GolfUITests/Pods-Loop GolfUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		B629C8B59B5F96938151DA0A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F95FE507AB87C96A4CCB4A28 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Loop GolfTests/Pods-Loop GolfTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C9B0D39A1DA20DD3008C4DDA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C9B0D3A61DA20DD4008C4DDA /* SecondViewController.swift in Sources */,
+				C944D6211DA2F8D100E56C25 /* GolfersContainerViewController.swift in Sources */,
+				C9B0D3A61DA20DD4008C4DDA /* ConnectionsTabViewController.swift in Sources */,
+				C944D62C1DA354BD00E56C25 /* ChooseCourseViewController.swift in Sources */,
+				C944D6161DA2CF9B00E56C25 /* ProfileTabViewController.swift in Sources */,
+				C944D6101DA2BB1A00E56C25 /* ReservationsTabViewController.swift in Sources */,
+				C944D61C1DA2F0DD00E56C25 /* CaddiesContainerViewController.swift in Sources */,
+				C944D6341DA361A700E56C25 /* ChooseCourseTableViewCell.swift in Sources */,
 				C9B0D3A21DA20DD4008C4DDA /* AppDelegate.swift in Sources */,
-				C9B0D3A41DA20DD4008C4DDA /* FirstViewController.swift in Sources */,
+				C944D6301DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift in Sources */,
+				C944D6121DA2BC4B00E56C25 /* ConnectionsSegmentedControl.swift in Sources */,
+				C9B0D3A41DA20DD4008C4DDA /* HomeTabViewController.swift in Sources */,
+				C944D6141DA2C0E800E56C25 /* ReservationsSegmentedControl.swift in Sources */,
+				C944D6251DA2FF7400E56C25 /* RequestedContainerViewController.swift in Sources */,
+				C944D6271DA3005A00E56C25 /* ReservationsTableViewCell.swift in Sources */,
+				C944D62E1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift in Sources */,
+				C944D6191DA2E73500E56C25 /* SettingsViewController.swift in Sources */,
+				C944D6291DA3415C00E56C25 /* ConfirmedContainerViewController.swift in Sources */,
+				C944D61E1DA2F51C00E56C25 /* ConnectionsTableViewCell.swift in Sources */,
+				C944D6321DA35C2400E56C25 /* FavoriteCoursesViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -404,6 +743,7 @@
 		};
 		C9B0D3C91DA20DD4008C4DDA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D931E8A053717C1C9709E3BC /* Pods-Loop Golf.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Loop Golf/Info.plist";
@@ -415,6 +755,7 @@
 		};
 		C9B0D3CA1DA20DD4008C4DDA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7D518CFFEABA0F064653DA75 /* Pods-Loop Golf.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = "Loop Golf/Info.plist";
@@ -426,6 +767,7 @@
 		};
 		C9B0D3CC1DA20DD4008C4DDA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = DE0FE4DBE33B5A61FF4DE061 /* Pods-Loop GolfTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Loop GolfTests/Info.plist";
@@ -438,6 +780,7 @@
 		};
 		C9B0D3CD1DA20DD4008C4DDA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B45A30745643AAACBCA91E98 /* Pods-Loop GolfTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = "Loop GolfTests/Info.plist";
@@ -450,6 +793,7 @@
 		};
 		C9B0D3CF1DA20DD4008C4DDA /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 05D0EDEBBA98122B345B285B /* Pods-Loop GolfUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Loop GolfUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -461,6 +805,7 @@
 		};
 		C9B0D3D01DA20DD4008C4DDA /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6090383E744B41C4B797028E /* Pods-Loop GolfUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = "Loop GolfUITests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -489,6 +834,7 @@
 				C9B0D3CA1DA20DD4008C4DDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9B0D3CB1DA20DD4008C4DDA /* Build configuration list for PBXNativeTarget "Loop GolfTests" */ = {
 			isa = XCConfigurationList;
@@ -497,6 +843,7 @@
 				C9B0D3CD1DA20DD4008C4DDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		C9B0D3CE1DA20DD4008C4DDA /* Build configuration list for PBXNativeTarget "Loop GolfUITests" */ = {
 			isa = XCConfigurationList;
@@ -505,6 +852,7 @@
 				C9B0D3D01DA20DD4008C4DDA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
