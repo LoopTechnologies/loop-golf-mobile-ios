@@ -18,6 +18,7 @@ class NearbyCoursesContainerViewController: UITableViewController, UIGestureReco
     
     // Send data via segue.
     var courseNameForSegue = String()
+    var courseLocationForSegue = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -77,6 +78,10 @@ extension NearbyCoursesContainerViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! ChooseCourseTableViewCell
+        
+        courseNameForSegue = courseNames[indexPath.row]
+        courseLocationForSegue = courseLocations[indexPath.row]
+        
         performSegueWithIdentifier("toChooseDateSegue", sender: self)
     }
     
@@ -112,7 +117,9 @@ extension NearbyCoursesContainerViewController {
         }
         
         if (segue.identifier == "toChooseDateSegue") {
-            
+            let destinationVC = segue.destinationViewController as! ChooseDateViewController
+            destinationVC.courseNameReceived = courseNameForSegue
+            destinationVC.courseLocationReceived = courseLocationForSegue
         }
     }
     

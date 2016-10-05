@@ -28,6 +28,7 @@
 		C944D6381DA3704200E56C25 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6371DA3704200E56C25 /* CourseDetailsViewController.swift */; };
 		C944D63A1DA407F400E56C25 /* DetailsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6391DA407F400E56C25 /* DetailsContainerViewController.swift */; };
 		C944D63D1DA45BC100E56C25 /* ChooseDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D63C1DA45BC100E56C25 /* ChooseDateViewController.swift */; };
+		C94D9EC71DA59D66000308CB /* ChooseCaddieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D9EC61DA59D66000308CB /* ChooseCaddieViewController.swift */; };
 		C9B0D3A21DA20DD4008C4DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */; };
 		C9B0D3A41DA20DD4008C4DDA /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A31DA20DD4008C4DDA /* HomeTabViewController.swift */; };
 		C9B0D3A61DA20DD4008C4DDA /* ConnectionsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A51DA20DD4008C4DDA /* ConnectionsTabViewController.swift */; };
@@ -82,6 +83,7 @@
 		C944D6371DA3704200E56C25 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
 		C944D6391DA407F400E56C25 /* DetailsContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsContainerViewController.swift; sourceTree = "<group>"; };
 		C944D63C1DA45BC100E56C25 /* ChooseDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDateViewController.swift; sourceTree = "<group>"; };
+		C94D9EC61DA59D66000308CB /* ChooseCaddieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCaddieViewController.swift; sourceTree = "<group>"; };
 		C9B0D39E1DA20DD3008C4DDA /* Loop Golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loop Golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9B0D3A31DA20DD4008C4DDA /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
@@ -266,6 +268,7 @@
 			children = (
 				C944D6351DA3701900E56C25 /* Choose Course */,
 				C944D63B1DA45B9600E56C25 /* Choose Date */,
+				C94D9EC51DA59D4A000308CB /* Choose Caddie */,
 			);
 			name = "New Reservation";
 			sourceTree = "<group>";
@@ -328,6 +331,14 @@
 			children = (
 			);
 			name = "Choose Date";
+			sourceTree = "<group>";
+		};
+		C94D9EC51DA59D4A000308CB /* Choose Caddie */ = {
+			isa = PBXGroup;
+			children = (
+				C94D9EC61DA59D66000308CB /* ChooseCaddieViewController.swift */,
+			);
+			name = "Choose Caddie";
 			sourceTree = "<group>";
 		};
 		C9B0D3951DA20DD3008C4DDA = {
@@ -657,6 +668,7 @@
 				C944D62C1DA354BD00E56C25 /* ChooseCourseViewController.swift in Sources */,
 				C944D6161DA2CF9B00E56C25 /* ProfileTabViewController.swift in Sources */,
 				C944D6101DA2BB1A00E56C25 /* ReservationsTabViewController.swift in Sources */,
+				C94D9EC71DA59D66000308CB /* ChooseCaddieViewController.swift in Sources */,
 				C944D61C1DA2F0DD00E56C25 /* CaddiesContainerViewController.swift in Sources */,
 				C944D6341DA361A700E56C25 /* ChooseCourseTableViewCell.swift in Sources */,
 				C944D63D1DA45BC100E56C25 /* ChooseDateViewController.swift in Sources */,
