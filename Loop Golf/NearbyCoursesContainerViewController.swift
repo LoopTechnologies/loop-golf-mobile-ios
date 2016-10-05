@@ -16,17 +16,13 @@ class NearbyCoursesContainerViewController: UITableViewController, UIGestureReco
     var courseNames = [String]()
     var courseLocations = [String]()
     
+    // Send data via segue.
+    var courseNameForSegue = String()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         courseNames = courseNamesReceived!
         courseLocations = courseLocationsReceived!
-        
-        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: "handleLongPress:")
-        longPressRecognizer.minimumPressDuration = 0.35
-        longPressRecognizer.delaysTouchesBegan = true
-        longPressRecognizer.delegate = self
-        self.tableView?.addGestureRecognizer(longPressRecognizer)
-        
     }
 }
 
@@ -68,27 +64,42 @@ extension NearbyCoursesContainerViewController {
         cell.courseNameLabel.text = courseNames[indexPath.row] as? String
         cell.courseLocationLabel.text = courseLocations[indexPath.row] as? String
         
+        cell.moreButton.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.1).CGColor
+        cell.moreButton.layer.borderWidth = 1
+        cell.moreButton.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.moreButton.layer.cornerRadius = 8
+        
+        cell.favoriteButton.tag = indexPath.row
+        cell.moreButton.tag = indexPath.row
+        
         return cell
     }
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! ChooseCourseTableViewCell
+        performSegueWithIdentifier("toChooseDateSegue", sender: self)
+    }
+    
+    @IBAction func favoriteButtonPressed(sender: UIButton) {
+        var favoriteButtonPosition = sender.convertPoint(CGPointZero, toView: self.tableView)
+        var indexPath = self.tableView.indexPathForRowAtPoint(favoriteButtonPosition)
+        
+        let cell = tableView.cellForRowAtIndexPath(indexPath!) as! ChooseCourseTableViewCell
         
     }
     
-    func handleLongPress(gestureRecognizer: UIGestureRecognizer) {
-        if (gestureRecognizer.state != .Began) {
-            return
-        }
-        let touchPoint = gestureRecognizer.locationInView(self.tableView)
-        let indexPath = tableView.indexPathForRowAtPoint(touchPoint)
+    @IBAction func moreButtonPressed(sender: UIButton) {
+        var moreButtonPosition = sender.convertPoint(CGPointZero, toView: self.tableView)
+        var indexPath = self.tableView.indexPathForRowAtPoint(moreButtonPosition)
         
-        if let index = indexPath {
-            var cell = self.tableView?.cellForRowAtIndexPath(index) as! ChooseCourseTableViewCell
-            //selectedCourseNameToSend = nearbyCourseNamesToDisplay[index.row]
-            performSegueWithIdentifier("nearbyCourseDetailsSegue", sender: indexPath)
-        }
+        let cell = tableView.cellForRowAtIndexPath(indexPath!) as! ChooseCourseTableViewCell
+        
+        courseNameForSegue = courseNames[indexPath!.row]
+        
+        performSegueWithIdentifier("nearbyCourseDetailsSegue", sender: indexPath)
     }
+    
+    
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
@@ -97,6 +108,11 @@ extension NearbyCoursesContainerViewController {
             let cell = tableView.cellForRowAtIndexPath(indexPath) as! ChooseCourseTableViewCell
             let navigationController = segue.destinationViewController as? UINavigationController
             let destinationVC = navigationController!.topViewController as! CourseDetailsViewController
+            destinationVC.courseNameReceived = courseNameForSegue
+        }
+        
+        if (segue.identifier == "toChooseDateSegue") {
+            
         }
     }
     

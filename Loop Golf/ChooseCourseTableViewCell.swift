@@ -15,5 +15,6 @@ class ChooseCourseTableViewCell: UITableViewCell {
     @IBOutlet weak var courseNameLabel: UILabel!
     @IBOutlet weak var courseLocationLabel: UILabel!
     @IBOutlet weak var favoriteButton: UIButton!
+    @IBOutlet weak var moreButton: UIButton!
     
 }

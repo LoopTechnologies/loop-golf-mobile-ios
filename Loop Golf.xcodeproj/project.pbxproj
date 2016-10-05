@@ -26,6 +26,9 @@
 		C944D6321DA35C2400E56C25 /* FavoriteCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6311DA35C2400E56C25 /* FavoriteCoursesViewController.swift */; };
 		C944D6341DA361A700E56C25 /* ChooseCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6331DA361A700E56C25 /* ChooseCourseTableViewCell.swift */; };
 		C944D6381DA3704200E56C25 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6371DA3704200E56C25 /* CourseDetailsViewController.swift */; };
+		C944D63A1DA407F400E56C25 /* DetailsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6391DA407F400E56C25 /* DetailsContainerViewController.swift */; };
+		C944D63D1DA45BC100E56C25 /* ChooseDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D63C1DA45BC100E56C25 /* ChooseDateViewController.swift */; };
+		C944D63F1DA476BA00E56C25 /* CalendarContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D63E1DA476BA00E56C25 /* CalendarContainerViewController.swift */; };
 		C9B0D3A21DA20DD4008C4DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */; };
 		C9B0D3A41DA20DD4008C4DDA /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A31DA20DD4008C4DDA /* HomeTabViewController.swift */; };
 		C9B0D3A61DA20DD4008C4DDA /* ConnectionsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A51DA20DD4008C4DDA /* ConnectionsTabViewController.swift */; };
@@ -78,6 +81,9 @@
 		C944D6311DA35C2400E56C25 /* FavoriteCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCoursesViewController.swift; sourceTree = "<group>"; };
 		C944D6331DA361A700E56C25 /* ChooseCourseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCourseTableViewCell.swift; sourceTree = "<group>"; };
 		C944D6371DA3704200E56C25 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
+		C944D6391DA407F400E56C25 /* DetailsContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsContainerViewController.swift; sourceTree = "<group>"; };
+		C944D63C1DA45BC100E56C25 /* ChooseDateViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseDateViewController.swift; sourceTree = "<group>"; };
+		C944D63E1DA476BA00E56C25 /* CalendarContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CalendarContainerViewController.swift; sourceTree = "<group>"; };
 		C9B0D39E1DA20DD3008C4DDA /* Loop Golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loop Golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C9B0D3A31DA20DD4008C4DDA /* HomeTabViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTabViewController.swift; sourceTree = "<group>"; };
@@ -260,6 +266,7 @@
 			isa = PBXGroup;
 			children = (
 				C944D6351DA3701900E56C25 /* Choose Course */,
+				C944D63B1DA45B9600E56C25 /* Choose Date */,
 			);
 			name = "New Reservation";
 			sourceTree = "<group>";
@@ -280,8 +287,18 @@
 			isa = PBXGroup;
 			children = (
 				C944D6371DA3704200E56C25 /* CourseDetailsViewController.swift */,
+				C944D6391DA407F400E56C25 /* DetailsContainerViewController.swift */,
 			);
 			name = "Course Details";
+			sourceTree = "<group>";
+		};
+		C944D63B1DA45B9600E56C25 /* Choose Date */ = {
+			isa = PBXGroup;
+			children = (
+				C944D63C1DA45BC100E56C25 /* ChooseDateViewController.swift */,
+				C944D63E1DA476BA00E56C25 /* CalendarContainerViewController.swift */,
+			);
+			name = "Choose Date";
 			sourceTree = "<group>";
 		};
 		C9B0D3951DA20DD3008C4DDA = {
@@ -607,12 +624,15 @@
 				C944D6211DA2F8D100E56C25 /* GolfersContainerViewController.swift in Sources */,
 				C9B0D3A61DA20DD4008C4DDA /* ConnectionsTabViewController.swift in Sources */,
 				C944D6381DA3704200E56C25 /* CourseDetailsViewController.swift in Sources */,
+				C944D63A1DA407F400E56C25 /* DetailsContainerViewController.swift in Sources */,
 				C944D62C1DA354BD00E56C25 /* ChooseCourseViewController.swift in Sources */,
 				C944D6161DA2CF9B00E56C25 /* ProfileTabViewController.swift in Sources */,
 				C944D6101DA2BB1A00E56C25 /* ReservationsTabViewController.swift in Sources */,
 				C944D61C1DA2F0DD00E56C25 /* CaddiesContainerViewController.swift in Sources */,
 				C944D6341DA361A700E56C25 /* ChooseCourseTableViewCell.swift in Sources */,
+				C944D63D1DA45BC100E56C25 /* ChooseDateViewController.swift in Sources */,
 				C9B0D3A21DA20DD4008C4DDA /* AppDelegate.swift in Sources */,
+				C944D63F1DA476BA00E56C25 /* CalendarContainerViewController.swift in Sources */,
 				C944D6301DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift in Sources */,
 				C944D6121DA2BC4B00E56C25 /* ConnectionsSegmentedControl.swift in Sources */,
 				C9B0D3A41DA20DD4008C4DDA /* HomeTabViewController.swift in Sources */,

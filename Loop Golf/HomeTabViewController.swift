@@ -20,8 +20,8 @@ class HomeTabViewController: UIViewController {
         backgroundImage.image = UIImage(named: "LandingPageBackgroundImage")
         self.view.insertSubview(backgroundImage, atIndex: 0)
         
-        newReservationButton.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4).CGColor
-        newReservationButton.layer.cornerRadius = 20
+        newReservationButton.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.3).CGColor
+        newReservationButton.layer.cornerRadius = 8
         newReservationButton.layer.borderColor = UIColor.whiteColor().CGColor
         newReservationButton.layer.borderWidth = 1
         

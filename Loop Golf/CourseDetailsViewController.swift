@@ -10,6 +10,11 @@ import UIKit
 
 class CourseDetailsViewController: UIViewController {
     
+    @IBOutlet weak var courseNameLabel: UILabel!
+    
+    // Receive data via segue.
+    var courseNameReceived: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -20,6 +25,10 @@ class CourseDetailsViewController: UIViewController {
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
         backgroundImage.image = UIImage(named: "GolfCourseImage")
         self.view.insertSubview(backgroundImage, atIndex: 0)
+        
+        if (courseNameReceived != "") {
+            courseNameLabel.text = courseNameReceived!
+        }
         
     }
 }
