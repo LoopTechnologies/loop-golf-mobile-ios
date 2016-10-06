@@ -32,6 +32,7 @@ class ChooseDateViewController: UIViewController {
     
     let dateTimeFormatter = NSDateFormatter()
     let timeFormatter12Hr = NSDateFormatter()
+    let dateFormatterFullStyle = NSDateFormatter()
     let timeFormatter24Hr = NSDateFormatter()
     var selected24HrTimeNSDate = NSDate()
     var validOpen24HrTimeNSDate = NSDate()
@@ -42,6 +43,7 @@ class ChooseDateViewController: UIViewController {
     var courseLocationForSegue = String()
     var selectedDateTimeStringForSegue = String()
     var selected12HrTimeStringForSegue = String()
+    var selectedFullStyleDateForSegue = String()
     
     // Receive data via segue.
     var courseIDReceived: String?
@@ -98,13 +100,13 @@ class ChooseDateViewController: UIViewController {
         thirdCircle.layer.borderColor = UIColor.lightGrayColor().CGColor
         thirdCircle.layer.cornerRadius = 15
         
-        dateTimeFormatter.timeZone = NSTimeZone(name: "UTC")
         dateTimeFormatter.dateFormat = "yyyy-MM-dd H:mm"
         
-        timeFormatter12Hr.timeZone = NSTimeZone(name: "UTC")
         timeFormatter12Hr.dateFormat = "h:mm a"
         
-        timeFormatter24Hr.timeZone = NSTimeZone(name: "UTC")
+        dateFormatterFullStyle.dateFormat = "yyyy-MM-dd"
+        dateFormatterFullStyle.dateStyle = .FullStyle
+        
         timeFormatter24Hr.dateFormat = "HH:mm"
         
         validOpen24HrTimeNSDate = timeFormatter24Hr.dateFromString(opHoursOpen)!
@@ -150,6 +152,9 @@ extension ChooseDateViewController {
         // To pass via segue to display: 12 hour time string 'h:mm a'.
         selected12HrTimeStringForSegue = timeFormatter12Hr.stringFromDate(datePicker.date)
         
+        // To pass via segue to display: .FullStyle date.
+        selectedFullStyleDateForSegue = dateFormatterFullStyle.stringFromDate(datePicker.date)
+        
         // To evaluate chosen time versus operating hours: 24 hour time NSDate 'HH:mm'.
         let selected24HrTimeString = timeFormatter24Hr.stringFromDate(datePicker.date)
         selected24HrTimeNSDate = timeFormatter24Hr.dateFromString(selected24HrTimeString)!
@@ -185,8 +190,11 @@ extension ChooseDateViewController {
             courseNameForSegue = courseNameReceived!
             courseLocationForSegue = courseLocationReceived!
             
-            destinationVC.courseNameReceived = courseNameForSegue
-            destinationVC.courseLocationReceived = courseLocationForSegue
+            destinationVC.courseNameReceivedAgain = courseNameForSegue
+            destinationVC.courseLocationReceivedAgain = courseLocationForSegue
+            destinationVC.selectedDateTimeStringReceived = selectedDateTimeStringForSegue
+            destinationVC.selectedFullStyleDateReceived = selectedFullStyleDateForSegue
+            destinationVC.selected12HrTimeStringReceived = selected12HrTimeStringForSegue
         }
     }
     
