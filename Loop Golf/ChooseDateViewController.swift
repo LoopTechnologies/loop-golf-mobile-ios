@@ -69,7 +69,7 @@ class ChooseDateViewController: UIViewController {
         backgroundImage.image = UIImage(named: "LandingPageBackgroundImage")
         self.view.insertSubview(backgroundImage, atIndex: 0)
         
-        backgroundView.layer.cornerRadius = 8
+        //backgroundView.layer.cornerRadius = 8
         
         calculateOneDayAhead()
         calculateThreeMonthsAhead()

@@ -21,8 +21,8 @@ class RequestedContainerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        
+        tableView.backgroundColor = UIColor.clearColor()
+        tableView.contentInset = UIEdgeInsetsMake(-35, 0, -35, 0)
     }
 }
 

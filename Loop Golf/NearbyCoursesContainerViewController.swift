@@ -30,7 +30,7 @@ class NearbyCoursesContainerViewController: UITableViewController, UIGestureReco
 extension NearbyCoursesContainerViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 200
+        return 251
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -65,9 +65,8 @@ extension NearbyCoursesContainerViewController {
         cell.courseNameLabel.text = courseNames[indexPath.row] as? String
         cell.courseLocationLabel.text = courseLocations[indexPath.row] as? String
         
-        cell.moreButton.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.1).CGColor
         cell.moreButton.layer.borderWidth = 1
-        cell.moreButton.layer.borderColor = UIColor.whiteColor().CGColor
+        cell.moreButton.layer.borderColor = UIColor.blackColor().CGColor
         cell.moreButton.layer.cornerRadius = 8
         
         cell.favoriteButton.tag = indexPath.row
@@ -82,7 +81,13 @@ extension NearbyCoursesContainerViewController {
         courseNameForSegue = courseNames[indexPath.row]
         courseLocationForSegue = courseLocations[indexPath.row]
         
+        cell.imageCoverView.alpha =  0.5
+        
         performSegueWithIdentifier("toChooseDateSegue", sender: self)
+        
+        UIView.animateWithDuration(0.1, delay: 0.5, options: .CurveLinear, animations: {
+            cell.imageCoverView.alpha =  0.2
+            }, completion: nil)
     }
     
     @IBAction func favoriteButtonPressed(sender: UIButton) {

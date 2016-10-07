@@ -137,7 +137,7 @@ extension ChooseCaddieViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CaddieTableViewCell
         
         cell.cellBackgroundView.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor
-        cell.cellBackgroundView.layer.cornerRadius = 8
+        //cell.cellBackgroundView.layer.cornerRadius = 8
         
         cell.profileImageView.image = UIImage(named: "DefaultProfileImage")
         cell.profileImageView.layer.cornerRadius = 40
