@@ -10,20 +10,28 @@ import UIKit
 
 class NearbyCoursesContainerViewController: UITableViewController, UIGestureRecognizerDelegate {
     
-    var courseNamesReceived: [String]?
-    var courseLocationsReceived: [String]?
-    
     var courseNames = [String]()
     var courseLocations = [String]()
+    var courseDistances = [Double]()
+    var coursePrices = [Int]()
+    
+    // Receive data from parent VC via segue.
+    var courseNamesReceived: [String]?
+    var courseLocationsReceived: [String]?
+    var courseDistancesReceived: [Double]?
+    var coursePricesReceived: [Int]?
     
     // Send data via segue.
     var courseNameForSegue = String()
     var courseLocationForSegue = String()
+    var coursePriceForSegue = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         courseNames = courseNamesReceived!
         courseLocations = courseLocationsReceived!
+        courseDistances = courseDistancesReceived!
+        coursePrices = coursePricesReceived!
     }
 }
 
@@ -63,13 +71,14 @@ extension NearbyCoursesContainerViewController {
         
         cell.golfCourseImageView.image = UIImage(named: "GolfCourseImage")
         cell.courseNameLabel.text = courseNames[indexPath.row] as? String
+        cell.coursePriceLabel.text = "$\(coursePrices[indexPath.row])"
         cell.courseLocationLabel.text = courseLocations[indexPath.row] as? String
+        cell.courseDistanceLabel.text = "\(courseDistances[indexPath.row]) mi"
         
         cell.moreButton.layer.borderWidth = 1
         cell.moreButton.layer.borderColor = UIColor.blackColor().CGColor
         cell.moreButton.layer.cornerRadius = 8
         
-        cell.favoriteButton.tag = indexPath.row
         cell.moreButton.tag = indexPath.row
         
         return cell
@@ -80,6 +89,7 @@ extension NearbyCoursesContainerViewController {
         
         courseNameForSegue = courseNames[indexPath.row]
         courseLocationForSegue = courseLocations[indexPath.row]
+        coursePriceForSegue = coursePrices[indexPath.row]
         
         cell.imageCoverView.alpha =  0.5
         
@@ -88,14 +98,6 @@ extension NearbyCoursesContainerViewController {
         UIView.animateWithDuration(0.1, delay: 0.5, options: .CurveLinear, animations: {
             cell.imageCoverView.alpha =  0.2
             }, completion: nil)
-    }
-    
-    @IBAction func favoriteButtonPressed(sender: UIButton) {
-        var favoriteButtonPosition = sender.convertPoint(CGPointZero, toView: self.tableView)
-        var indexPath = self.tableView.indexPathForRowAtPoint(favoriteButtonPosition)
-        
-        let cell = tableView.cellForRowAtIndexPath(indexPath!) as! ChooseCourseTableViewCell
-        
     }
     
     @IBAction func moreButtonPressed(sender: UIButton) {
@@ -125,6 +127,7 @@ extension NearbyCoursesContainerViewController {
             let destinationVC = segue.destinationViewController as! ChooseDateViewController
             destinationVC.courseNameReceived = courseNameForSegue
             destinationVC.courseLocationReceived = courseLocationForSegue
+            destinationVC.coursePriceReceived = coursePriceForSegue
         }
     }
     

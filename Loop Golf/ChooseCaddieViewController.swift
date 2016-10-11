@@ -12,7 +12,7 @@ class ChooseCaddieViewController: UIViewController, UITableViewDelegate, UITable
     
     //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
     var caddieNames = ["Jerry Marshall", "Tyler Dalton", "Brandon Smith", "Reed Winters"]
-    var acceptanceRate = [85, 98, 90, 92]
+    var acceptanceRates = [85, 98, 90, 92]
     
     var sunAvailability = [true, false, true, false]
     var monAvailability = [true, true, false, true]
@@ -48,9 +48,21 @@ class ChooseCaddieViewController: UIViewController, UITableViewDelegate, UITable
     var courseIDReceived: String?
     var courseNameReceivedAgain: String?
     var courseLocationReceivedAgain: String?
+    var coursePriceReceivedAgain: Int?
     var selectedDateTimeStringReceived: String?
     var selectedFullStyleDateReceived: String?
     var selected12HrTimeStringReceived: String?
+    
+    // Send data via segue.
+    var courseNameForSegue = String()
+    var courseLocationForSegue = String()
+    var coursePriceForSegue = Int()
+    var selectedDateTimeStringForSegue = String()
+    var selectedFullStyleDateForSegue = String()
+    var selected12HrTimeStringForSegue = String()
+    var caddieNameForSegue = String()
+    var acceptanceRateForSegue = Int()
+    
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -70,7 +82,7 @@ class ChooseCaddieViewController: UIViewController, UITableViewDelegate, UITable
         navigationController?.navigationBar.shadowImage = UIImage()        
         
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
-        backgroundImage.image = UIImage(named: "LandingPageBackgroundImage")
+        backgroundImage.image = UIImage(named: "GolfCourseImage")
         self.view.insertSubview(backgroundImage, atIndex: 0)
         
         navBarShadowView.layer.shadowColor = UIColor.blackColor().CGColor
@@ -137,13 +149,12 @@ extension ChooseCaddieViewController {
         let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CaddieTableViewCell
         
         cell.cellBackgroundView.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor
-        //cell.cellBackgroundView.layer.cornerRadius = 8
         
         cell.profileImageView.image = UIImage(named: "DefaultProfileImage")
         cell.profileImageView.layer.cornerRadius = 40
         
         cell.nameLabel.text = caddieNames[indexPath.row]
-        cell.acceptanceRateLabel.text = "\(acceptanceRate[indexPath.row])% of requests accepted"
+        cell.acceptanceRateLabel.text = "\(acceptanceRates[indexPath.row])% of requests accepted"
         
         
         if (sunAvailability[indexPath.row] == true) {
@@ -192,6 +203,9 @@ extension ChooseCaddieViewController {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! CaddieTableViewCell
         cell.cellBackgroundView.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8).CGColor
         
+        caddieNameForSegue = caddieNames[indexPath.row]
+        acceptanceRateForSegue = acceptanceRates[indexPath.row]
+        
         performSegueWithIdentifier("toConfirmReservationSegue", sender: self)
         
         UIView.animateWithDuration(0.1, delay: 0.5, options: .CurveLinear, animations: {
@@ -202,7 +216,23 @@ extension ChooseCaddieViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
         if (segue.identifier == "toConfirmReservationSegue") {
+            let destinationVC = segue.destinationViewController as! ConfirmRequestViewController
+
+            courseNameForSegue = courseNameReceivedAgain!
+            courseLocationForSegue = courseLocationReceivedAgain!
+            coursePriceForSegue = coursePriceReceivedAgain!
+            selectedDateTimeStringForSegue = selectedDateTimeStringReceived!
+            selectedFullStyleDateForSegue = selectedFullStyleDateReceived!
+            selected12HrTimeStringForSegue = selected12HrTimeStringReceived!
             
+            destinationVC.courseNameReceivedTwice = courseNameForSegue
+            destinationVC.courseLocationReceivedTwice = courseLocationForSegue
+            destinationVC.coursePriceReceivedTwice = coursePriceForSegue
+            destinationVC.selectedDateTimeStringReceivedAgain = selectedDateTimeStringForSegue
+            destinationVC.selectedFullStyleDateReceivedAgain = selectedFullStyleDateForSegue
+            destinationVC.selected12HrTimeStringReceivedAgain = selected12HrTimeStringForSegue
+            destinationVC.caddieNameReceived = caddieNameForSegue
+            destinationVC.acceptanceRateReceived = acceptanceRateForSegue
         }
     }
 }

@@ -13,7 +13,12 @@ class ChooseCourseTableViewCell: UITableViewCell {
     @IBOutlet weak var golfCourseImageView: UIImageView!
     @IBOutlet weak var imageCoverView: UIView!
     @IBOutlet weak var courseNameLabel: UILabel!
+    @IBOutlet weak var coursePriceLabel: UILabel!
     @IBOutlet weak var courseLocationLabel: UILabel!
+    @IBOutlet weak var courseDistanceLabel: UILabel!
+    
+    
+    
     @IBOutlet weak var favoriteButton: UIButton!
     @IBOutlet weak var moreButton: UIButton!
     

@@ -13,6 +13,8 @@ class ChooseCourseViewController: UIViewController {
     //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
     var courseNames = ["Hearthstone Country Club", "Black Hawk Country Club", "The Club at Falcon Point", "The Club at Carlton Woods Creekside"]
     var courseLocations = ["Cypress, Texas","Richmond, Texas", "Katy, Texas", "The Woodlands, Texas"]
+    var courseDistances = [11.2, 24.7, 21.9, 34.3]
+    var coursePrices = [68, 73, 76, 94]
     // --------------------------------------------------------------------------------//
     
     @IBOutlet weak var segmentedControlBackgroundView: UIView!
@@ -24,8 +26,11 @@ class ChooseCourseViewController: UIViewController {
     @IBOutlet weak var nearbyCoursesContainer: UIView!
     @IBOutlet weak var favoriteCoursesContainer: UIView!
     
-    var courseNamesSent = [String]()
-    var courseLocationsSent = [String]()
+    // Send data to child VC via segue.
+    var courseNamesForChild = [String]()
+    var courseLocationsForChild = [String]()
+    var courseDistancesForChild = [Double]()
+    var coursePricesForChild = [Int]()
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -72,13 +77,17 @@ extension ChooseCourseViewController {
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         
-        courseNamesSent = courseNames
-        courseLocationsSent = courseLocations
+        courseNamesForChild = courseNames
+        courseLocationsForChild = courseLocations
+        courseDistancesForChild = courseDistances
+        coursePricesForChild = coursePrices
 
         if (segue.identifier == "nearbyCoursesContainerSegue") {
             let nearbyCoursesContainer = segue.destinationViewController as! NearbyCoursesContainerViewController
-            nearbyCoursesContainer.courseNamesReceived = courseNamesSent
-            nearbyCoursesContainer.courseLocationsReceived = courseLocationsSent
+            nearbyCoursesContainer.courseNamesReceived = courseNamesForChild
+            nearbyCoursesContainer.courseLocationsReceived = courseLocationsForChild
+            nearbyCoursesContainer.courseDistancesReceived = courseDistancesForChild
+            nearbyCoursesContainer.coursePricesReceived = coursePricesForChild
         }
     }
     

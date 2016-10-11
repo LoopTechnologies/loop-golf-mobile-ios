@@ -15,6 +15,7 @@ class ChooseDateViewController: UIViewController {
     var opHoursClose = "17:30"
     // --------------------------------------------------------------------------------//
     
+    @IBOutlet weak var navBarShadowView: UIView!
     @IBOutlet weak var backgroundView: UIView!
     @IBOutlet weak var topBarView: UIView!
     @IBOutlet weak var courseNameLabel: UILabel!
@@ -38,19 +39,21 @@ class ChooseDateViewController: UIViewController {
     var validOpen24HrTimeNSDate = NSDate()
     var validClose24HrTimeNSDate = NSDate()
 
-    // Send data via segue.
-    var courseNameForSegue = String()
-    var courseLocationForSegue = String()
-    var selectedDateTimeStringForSegue = String()
-    var selected12HrTimeStringForSegue = String()
-    var selectedFullStyleDateForSegue = String()
-    
     // Receive data via segue.
     var courseIDReceived: String?
     var courseNameReceived: String?
     var courseLocationReceived: String?
+    var coursePriceReceived: Int?
     var courseOpenHrsReceived: String?
     var courseCloseHrsReceived: String?
+    
+    // Send data via segue.
+    var courseNameForSegue = String()
+    var courseLocationForSegue = String()
+    var coursePriceForSegue = Int()
+    var selectedDateTimeStringForSegue = String()
+    var selected12HrTimeStringForSegue = String()
+    var selectedFullStyleDateForSegue = String()
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
@@ -66,19 +69,12 @@ class ChooseDateViewController: UIViewController {
         navigationController?.navigationBar.shadowImage = UIImage()
         
         let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
-        backgroundImage.image = UIImage(named: "LandingPageBackgroundImage")
+        backgroundImage.image = UIImage(named: "GolfCourseImage")
         self.view.insertSubview(backgroundImage, atIndex: 0)
         
-        //backgroundView.layer.cornerRadius = 8
-        
-        calculateOneDayAhead()
-        calculateThreeMonthsAhead()
-        datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
-        datePicker.setValue(false, forKeyPath: "highlightsToday")
-        datePicker.subviews[0].subviews[1].hidden = true
-        datePicker.subviews[0].subviews[2].hidden = true
-        datePicker.minimumDate = oneDayAheadOfCurrentDate
-        datePicker.maximumDate = threeMonthsAheadOfCurrentDate
+        navBarShadowView.layer.shadowColor = UIColor.blackColor().CGColor
+        navBarShadowView.layer.shadowOpacity = 0.5
+        navBarShadowView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
         
         continueButton.layer.cornerRadius = 8
         continueButton.layer.borderWidth = 1
@@ -99,6 +95,15 @@ class ChooseDateViewController: UIViewController {
         thirdCircle.layer.borderWidth = 1
         thirdCircle.layer.borderColor = UIColor.lightGrayColor().CGColor
         thirdCircle.layer.cornerRadius = 15
+        
+        calculateOneDayAhead()
+        calculateThreeMonthsAhead()
+        datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        datePicker.setValue(false, forKeyPath: "highlightsToday")
+        datePicker.subviews[0].subviews[1].hidden = true
+        datePicker.subviews[0].subviews[2].hidden = true
+        datePicker.minimumDate = oneDayAheadOfCurrentDate
+        datePicker.maximumDate = threeMonthsAheadOfCurrentDate
         
         dateTimeFormatter.dateFormat = "yyyy-MM-dd H:mm"
         
@@ -189,9 +194,11 @@ extension ChooseDateViewController {
             let destinationVC = segue.destinationViewController as! ChooseCaddieViewController
             courseNameForSegue = courseNameReceived!
             courseLocationForSegue = courseLocationReceived!
+            coursePriceForSegue = coursePriceReceived!
             
             destinationVC.courseNameReceivedAgain = courseNameForSegue
             destinationVC.courseLocationReceivedAgain = courseLocationForSegue
+            destinationVC.coursePriceReceivedAgain = coursePriceForSegue
             destinationVC.selectedDateTimeStringReceived = selectedDateTimeStringForSegue
             destinationVC.selectedFullStyleDateReceived = selectedFullStyleDateForSegue
             destinationVC.selected12HrTimeStringReceived = selected12HrTimeStringForSegue
