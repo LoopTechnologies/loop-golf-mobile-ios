@@ -23,7 +23,7 @@
 		C944D62C1DA354BD00E56C25 /* ChooseCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D62B1DA354BD00E56C25 /* ChooseCourseViewController.swift */; };
 		C944D62E1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D62D1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift */; };
 		C944D6301DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D62F1DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift */; };
-		C944D6321DA35C2400E56C25 /* FavoriteCoursesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6311DA35C2400E56C25 /* FavoriteCoursesViewController.swift */; };
+		C944D6321DA35C2400E56C25 /* FavoriteCoursesContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6311DA35C2400E56C25 /* FavoriteCoursesContainerViewController.swift */; };
 		C944D6341DA361A700E56C25 /* ChooseCourseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6331DA361A700E56C25 /* ChooseCourseTableViewCell.swift */; };
 		C944D6381DA3704200E56C25 /* CourseDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6371DA3704200E56C25 /* CourseDetailsViewController.swift */; };
 		C944D63A1DA407F400E56C25 /* DetailsContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6391DA407F400E56C25 /* DetailsContainerViewController.swift */; };
@@ -81,7 +81,7 @@
 		C944D62B1DA354BD00E56C25 /* ChooseCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCourseViewController.swift; sourceTree = "<group>"; };
 		C944D62D1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCourseSegmentedControl.swift; sourceTree = "<group>"; };
 		C944D62F1DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NearbyCoursesContainerViewController.swift; sourceTree = "<group>"; };
-		C944D6311DA35C2400E56C25 /* FavoriteCoursesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCoursesViewController.swift; sourceTree = "<group>"; };
+		C944D6311DA35C2400E56C25 /* FavoriteCoursesContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteCoursesContainerViewController.swift; sourceTree = "<group>"; };
 		C944D6331DA361A700E56C25 /* ChooseCourseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCourseTableViewCell.swift; sourceTree = "<group>"; };
 		C944D6371DA3704200E56C25 /* CourseDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailsViewController.swift; sourceTree = "<group>"; };
 		C944D6391DA407F400E56C25 /* DetailsContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailsContainerViewController.swift; sourceTree = "<group>"; };
@@ -186,7 +186,6 @@
 				C944D60D1DA2BAE700E56C25 /* Reservations Tab */,
 				C944D60E1DA2BAEF00E56C25 /* Profile Tab */,
 				C944D62A1DA3546000E56C25 /* New Reservation */,
-				C948EA291DA6296E0040C36E /* Confirm Request */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -276,6 +275,7 @@
 				C944D6351DA3701900E56C25 /* Choose Course */,
 				C944D63B1DA45B9600E56C25 /* Choose Date */,
 				C94D9EC51DA59D4A000308CB /* Choose Caddie */,
+				C948EA291DA6296E0040C36E /* Confirm Request */,
 			);
 			name = "New Reservation";
 			sourceTree = "<group>";
@@ -286,7 +286,7 @@
 				C944D62B1DA354BD00E56C25 /* ChooseCourseViewController.swift */,
 				C944D62D1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift */,
 				C944D62F1DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift */,
-				C944D6311DA35C2400E56C25 /* FavoriteCoursesViewController.swift */,
+				C944D6311DA35C2400E56C25 /* FavoriteCoursesContainerViewController.swift */,
 				C944D6361DA3702900E56C25 /* Course Details */,
 			);
 			name = "Choose Course";
@@ -703,7 +703,7 @@
 				C944D6191DA2E73500E56C25 /* SettingsViewController.swift in Sources */,
 				C944D6291DA3415C00E56C25 /* ConfirmedContainerViewController.swift in Sources */,
 				C944D61E1DA2F51C00E56C25 /* ConnectionsTableViewCell.swift in Sources */,
-				C944D6321DA35C2400E56C25 /* FavoriteCoursesViewController.swift in Sources */,
+				C944D6321DA35C2400E56C25 /* FavoriteCoursesContainerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

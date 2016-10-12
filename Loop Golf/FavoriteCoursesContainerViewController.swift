@@ -1,5 +1,5 @@
 //
-//  NearbyCoursesContainerViewController.swift
+//  FavoriteCoursesContainerViewController.swift
 //  Loop Golf
 //
 //  Created by Matt Hills on 10/3/16.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class NearbyCoursesContainerViewController: UITableViewController, UIGestureRecognizerDelegate {
+class FavoriteCoursesContainerViewController: UITableViewController {
     
     var courseNames = [String]()
     var courseLocations = [String]()
@@ -28,15 +28,15 @@ class NearbyCoursesContainerViewController: UITableViewController, UIGestureReco
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        courseNames = courseNamesReceived!
+        courseNames = []
+        //courseNames = courseNamesReceived!
         courseLocations = courseLocationsReceived!
         courseDistances = courseDistancesReceived!
         coursePrices = coursePricesReceived!
     }
 }
 
-extension NearbyCoursesContainerViewController {
-    
+extension FavoriteCoursesContainerViewController {
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 251
     }
@@ -49,7 +49,7 @@ extension NearbyCoursesContainerViewController {
             tableView.backgroundView = nil
         } else {
             let noDataLabel: UILabel = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height))
-            noDataLabel.text = "No golf courses to show."
+            noDataLabel.text = "You don't have any golf courses \n in My Favorites. Add golf courses \n by tapping the Favorite icon \n found in course details."
             noDataLabel.font = UIFont(name: "AvenirNext-Regular", size: 17)
             noDataLabel.textColor = UIColor.whiteColor()
             noDataLabel.textAlignment = NSTextAlignment.Center
@@ -131,5 +131,5 @@ extension NearbyCoursesContainerViewController {
         }
     }
     
-}
 
+}

@@ -90,15 +90,15 @@ extension ConfirmRequestViewController {
     
     @IBAction func confirmButtonPressed(sender: AnyObject) {
         
-        let alertController = UIAlertController(title: "See you on the course.", message:  "\n Reservation number: abcd1234 \n \n Your request has been received and forwarded to your selected caddie, who has 12 hours to respond. \n \n If confirmed by your caddie, your request will become a reservation and we'll send you future reminders as the date and time of your golf round approaches.", preferredStyle: .Alert)
-        alertController.view.tintColor = UIColor(red: 0/255, green: 51/255, blue: 0/255, alpha: 1.0)
+        let alertController = UIAlertController(title: "See you on the course.", message:  "\n Reservation number: B4N89G3L \n \n Your request has been received and forwarded to your selected caddie, who has 12 hours to respond. \n \n If confirmed by your caddie, your request will become a reservation and we'll send you future reminders as the date and time of your golf round approaches.", preferredStyle: .Alert)
+        alertController.view.tintColor = UIColor.blackColor()
         let doneAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
             self.closeAllReservationProcesses()
         }
         alertController.addAction(doneAction)
         
         self.presentViewController(alertController, animated: true) {
-            alertController.view.tintColor = UIColor(red: 0/255, green: 51/255, blue: 0/255, alpha: 1.0)
+            alertController.view.tintColor = UIColor.blackColor()
         }
     }
     
