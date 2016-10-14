@@ -11,7 +11,7 @@ import UIKit
 class CaddiesContainerViewController: UITableViewController {
     
     //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
-    var caddieNames = ["Harrison Jones", "Tommy Davis"]
+    var caddieNames = ["Kyle Reed", "Freddie Dunn"]
     var caddieHistory = ["August 2016","September 2016"]
     // --------------------------------------------------------------------------------//
     

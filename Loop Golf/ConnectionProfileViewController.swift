@@ -50,7 +50,7 @@ class ConnectionProfileViewController: UIViewController {
             connectionType = "caddie"
         } else if (senderReceived! == 2) {
             profileSecondaryLabel.text = "@\(profileSecondaryInfoReceived!)"
-            profileSecondaryButton.setTitle("   Block this user   ", forState: .Normal)
+            profileSecondaryButton.setTitle("   Add to reservation   ", forState: .Normal)
             reserveAgainButton.hidden = true
             callButton.hidden = false
             textMessageButton.hidden = false

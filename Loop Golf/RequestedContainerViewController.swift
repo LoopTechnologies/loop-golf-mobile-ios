@@ -16,8 +16,10 @@ class RequestedContainerViewController: UITableViewController {
     var courseLocations = ["Cypress, Texas"]
     var dates = ["November 5, 2016"]
     var times = ["12:05 PM"]
-    
     // --------------------------------------------------------------------------------//
+    
+    // Send data via segue.
+    let segueSender = 0 // MUST BE 0 or 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -72,6 +74,19 @@ extension RequestedContainerViewController {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! ReservationsTableViewCell
         cell.layer.cornerRadius = 8
         cell.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        
+        performSegueWithIdentifier("toRequestSegue", sender: self)
+        
+        UIView.animateWithDuration(0.1, delay: 0.5, options: .CurveLinear, animations: {
+            cell.backgroundColor =  UIColor.blackColor().colorWithAlphaComponent(0)
+            }, completion: nil)
     }
-
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "toRequestSegue") {
+            
+            let destinationVC = segue.destinationViewController as! ReservationOverviewViewController
+            destinationVC.senderReceived = segueSender
+        }
+    }
 }

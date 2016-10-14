@@ -19,6 +19,9 @@ class ConfirmedContainerViewController: UITableViewController {
     
     // --------------------------------------------------------------------------------//
     
+    // Send data via segue.
+    let segueSender = 2 //MUST BE 2 or 3
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor.clearColor()
@@ -72,6 +75,20 @@ extension ConfirmedContainerViewController {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! ReservationsTableViewCell
         cell.layer.cornerRadius = 8
         cell.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        
+        performSegueWithIdentifier("toConfirmedSegue", sender: self)
+        
+        UIView.animateWithDuration(0.1, delay: 0.5, options: .CurveLinear, animations: {
+            cell.backgroundColor =  UIColor.blackColor().colorWithAlphaComponent(0)
+            }, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "toConfirmedSegue") {
+            
+            let destinationVC = segue.destinationViewController as! ReservationOverviewViewController
+            destinationVC.senderReceived = segueSender
+        }
     }
     
 }
