@@ -12,10 +12,13 @@ class GolfersContainerViewController: UITableViewController {
     
     //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
     var golferNames = ["Larry David", "Jackie Chan"]
-    
     var userNames = ["larry-david", "jack-chan-2"]
-    
     // --------------------------------------------------------------------------------//
+    
+    // Send data via segue.
+    let segueSender = 2
+    var profileNameForSegue = String()
+    var profileSecondaryInfoForSegue = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,6 +72,26 @@ extension GolfersContainerViewController {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! ConnectionsTableViewCell
         cell.layer.cornerRadius = 8
         cell.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        
+        profileNameForSegue = golferNames[indexPath.row]
+        profileSecondaryInfoForSegue = userNames[indexPath.row]
+        
+        performSegueWithIdentifier("toGolferProfileSegue", sender: self)
+        
+        UIView.animateWithDuration(0.1, delay: 0.5, options: .CurveLinear, animations: {
+            cell.backgroundColor =  UIColor.blackColor().colorWithAlphaComponent(0)
+            }, completion: nil)
+    }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "toGolferProfileSegue") {
+            
+            let destinationVC = segue.destinationViewController as! ConnectionProfileViewController
+            destinationVC.senderReceived = segueSender
+            destinationVC.profileNameReceived = profileNameForSegue
+            destinationVC.profileSecondaryInfoReceived = profileSecondaryInfoForSegue
+
+        }
     }
 
 }

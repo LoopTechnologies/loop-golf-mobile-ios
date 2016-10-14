@@ -13,9 +13,12 @@ class CaddiesContainerViewController: UITableViewController {
     //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
     var caddieNames = ["Harrison Jones", "Tommy Davis"]
     var caddieHistory = ["August 2016","September 2016"]
-    
-    
     // --------------------------------------------------------------------------------//
+    
+    // Send data via segue.
+    let segueSender = 1
+    var profileNameForSegue = String()
+    var profileSecondaryInfoForSegue = String()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -69,5 +72,25 @@ extension CaddiesContainerViewController {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! ConnectionsTableViewCell
         cell.layer.cornerRadius = 8
         cell.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        
+        profileNameForSegue = caddieNames[indexPath.row]
+        profileSecondaryInfoForSegue = caddieHistory[indexPath.row]
+        
+        performSegueWithIdentifier("toCaddieProfileSegue", sender: self)
+        
+        UIView.animateWithDuration(0.1, delay: 0.5, options: .CurveLinear, animations: {
+            cell.backgroundColor =  UIColor.blackColor().colorWithAlphaComponent(0)
+            }, completion: nil)
+    }
+    
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if (segue.identifier == "toCaddieProfileSegue") {
+
+            let destinationVC = segue.destinationViewController as! ConnectionProfileViewController
+            destinationVC.senderReceived = segueSender
+            destinationVC.profileNameReceived = profileNameForSegue
+            destinationVC.profileSecondaryInfoReceived = profileSecondaryInfoForSegue
+        }
     }
 }
