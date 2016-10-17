@@ -19,7 +19,7 @@ class RequestedContainerViewController: UITableViewController {
     // --------------------------------------------------------------------------------//
     
     // Send data via segue.
-    let segueSender = 0 // MUST BE 0 or 1
+    let segueSender = 1 // MUST BE 0 or 1
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,7 +85,7 @@ extension RequestedContainerViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "toRequestSegue") {
             
-            let destinationVC = segue.destinationViewController as! ReservationOverviewViewController
+            let destinationVC = segue.destinationViewController as! ReservationPopoverViewController
             destinationVC.senderReceived = segueSender
         }
     }

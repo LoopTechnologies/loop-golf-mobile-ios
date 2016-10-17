@@ -86,7 +86,7 @@ extension ConfirmedContainerViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "toConfirmedSegue") {
             
-            let destinationVC = segue.destinationViewController as! ReservationOverviewViewController
+            let destinationVC = segue.destinationViewController as! ReservationPopoverViewController
             destinationVC.senderReceived = segueSender
         }
     }

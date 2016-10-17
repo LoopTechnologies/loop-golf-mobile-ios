@@ -1,5 +1,5 @@
 //
-//  ConnectionProfileViewController.swift
+//  ConnectionPopoverViewController.swift
 //  Loop Golf
 //
 //  Created by Matt Hills on 10/12/16.
@@ -8,19 +8,14 @@
 
 import UIKit
 
-class ConnectionProfileViewController: UIViewController {
+class ConnectionPopoverViewController: UIViewController {
     
     @IBOutlet weak var backgroundButton: UIButton!
     @IBOutlet weak var popoverView: UIView!
     @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var reserveAgainButton: UIButton!
-    @IBOutlet weak var profileNameLabel: UILabel!
-    @IBOutlet weak var profileSecondaryLabel: UILabel!
-    @IBOutlet weak var profileSecondaryButton: UIButton!
-    @IBOutlet weak var callButton: UIButton!
-    @IBOutlet weak var textMessageButton: UIButton!
-    @IBOutlet weak var emailButton: UIButton!
-    
+    @IBOutlet weak var caddieContainer: UIView!
+    @IBOutlet weak var golferContainer: UIView!
+
     
     // Receive data via segue.
     var senderReceived: Int?
@@ -35,33 +30,30 @@ class ConnectionProfileViewController: UIViewController {
         navigationBar.shadowImage = UIImage()
         
         popoverView.layer.cornerRadius = 8
-        reserveAgainButton.layer.cornerRadius = 8
-        profileSecondaryButton.layer.cornerRadius = 15
+        //profileSecondaryButton.layer.cornerRadius = 15
         
-        profileNameLabel.text = profileNameReceived!
+        //profileNameLabel.text = profileNameReceived!
         
         if (senderReceived! == 1) {
-            profileSecondaryLabel.text = "Member since \(profileSecondaryInfoReceived!)"
-            profileSecondaryButton.setTitle("   Rate this caddie   ", forState: .Normal)
-            reserveAgainButton.hidden = false
-            callButton.hidden = true
-            textMessageButton.hidden = true
-            emailButton.hidden = true
+            //profileSecondaryLabel.text = "Member since \(profileSecondaryInfoReceived!)"
+            //profileSecondaryButton.setTitle("   Rate this caddie   ", forState: .Normal)
+            caddieContainer.hidden = false
+            golferContainer.hidden = true
+
             connectionType = "caddie"
         } else if (senderReceived! == 2) {
-            profileSecondaryLabel.text = "@\(profileSecondaryInfoReceived!)"
-            profileSecondaryButton.setTitle("   Add to reservation   ", forState: .Normal)
-            reserveAgainButton.hidden = true
-            callButton.hidden = false
-            textMessageButton.hidden = false
-            emailButton.hidden = false
+            //profileSecondaryLabel.text = "@\(profileSecondaryInfoReceived!)"
+            //profileSecondaryButton.setTitle("   Add to reservation   ", forState: .Normal)
+            caddieContainer.hidden = true
+            golferContainer.hidden = false
+            
             connectionType = "golfer"
         }
     }
     
 }
 
-extension ConnectionProfileViewController {
+extension ConnectionPopoverViewController {
     
     @IBAction func dismissVCButtonPressed(sender: UIBarButtonItem) {
         self.dismissViewControllerAnimated(true, completion: {})

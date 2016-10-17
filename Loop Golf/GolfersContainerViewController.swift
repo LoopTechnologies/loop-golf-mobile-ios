@@ -86,7 +86,7 @@ extension GolfersContainerViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if (segue.identifier == "toGolferProfileSegue") {
             
-            let destinationVC = segue.destinationViewController as! ConnectionProfileViewController
+            let destinationVC = segue.destinationViewController as! ConnectionPopoverViewController
             destinationVC.senderReceived = segueSender
             destinationVC.profileNameReceived = profileNameForSegue
             destinationVC.profileSecondaryInfoReceived = profileSecondaryInfoForSegue
