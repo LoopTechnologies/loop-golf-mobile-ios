@@ -14,5 +14,6 @@ class ReservationsTableViewCell: UITableViewCell {
     @IBOutlet weak var courseNameLabel: UILabel!
     @IBOutlet weak var courseLocationLabel: UILabel!
     @IBOutlet weak var reservationDateLabel: UILabel!
+    @IBOutlet weak var statusLabel: UILabel!
     
 }

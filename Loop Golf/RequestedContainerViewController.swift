@@ -11,15 +11,16 @@ import UIKit
 class RequestedContainerViewController: UITableViewController {
     
     //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
-    var caddieNames = ["Mark Thompson"]
-    var courseNames = ["Hearthstone Country Club"]
-    var courseLocations = ["Cypress, Texas"]
-    var dates = ["November 5, 2016"]
-    var times = ["12:05 PM"]
+    var caddieNames = ["Mark Thompson", "Tom Donald"]
+    var courseNames = ["Hearthstone Country Club", "Cypresswood Golf Club"]
+    var courseLocations = ["Cypress, Texas", "Spring, Texas"]
+    var dates = ["November 5, 2016", "November 20, 2016"]
+    var times = ["12:05 PM", "3:20 PM"]
+    var status = ["p", "d"]
     // --------------------------------------------------------------------------------//
     
     // Send data via segue.
-    let segueSender = 1 // MUST BE 0 or 1
+    var segueSender = Int()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -31,7 +32,7 @@ class RequestedContainerViewController: UITableViewController {
 extension RequestedContainerViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 97
+        return 129
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -66,6 +67,21 @@ extension RequestedContainerViewController {
         cell.courseNameLabel.text = courseNames[indexPath.row] as? String
         cell.courseLocationLabel.text = courseLocations[indexPath.row] as? String
         cell.reservationDateLabel.text = "\(dates[indexPath.row]) at \(times[indexPath.row])" as? String
+        cell.statusLabel.layer.borderWidth = 1
+        cell.statusLabel.layer.cornerRadius = 8
+        
+        if (status[indexPath.row] == "p") {
+            // Pending request.
+            cell.statusLabel.text = "PENDING"
+            cell.statusLabel.textColor = UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1.0)
+            cell.statusLabel.layer.borderColor = UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1.0).CGColor
+        } else if (status[indexPath.row] == "d") {
+            // Declined request.
+            cell.statusLabel.text = "DECLINED"
+            cell.statusLabel.textColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
+            cell.statusLabel.layer.borderColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0).CGColor
+        }
+
         
         return cell
     }
@@ -74,6 +90,12 @@ extension RequestedContainerViewController {
         let cell = tableView.cellForRowAtIndexPath(indexPath) as! ReservationsTableViewCell
         cell.layer.cornerRadius = 8
         cell.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        
+        if (status[indexPath.row] == "p") {
+            segueSender = 0
+        } else if (status[indexPath.row] == "d") {
+            segueSender = 1
+        }
         
         performSegueWithIdentifier("toRequestSegue", sender: self)
         

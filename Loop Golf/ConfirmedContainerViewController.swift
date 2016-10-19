@@ -32,7 +32,7 @@ class ConfirmedContainerViewController: UITableViewController {
 extension ConfirmedContainerViewController {
     
     override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 97
+        return 129
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -67,6 +67,9 @@ extension ConfirmedContainerViewController {
         cell.courseNameLabel.text = courseNames[indexPath.row] as? String
         cell.courseLocationLabel.text = courseLocations[indexPath.row] as? String
         cell.reservationDateLabel.text = "\(dates[indexPath.row]) at \(times[indexPath.row])" as? String
+        cell.statusLabel.layer.borderWidth = 1
+        cell.statusLabel.layer.cornerRadius = 8
+        cell.statusLabel.layer.borderColor = UIColor(red: 0/255, green: 204/255, blue: 0/255, alpha: 1.0).CGColor
         
         return cell
     }

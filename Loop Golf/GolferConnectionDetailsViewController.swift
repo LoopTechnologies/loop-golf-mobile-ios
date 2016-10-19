@@ -12,7 +12,7 @@ class GolferConnectionDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsetsMake(-20, 0, 10, 0)
+        tableView.contentInset = UIEdgeInsetsMake(-19, 0, 1, 0)
     }
 }
 

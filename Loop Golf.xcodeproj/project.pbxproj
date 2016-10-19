@@ -47,6 +47,8 @@
 		C9B0D3AE1DA20DD4008C4DDA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C9B0D3AC1DA20DD4008C4DDA /* LaunchScreen.storyboard */; };
 		C9B0D3B91DA20DD4008C4DDA /* Loop_GolfTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3B81DA20DD4008C4DDA /* Loop_GolfTests.swift */; };
 		C9B0D3C41DA20DD4008C4DDA /* Loop_GolfUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3C31DA20DD4008C4DDA /* Loop_GolfUITests.swift */; };
+		C9D3C5141DB6BA8700AC1A15 /* AddGolfersToReservationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3C5131DB6BA8700AC1A15 /* AddGolfersToReservationViewController.swift */; };
+		C9D3C5161DB6CD5C00AC1A15 /* EditProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9D3C5151DB6CD5C00AC1A15 /* EditProfileViewController.swift */; };
 		D577B14E2BC92BEF08510F90 /* Pods_Loop_GolfUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A31AFA7F50C3FA8CD61E6902 /* Pods_Loop_GolfUITests.framework */; };
 /* End PBXBuildFile section */
 
@@ -118,6 +120,8 @@
 		C9B0D3BF1DA20DD4008C4DDA /* Loop GolfUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Loop GolfUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B0D3C31DA20DD4008C4DDA /* Loop_GolfUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Loop_GolfUITests.swift; sourceTree = "<group>"; };
 		C9B0D3C51DA20DD4008C4DDA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C9D3C5131DB6BA8700AC1A15 /* AddGolfersToReservationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddGolfersToReservationViewController.swift; sourceTree = "<group>"; };
+		C9D3C5151DB6CD5C00AC1A15 /* EditProfileViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditProfileViewController.swift; sourceTree = "<group>"; };
 		D931E8A053717C1C9709E3BC /* Pods-Loop Golf.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loop Golf.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Loop Golf/Pods-Loop Golf.debug.xcconfig"; sourceTree = "<group>"; };
 		DE0FE4DBE33B5A61FF4DE061 /* Pods-Loop GolfTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Loop GolfTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Loop GolfTests/Pods-Loop GolfTests.debug.xcconfig"; sourceTree = "<group>"; };
 		DEAA4669C0FCCFDDAE1628FE /* Pods_Loop_GolfTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Loop_GolfTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -174,14 +178,15 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
-		C91699041DB158050010672B /* Shared Children - Reservation Details */ = {
+		C91699041DB158050010672B /* Child VCs - Reservation Details */ = {
 			isa = PBXGroup;
 			children = (
 				C91699001DB11D770010672B /* ReservationPopoverViewController.swift */,
 				C91699051DB158C40010672B /* RequestedReservationDetailsViewController.swift */,
 				C91699021DB122300010672B /* ConfirmedReservationDetailsViewController.swift */,
+				C9D3C5121DB6BA6200AC1A15 /* Child Views - Add Golfer to Reservation */,
 			);
-			name = "Shared Children - Reservation Details";
+			name = "Child VCs - Reservation Details";
 			sourceTree = "<group>";
 		};
 		C944D6071DA2BA9D00E56C25 /* Models */ = {
@@ -229,7 +234,7 @@
 				C944D6111DA2BC4B00E56C25 /* ConnectionsSegmentedControl.swift */,
 				C944D61B1DA2F0DD00E56C25 /* CaddiesContainerViewController.swift */,
 				C944D6201DA2F8D100E56C25 /* GolfersContainerViewController.swift */,
-				C944D61A1DA2F0C800E56C25 /* Shared Children - Connection Profile */,
+				C944D61A1DA2F0C800E56C25 /* Child VCs - Connection Profiles */,
 			);
 			name = "Connections Tab";
 			sourceTree = "<group>";
@@ -241,7 +246,7 @@
 				C944D6131DA2C0E800E56C25 /* ReservationsSegmentedControl.swift */,
 				C944D6241DA2FF7400E56C25 /* RequestedContainerViewController.swift */,
 				C944D6281DA3415C00E56C25 /* ConfirmedContainerViewController.swift */,
-				C91699041DB158050010672B /* Shared Children - Reservation Details */,
+				C91699041DB158050010672B /* Child VCs - Reservation Details */,
 			);
 			name = "Reservations Tab";
 			sourceTree = "<group>";
@@ -250,20 +255,21 @@
 			isa = PBXGroup;
 			children = (
 				C944D6151DA2CF9B00E56C25 /* ProfileTabViewController.swift */,
-				C944D6171DA2E72800E56C25 /* Settings */,
+				C944D6171DA2E72800E56C25 /* Child VCs - Settings  */,
 			);
 			name = "Profile Tab";
 			sourceTree = "<group>";
 		};
-		C944D6171DA2E72800E56C25 /* Settings */ = {
+		C944D6171DA2E72800E56C25 /* Child VCs - Settings  */ = {
 			isa = PBXGroup;
 			children = (
 				C944D6181DA2E73500E56C25 /* SettingsViewController.swift */,
+				C9D3C5151DB6CD5C00AC1A15 /* EditProfileViewController.swift */,
 			);
-			name = Settings;
+			name = "Child VCs - Settings ";
 			sourceTree = "<group>";
 		};
-		C944D61A1DA2F0C800E56C25 /* Shared Children - Connection Profile */ = {
+		C944D61A1DA2F0C800E56C25 /* Child VCs - Connection Profiles */ = {
 			isa = PBXGroup;
 			children = (
 				C91698FE1DAED9CA0010672B /* ConnectionPopoverViewController.swift */,
@@ -271,7 +277,7 @@
 				C916990C1DB57DEE0010672B /* GolferConnectionDetailsViewController.swift */,
 				C916990A1DB567AF0010672B /* RatingScaleSegmentedControl.swift */,
 			);
-			name = "Shared Children - Connection Profile";
+			name = "Child VCs - Connection Profiles";
 			sourceTree = "<group>";
 		};
 		C944D62A1DA3546000E56C25 /* New Reservation */ = {
@@ -416,6 +422,14 @@
 				C9B0D3C51DA20DD4008C4DDA /* Info.plist */,
 			);
 			path = "Loop GolfUITests";
+			sourceTree = "<group>";
+		};
+		C9D3C5121DB6BA6200AC1A15 /* Child Views - Add Golfer to Reservation */ = {
+			isa = PBXGroup;
+			children = (
+				C9D3C5131DB6BA8700AC1A15 /* AddGolfersToReservationViewController.swift */,
+			);
+			name = "Child Views - Add Golfer to Reservation";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -696,6 +710,7 @@
 				C948EA2B1DA629920040C36E /* ConfirmRequestViewController.swift in Sources */,
 				C94D9EC71DA59D66000308CB /* ChooseCaddieViewController.swift in Sources */,
 				C944D61C1DA2F0DD00E56C25 /* CaddiesContainerViewController.swift in Sources */,
+				C9D3C5161DB6CD5C00AC1A15 /* EditProfileViewController.swift in Sources */,
 				C944D6341DA361A700E56C25 /* ChooseCourseTableViewCell.swift in Sources */,
 				C91698FF1DAED9CA0010672B /* ConnectionPopoverViewController.swift in Sources */,
 				C98A9A7C1DA83749009202DD /* ConfirmRequestContainerViewController.swift in Sources */,
@@ -714,6 +729,7 @@
 				C944D6291DA3415C00E56C25 /* ConfirmedContainerViewController.swift in Sources */,
 				C944D61E1DA2F51C00E56C25 /* ConnectionsTableViewCell.swift in Sources */,
 				C916990D1DB57DEE0010672B /* GolferConnectionDetailsViewController.swift in Sources */,
+				C9D3C5141DB6BA8700AC1A15 /* AddGolfersToReservationViewController.swift in Sources */,
 				C91699081DB5631F0010672B /* CaddieConnectionDetailsViewController.swift in Sources */,
 				C944D6321DA35C2400E56C25 /* FavoriteCoursesContainerViewController.swift in Sources */,
 			);

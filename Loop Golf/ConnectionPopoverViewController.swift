@@ -30,23 +30,14 @@ class ConnectionPopoverViewController: UIViewController {
         navigationBar.shadowImage = UIImage()
         
         popoverView.layer.cornerRadius = 8
-        //profileSecondaryButton.layer.cornerRadius = 15
-        
-        //profileNameLabel.text = profileNameReceived!
         
         if (senderReceived! == 1) {
-            //profileSecondaryLabel.text = "Member since \(profileSecondaryInfoReceived!)"
-            //profileSecondaryButton.setTitle("   Rate this caddie   ", forState: .Normal)
             caddieContainer.hidden = false
             golferContainer.hidden = true
-
             connectionType = "caddie"
         } else if (senderReceived! == 2) {
-            //profileSecondaryLabel.text = "@\(profileSecondaryInfoReceived!)"
-            //profileSecondaryButton.setTitle("   Add to reservation   ", forState: .Normal)
             caddieContainer.hidden = true
             golferContainer.hidden = false
-            
             connectionType = "golfer"
         }
     }
@@ -64,20 +55,34 @@ extension ConnectionPopoverViewController {
         self.dismissViewControllerAnimated(true, completion: {})
     }
     
-    @IBAction func deleteBarButtonPressed(sender: UIBarButtonItem) {
-        let actionSheet = UIAlertController(title: "Remove this connection?", message:  "This \(connectionType) will be deleted from your list of connections.", preferredStyle: .ActionSheet)
+    
+    @IBAction func moreBarButtonPressed(sender: UIBarButtonItem) {
+        
+        let actionSheet = UIAlertController(title: "Options for connections", message:  "\n You can report a golfer or caddie for unacceptable actions such as profanity or harrassment. If you decide to remove a connection, that person will be permanently deleted from your connections list.", preferredStyle: .ActionSheet)
         actionSheet.view.tintColor = UIColor.blackColor()
         let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
         }
         actionSheet.addAction(cancelAction)
-        let removeAction = UIAlertAction(title: "Remove", style: .Destructive) { (action) in
+        let reportAction = UIAlertAction(title:"Report this \(connectionType)", style: .Default) { (action) in
+            if (self.senderReceived! == 1) {
+                // Trigger action to report caddie.
+            } else if (self.senderReceived! == 2) {
+                // Trigger action to report golfer.
+            }
+        }
+        actionSheet.addAction(reportAction)
+        
+        let removeAction = UIAlertAction(title: "Remove from connections", style: .Destructive) { (action) in
+            if (self.senderReceived! == 1) {
+                // Trigger action to remove caddie from connections.
+            } else if (self.senderReceived! == 2) {
+                // Trigger action to remove caddie from connections.
+            }
         }
         actionSheet.addAction(removeAction)
+        
         self.presentViewController(actionSheet, animated: true) {
             actionSheet.view.tintColor = UIColor.blackColor()
         }
     }
-    
-    
-    
 }

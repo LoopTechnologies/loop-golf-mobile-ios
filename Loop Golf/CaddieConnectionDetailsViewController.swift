@@ -10,6 +10,8 @@ import UIKit
 
 class CaddieConnectionDetailsViewController: UITableViewController {
     
+    
+    @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var secondaryLabel: UILabel!
     @IBOutlet weak var reserveAgainButton: UIButton!
@@ -28,7 +30,7 @@ class CaddieConnectionDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsetsMake(-20, 0, -340, 0)
+        tableView.contentInset = UIEdgeInsetsMake(-19, 0, -331, 0)
         reserveAgainButton.layer.cornerRadius = 15
         editRatingsButton.layer.cornerRadius = 15
         saveChangesButton.layer.cornerRadius = 15
@@ -54,7 +56,8 @@ extension CaddieConnectionDetailsViewController {
     }
     
     @IBAction func editRatingsButtonPressed(sender: AnyObject) {
-        tableView.contentInset = UIEdgeInsetsMake(-20, 0, 10, 0)
+        tableView.contentInset = UIEdgeInsetsMake(-19, 0, 1, 0)
+        profileImageView.layer.cornerRadius = 40
         editRatingsButton.hidden = true
         golfKnowledgeCellPrimaryLabel.text = "Golf Knowledge"
         golfKnowledgeCellPrimaryLabel.textAlignment = .Left
