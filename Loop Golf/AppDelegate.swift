@@ -7,18 +7,32 @@
 //
 
 import UIKit
+import CoreLocation
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, CLLocationManagerDelegate {
 
     var window: UIWindow?
 
+    var locationManager = CLLocationManager()
+    var userCoordinateLocation = CLLocation()
+    var locationServicesEnabled: Bool?
+    var notificationsEnabled: Bool?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         UITabBar.appearance().tintColor = UIColor.whiteColor()
         let tabBarAttributes = [NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 11)!]
         UITabBarItem.appearance().setTitleTextAttributes(tabBarAttributes, forState: .Normal)
+                
+        if (CLLocationManager.locationServicesEnabled()) {
+            locationManager.delegate = self
+            locationManager.desiredAccuracy = kCLLocationAccuracyBest
+            locationManager.requestAlwaysAuthorization()
+            locationManager.startUpdatingLocation()
+        }
+        
+        registerForPushNotifications(application)
         
         return true
     }
@@ -35,16 +49,69 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func applicationWillEnterForeground(application: UIApplication) {
         // Called as part of the transition from the background to the inactive state; here you can undo many of the changes made on entering the background.
+        
     }
 
     func applicationDidBecomeActive(application: UIApplication) {
         // Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        
+        locationManager.startUpdatingLocation()
+        registerForPushNotifications(application)
+        
+        
+        if (CLLocationManager.locationServicesEnabled()) {
+            switch(CLLocationManager.authorizationStatus()) {
+            case .NotDetermined, .Restricted, .Denied:
+                locationServicesEnabled = false
+            case .AuthorizedAlways, .AuthorizedWhenInUse:
+                locationServicesEnabled = true
+            }
+        } else {
+            locationServicesEnabled = false
+        }
     }
 
     func applicationWillTerminate(application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
-
+extension AppDelegate {
+    
+     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        
+        if let location = locations.last {
+            userCoordinateLocation = CLLocation(latitude: location.coordinate.latitude, longitude: location.coordinate.longitude)
+            self.locationManager.stopUpdatingLocation()
+        }
+     }
+    
+    
+    
+    
+    func locationManager(manager: CLLocationManager, didFailWithError error: NSError) {
+        print("Error didFail: " + error.localizedDescription)
+    }
+    
+    
+    
+    
+    func registerForPushNotifications(application: UIApplication) {
+        let notificationSettings = UIUserNotificationSettings(forTypes: [.Badge, .Alert], categories: nil)
+        application.registerUserNotificationSettings(notificationSettings)
+    }
+    
+    
+    
+    
+    func application(application: UIApplication, didRegisterUserNotificationSettings notificationSettings: UIUserNotificationSettings) {
+        
+        if (notificationSettings.types != .None) {
+            notificationsEnabled = true
+            //application.registerForRemoteNotifications()
+        } else {
+            notificationsEnabled = false
+        }
+    }
 }
 

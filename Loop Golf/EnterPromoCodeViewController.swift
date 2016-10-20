@@ -17,13 +17,17 @@ class EnterPromoCodeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var promoCodeTextField: UITextField!
     @IBOutlet weak var applyButton: UIButton!
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        promoCodeTextField.becomeFirstResponder()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController!.navigationBar.tintColor = UIColor.blackColor()
         navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
         navigationController!.navigationBar.shadowImage = UIImage()
         
-        promoCodeTextField.becomeFirstResponder()
         
         applyButtonDisabled()
         applyButton.layer.cornerRadius = 20
