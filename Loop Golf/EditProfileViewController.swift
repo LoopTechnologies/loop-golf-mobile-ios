@@ -43,6 +43,11 @@ class EditProfileViewController: UITableViewController, UITextFieldDelegate {
     var emailToSave = String()
     var phoneToSave = String()
     
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Edit Profile"
@@ -138,12 +143,14 @@ extension EditProfileViewController {
                 lastNameTextFieldOccupied()
             }
         } else if (textField.tag == 3) {
+            emailTextField.resignFirstResponder()
             if (emailTextField.text == "") {
                 emailTextFieldEmpty()
             } else if (emailTextField.text != "") {
                 emailTextFieldOccupied()
             }
         } else if (textField.tag == 4) {
+            phoneTextField.resignFirstResponder()
             if (phoneTextField.text == "") {
                 phoneTextFieldEmpty()
             } else if (phoneTextField.text != "") {
