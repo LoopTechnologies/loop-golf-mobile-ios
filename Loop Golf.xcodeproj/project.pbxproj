@@ -16,6 +16,9 @@
 		C91699081DB5631F0010672B /* CaddieConnectionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C91699071DB5631F0010672B /* CaddieConnectionDetailsViewController.swift */; };
 		C916990B1DB567AF0010672B /* RatingScaleSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C916990A1DB567AF0010672B /* RatingScaleSegmentedControl.swift */; };
 		C916990D1DB57DEE0010672B /* GolferConnectionDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C916990C1DB57DEE0010672B /* GolferConnectionDetailsViewController.swift */; };
+		C924D3461DBA6A0700A30360 /* AboutUsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D3451DBA6A0700A30360 /* AboutUsViewController.swift */; };
+		C924D3491DBA6A5000A30360 /* AboutUsPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D3481DBA6A5000A30360 /* AboutUsPageViewController.swift */; };
+		C924D34C1DBAC6DF00A30360 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C924D34B1DBAC6DF00A30360 /* LoginViewController.swift */; };
 		C944D6101DA2BB1A00E56C25 /* ReservationsTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D60F1DA2BB1A00E56C25 /* ReservationsTabViewController.swift */; };
 		C944D6121DA2BC4B00E56C25 /* ConnectionsSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6111DA2BC4B00E56C25 /* ConnectionsSegmentedControl.swift */; };
 		C944D6141DA2C0E800E56C25 /* ReservationsSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = C944D6131DA2C0E800E56C25 /* ReservationsSegmentedControl.swift */; };
@@ -88,6 +91,9 @@
 		C91699071DB5631F0010672B /* CaddieConnectionDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaddieConnectionDetailsViewController.swift; sourceTree = "<group>"; };
 		C916990A1DB567AF0010672B /* RatingScaleSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RatingScaleSegmentedControl.swift; sourceTree = "<group>"; };
 		C916990C1DB57DEE0010672B /* GolferConnectionDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GolferConnectionDetailsViewController.swift; sourceTree = "<group>"; };
+		C924D3451DBA6A0700A30360 /* AboutUsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsViewController.swift; sourceTree = "<group>"; };
+		C924D3481DBA6A5000A30360 /* AboutUsPageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsPageViewController.swift; sourceTree = "<group>"; };
+		C924D34B1DBAC6DF00A30360 /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		C944D60F1DA2BB1A00E56C25 /* ReservationsTabViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationsTabViewController.swift; sourceTree = "<group>"; };
 		C944D6111DA2BC4B00E56C25 /* ConnectionsSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConnectionsSegmentedControl.swift; sourceTree = "<group>"; };
 		C944D6131DA2C0E800E56C25 /* ReservationsSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ReservationsSegmentedControl.swift; sourceTree = "<group>"; };
@@ -199,6 +205,22 @@
 			name = "Reservations Child VCs";
 			sourceTree = "<group>";
 		};
+		C924D3471DBA6A3400A30360 /* About Us Child VCs */ = {
+			isa = PBXGroup;
+			children = (
+				C924D3481DBA6A5000A30360 /* AboutUsPageViewController.swift */,
+			);
+			name = "About Us Child VCs";
+			sourceTree = "<group>";
+		};
+		C924D34A1DBAC6B900A30360 /* Login/Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+				C924D34B1DBAC6DF00A30360 /* LoginViewController.swift */,
+			);
+			name = "Login/Sign Up";
+			sourceTree = "<group>";
+		};
 		C944D6071DA2BA9D00E56C25 /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -220,6 +242,7 @@
 		C944D60A1DA2BAB200E56C25 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				C924D34A1DBAC6B900A30360 /* Login/Sign Up */,
 				C944D60B1DA2BAD700E56C25 /* Home Tab */,
 				C944D60C1DA2BADD00E56C25 /* Connections Tab VCs */,
 				C944D60D1DA2BAE700E56C25 /* Reservations Tab VCs */,
@@ -459,6 +482,8 @@
 				C9D3C5221DB80F4300AC1A15 /* PaymentMethodsViewController.swift */,
 				C9D3C5241DB811A700AC1A15 /* EnterPromoCodeViewController.swift */,
 				C9D3C5261DB813A800AC1A15 /* BecomeACaddieViewController.swift */,
+				C924D3451DBA6A0700A30360 /* AboutUsViewController.swift */,
+				C924D3471DBA6A3400A30360 /* About Us Child VCs */,
 			);
 			name = "Settings Child VCs";
 			sourceTree = "<group>";
@@ -735,6 +760,7 @@
 				C944D6381DA3704200E56C25 /* CourseDetailsViewController.swift in Sources */,
 				C91699031DB122300010672B /* ConfirmedReservationDetailsViewController.swift in Sources */,
 				C944D63A1DA407F400E56C25 /* DetailsContainerViewController.swift in Sources */,
+				C924D3491DBA6A5000A30360 /* AboutUsPageViewController.swift in Sources */,
 				C944D62C1DA354BD00E56C25 /* ChooseCourseViewController.swift in Sources */,
 				C944D6161DA2CF9B00E56C25 /* ProfileTabViewController.swift in Sources */,
 				C91699061DB158C40010672B /* RequestedReservationDetailsViewController.swift in Sources */,
@@ -744,6 +770,7 @@
 				C94D9EC71DA59D66000308CB /* ChooseCaddieViewController.swift in Sources */,
 				C944D61C1DA2F0DD00E56C25 /* CaddiesContainerViewController.swift in Sources */,
 				C9D3C5231DB80F4300AC1A15 /* PaymentMethodsViewController.swift in Sources */,
+				C924D3461DBA6A0700A30360 /* AboutUsViewController.swift in Sources */,
 				C9D3C5161DB6CD5C00AC1A15 /* EditProfileViewController.swift in Sources */,
 				C944D6341DA361A700E56C25 /* ChooseCourseTableViewCell.swift in Sources */,
 				C91698FF1DAED9CA0010672B /* ConnectionPopoverViewController.swift in Sources */,
@@ -760,6 +787,7 @@
 				C94D9EC91DA60E1C000308CB /* CaddieTableViewCell.swift in Sources */,
 				C944D6271DA3005A00E56C25 /* ReservationsTableViewCell.swift in Sources */,
 				C944D62E1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift in Sources */,
+				C924D34C1DBAC6DF00A30360 /* LoginViewController.swift in Sources */,
 				C944D6191DA2E73500E56C25 /* SettingsViewController.swift in Sources */,
 				C944D6291DA3415C00E56C25 /* ConfirmedContainerViewController.swift in Sources */,
 				C9D3C5251DB811A700AC1A15 /* EnterPromoCodeViewController.swift in Sources */,

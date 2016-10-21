@@ -25,9 +25,6 @@ class EnterPromoCodeViewController: UIViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationController!.navigationBar.tintColor = UIColor.blackColor()
-        navigationController!.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
-        navigationController!.navigationBar.shadowImage = UIImage()
-        
         
         applyButtonDisabled()
         applyButton.layer.cornerRadius = 20

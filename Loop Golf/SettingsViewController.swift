@@ -116,12 +116,12 @@ extension SettingsViewController {
         
         // User selects Go To LoopGolf.com cell.
         if (cell == goToWebsiteCell) {
-            
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://www.loopgolf.com")!)
         }
         
         // User selects Like On Facebook cell.
         if (cell == likeOnFacebookCell) {
-            
+            UIApplication.sharedApplication().openURL(NSURL(string: "http://www.facebook.com")!)
         }
         
         // User selects Rate In App Store cell.
@@ -132,7 +132,7 @@ extension SettingsViewController {
         // User selects Sign Out cell.
         if (cell == signOutCell) {
             let actionSheetController = UIAlertController(title: "Are you sure you want to sign out?", message: "", preferredStyle: .ActionSheet)
-            actionSheetController.view.tintColor = UIColor(red: 0/255, green: 51/255, blue: 0/255, alpha: 1.0)
+            actionSheetController.view.tintColor = UIColor.blackColor()
             let signOutAction = UIAlertAction(title: "Sign Out", style: .Destructive) { (action) in
                 
                 /*
@@ -143,17 +143,19 @@ extension SettingsViewController {
                         print(error.localizedDescription)
                     }
                 }
-                
+                */
+ 
+ 
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
-                self.presentViewController(loginViewController, animated: true, completion: nil)*/
+                self.presentViewController(loginViewController, animated: true, completion: nil)
             }
             actionSheetController.addAction(signOutAction)
             let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
             }
             actionSheetController.addAction(cancelAction)
             presentViewController(actionSheetController, animated: true) {
-                actionSheetController.view.tintColor = UIColor(red: 0/255, green: 51/255, blue: 0/255, alpha: 1.0)
+                actionSheetController.view.tintColor = UIColor.blackColor()
             }
 
         }
