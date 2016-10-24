@@ -36,6 +36,12 @@
                                     </mask>
                                 </variation>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uT9-Ei-jZs">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                                <connections>
+                                    <action selector="backgroundButtonPressed:" destination="fTt-XP-jMl" eventType="touchUpInside" id="5lI-sN-pLP"/>
+                                </connections>
+                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ft6-Jf-GDX">
                                 <rect key="frame" x="40" y="214" width="520" height="44"/>
                                 <subviews>
@@ -169,12 +175,6 @@
                                 </state>
                                 <connections>
                                     <action selector="signUpButtonPressed:" destination="fTt-XP-jMl" eventType="touchUpInside" id="f0t-F0-aYY"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uT9-Ei-jZs">
-                                <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
-                                <connections>
-                                    <action selector="backgroundButtonPressed:" destination="fTt-XP-jMl" eventType="touchUpInside" id="5lI-sN-pLP"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -4773,7 +4773,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="78" y="32" width="444" height="31"/>
                                         <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                         <color key="minimumTrackTintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                        <color key="maximumTrackTintColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                        <color key="maximumTrackTintColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                         <connections>
                                             <action selector="sliderTouchUpInside:" destination="LQ1-Kj-ikU" eventType="touchUpInside" id="tjs-xF-A72"/>
                                             <action selector="sliderTouchUpOutside:" destination="LQ1-Kj-ikU" eventType="touchUpOutside" id="DdF-3F-vae"/>
@@ -4871,7 +4871,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Gl6-9x-ILS" secondAttribute="trailing" constant="20" id="DVW-GN-kQS"/>
                                     <constraint firstItem="Gl6-9x-ILS" firstAttribute="centerY" secondItem="FXI-sI-XKJ" secondAttribute="centerY" id="NpK-vX-Tbv"/>
@@ -4881,7 +4881,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="bML-Md-yKc" firstAttribute="top" secondItem="FXI-sI-XKJ" secondAttribute="bottom" constant="30" id="0mr-M8-HTl"/>
                             <constraint firstItem="FXI-sI-XKJ" firstAttribute="top" secondItem="aNa-F2-SFL" secondAttribute="bottom" id="54V-sR-JXq"/>
@@ -4927,7 +4927,7 @@ Adjusting your search radius will change the available golf courses that are sho
                         <subviews>
                             <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ct-cW-Yzg">
                                 <rect key="frame" x="0.0" y="0.0" width="600" height="536"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <connections>
                                     <segue destination="smn-zn-lFl" kind="embed" id="e9y-k9-9ft"/>
                                 </connections>
@@ -8341,7 +8341,7 @@ Satisfaction</string>
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="2a2-xo-CVt" secondAttribute="trailing" constant="20" id="M27-eZ-jDS"/>
                                     <constraint firstItem="2a2-xo-CVt" firstAttribute="height" secondItem="JY6-cw-TVO" secondAttribute="height" id="NYr-Ka-d7z"/>
@@ -8351,7 +8351,7 @@ Satisfaction</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="JY6-cw-TVO" firstAttribute="centerX" secondItem="WaT-oT-1jM" secondAttribute="centerX" id="P3a-7Q-wjA"/>
                             <constraint firstItem="NJu-b7-aJj" firstAttribute="width" secondItem="WaT-oT-1jM" secondAttribute="width" id="XlN-yQ-4hO"/>
@@ -8405,7 +8405,7 @@ Satisfaction</string>
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="WMX-mj-SeC" firstAttribute="leading" secondItem="XSa-Cu-98M" secondAttribute="leading" constant="20" id="FGA-dV-8Hf"/>
                                     <constraint firstAttribute="height" constant="130" id="QOg-tn-Edo"/>
@@ -8415,7 +8415,7 @@ Satisfaction</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="8FV-bQ-HDp" firstAttribute="width" secondItem="rv7-CR-gfg" secondAttribute="width" id="60u-dv-VXh"/>
                             <constraint firstItem="EaL-1p-vWy" firstAttribute="top" secondItem="XSa-Cu-98M" secondAttribute="bottom" constant="30" id="GS2-DM-GHq"/>
@@ -8470,7 +8470,7 @@ Satisfaction</string>
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="130" id="LRQ-Kv-4z4"/>
                                     <constraint firstItem="n8B-8U-WQJ" firstAttribute="centerY" secondItem="j49-0g-ByD" secondAttribute="centerY" id="Nrd-St-zeN"/>
@@ -8480,7 +8480,7 @@ Satisfaction</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="j49-0g-ByD" firstAttribute="centerX" secondItem="OHB-pa-mzh" secondAttribute="centerX" id="AHF-ex-Brs"/>
                             <constraint firstItem="eUh-Wc-vca" firstAttribute="centerX" secondItem="OHB-pa-mzh" secondAttribute="centerX" id="OtB-Se-Irk"/>
@@ -8536,7 +8536,7 @@ deserves a caddie.</string>
                                         </variation>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstItem="g8w-zQ-pF8" firstAttribute="centerY" secondItem="y0V-rg-Tdr" secondAttribute="centerY" id="C9C-0p-1ES"/>
                                     <constraint firstItem="g8w-zQ-pF8" firstAttribute="height" secondItem="y0V-rg-Tdr" secondAttribute="height" id="Nam-Wt-Dlt"/>
@@ -8546,7 +8546,7 @@ deserves a caddie.</string>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="Umg-hY-0lX" firstAttribute="centerX" secondItem="Byd-xw-XlO" secondAttribute="centerX" id="1NW-Hw-ilJ"/>
                             <constraint firstItem="Umg-hY-0lX" firstAttribute="width" secondItem="Byd-xw-XlO" secondAttribute="width" id="Fd4-S3-ABd"/>
