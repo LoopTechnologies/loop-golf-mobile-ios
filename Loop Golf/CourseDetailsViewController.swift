@@ -28,13 +28,13 @@ class CourseDetailsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.blackColor()]
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.black]
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "GolfCourseImage")
-        self.view.insertSubview(backgroundImage, atIndex: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
         
         if (courseNameReceived != "") {
             courseNameLabel.text = courseNameReceived!
@@ -47,23 +47,23 @@ class CourseDetailsViewController: UIViewController {
         }
         
         favoritesNotificationView.layer.cornerRadius = 8
-        favoritesNotificationView.layer.shadowColor = UIColor.blackColor().CGColor
+        favoritesNotificationView.layer.shadowColor = UIColor.black.cgColor
         favoritesNotificationView.layer.shadowOpacity = 0.5
-        favoritesNotificationView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
-        favoritesNotificationView.layer.hidden = true
+        favoritesNotificationView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
+        favoritesNotificationView.layer.isHidden = true
         
     }
 }
 
 extension CourseDetailsViewController {
     
-    @IBAction func dismissVCButtonPressed(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: {})
+    @IBAction func dismissVCButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: {})
         
     }
     
-    @IBAction func favoriteBarButtonPressed(sender: UIBarButtonItem) {
-        favoritesNotificationView.hidden = false
+    @IBAction func favoriteBarButtonPressed(_ sender: UIBarButtonItem) {
+        favoritesNotificationView.isHidden = false
         
         if (courseIsAFavorite == true) {
             removeFromFavorites()
@@ -76,10 +76,10 @@ extension CourseDetailsViewController {
         favoritesNotificationLabel.text = "Course added to Favorites"
         favoritesNotificationImage.image = UIImage(named: "LikeIconFilled")
         
-        UIView.animateWithDuration(0.3, delay: 1.0, options: .CurveEaseOut , animations: {
+        UIView.animate(withDuration: 0.3, delay: 1.0, options: .curveEaseOut , animations: {
             self.favoritesNotificationView.alpha = 0
             }, completion: { finised in
-                self.favoritesNotificationView.hidden = true
+                self.favoritesNotificationView.isHidden = true
                 self.favoritesNotificationView.alpha = 1.0
         })
         favoriteBarButtonItem.image = UIImage(named: "LikeIconFilled")
@@ -90,10 +90,10 @@ extension CourseDetailsViewController {
         favoritesNotificationLabel.text = "Course removed from Favorites"
         favoritesNotificationImage.image = UIImage(named: "LikeIconUnfilled")
         
-        UIView.animateWithDuration(0.3, delay: 1.0, options: .CurveEaseOut , animations: {
+        UIView.animate(withDuration: 0.3, delay: 1.0, options: .curveEaseOut , animations: {
             self.favoritesNotificationView.alpha = 0
             }, completion: { finised in
-                self.favoritesNotificationView.hidden = true
+                self.favoritesNotificationView.isHidden = true
                 self.favoritesNotificationView.alpha = 1.0
         })
         favoriteBarButtonItem.image = UIImage(named: "LikeIconUnfilled")

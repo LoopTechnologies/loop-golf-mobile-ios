@@ -35,38 +35,38 @@ class CaddieConnectionDetailsViewController: UITableViewController {
         editRatingsButton.layer.cornerRadius = 15
         saveChangesButton.layer.cornerRadius = 15
         
-        editRatingsButton.hidden = false
+        editRatingsButton.isHidden = false
         golfKnowledgeCellPrimaryLabel.text = "Have you rated this caddie?"
         golfKnowledgeCellSecondaryLabel.text = "Your ratings make Loop Golf a better place by helping others pick their perfect caddie."
-        golfKnowledgeSegmentedControl.hidden = true
-        greenReadingRatingCell.hidden = true
-        customerSatisfactionRatingCell.hidden = true
-        saveChangesCell.hidden = true
+        golfKnowledgeSegmentedControl.isHidden = true
+        greenReadingRatingCell.isHidden = true
+        customerSatisfactionRatingCell.isHidden = true
+        saveChangesCell.isHidden = true
     }
 }
 
 extension CaddieConnectionDetailsViewController {
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
     }
     
-    @IBAction func editRatingsButtonPressed(sender: AnyObject) {
+    @IBAction func editRatingsButtonPressed(_ sender: AnyObject) {
         tableView.contentInset = UIEdgeInsetsMake(-19, 0, 1, 0)
         profileImageView.layer.cornerRadius = 40
-        editRatingsButton.hidden = true
+        editRatingsButton.isHidden = true
         golfKnowledgeCellPrimaryLabel.text = "Golf Knowledge"
-        golfKnowledgeCellPrimaryLabel.textAlignment = .Left
+        golfKnowledgeCellPrimaryLabel.textAlignment = .left
         golfKnowledgeCellSecondaryLabel.text = "How much does this caddie know about golf and a caddie's role?"
-        golfKnowledgeCellSecondaryLabel.textAlignment = .Left
-        golfKnowledgeSegmentedControl.hidden = false
-        greenReadingRatingCell.hidden = false
-        customerSatisfactionRatingCell.hidden = false
-        saveChangesCell.hidden = false
+        golfKnowledgeCellSecondaryLabel.textAlignment = .left
+        golfKnowledgeSegmentedControl.isHidden = false
+        greenReadingRatingCell.isHidden = false
+        customerSatisfactionRatingCell.isHidden = false
+        saveChangesCell.isHidden = false
     }
     
 }

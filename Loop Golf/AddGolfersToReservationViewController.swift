@@ -12,14 +12,14 @@ class AddGolfersToReservationViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.blackColor()]
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.black]
         
     }
 }
 
 extension AddGolfersToReservationViewController {
     
-    @IBAction func dismissVCButtonPressed(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: {})
+    @IBAction func dismissVCButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: {})
     }
 }

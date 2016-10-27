@@ -41,6 +41,10 @@
 		C948EA2B1DA629920040C36E /* ConfirmRequestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C948EA2A1DA629920040C36E /* ConfirmRequestViewController.swift */; };
 		C94D9EC71DA59D66000308CB /* ChooseCaddieViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D9EC61DA59D66000308CB /* ChooseCaddieViewController.swift */; };
 		C94D9EC91DA60E1C000308CB /* CaddieTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C94D9EC81DA60E1C000308CB /* CaddieTableViewCell.swift */; };
+		C956CD9B1DBFEEF500D910F7 /* SignUpInformationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956CD9A1DBFEEF500D910F7 /* SignUpInformationViewController.swift */; };
+		C956CD9D1DC1039900D910F7 /* SignUpProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956CD9C1DC1039900D910F7 /* SignUpProfileImageViewController.swift */; };
+		C956CDA11DC11E7E00D910F7 /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956CDA01DC11E7E00D910F7 /* SignUpPasswordViewController.swift */; };
+		C956CDA31DC1217F00D910F7 /* InfoProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956CDA21DC1217F00D910F7 /* InfoProfilePictureViewController.swift */; };
 		C98A9A7C1DA83749009202DD /* ConfirmRequestContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98A9A7B1DA83749009202DD /* ConfirmRequestContainerViewController.swift */; };
 		C9B0D3A21DA20DD4008C4DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */; };
 		C9B0D3A41DA20DD4008C4DDA /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A31DA20DD4008C4DDA /* HomeTabViewController.swift */; };
@@ -116,6 +120,10 @@
 		C948EA2A1DA629920040C36E /* ConfirmRequestViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmRequestViewController.swift; sourceTree = "<group>"; };
 		C94D9EC61DA59D66000308CB /* ChooseCaddieViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseCaddieViewController.swift; sourceTree = "<group>"; };
 		C94D9EC81DA60E1C000308CB /* CaddieTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaddieTableViewCell.swift; sourceTree = "<group>"; };
+		C956CD9A1DBFEEF500D910F7 /* SignUpInformationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpInformationViewController.swift; sourceTree = "<group>"; };
+		C956CD9C1DC1039900D910F7 /* SignUpProfileImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProfileImageViewController.swift; sourceTree = "<group>"; };
+		C956CDA01DC11E7E00D910F7 /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
+		C956CDA21DC1217F00D910F7 /* InfoProfilePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoProfilePictureViewController.swift; sourceTree = "<group>"; };
 		C98A9A7B1DA83749009202DD /* ConfirmRequestContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmRequestContainerViewController.swift; sourceTree = "<group>"; };
 		C9B0D39E1DA20DD3008C4DDA /* Loop Golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loop Golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -216,7 +224,12 @@
 		C924D34A1DBAC6B900A30360 /* Login/Sign Up */ = {
 			isa = PBXGroup;
 			children = (
+				C956CD9E1DC11BF800D910F7 /* Sign Up */,
 				C924D34B1DBAC6DF00A30360 /* LoginViewController.swift */,
+				C956CD9A1DBFEEF500D910F7 /* SignUpInformationViewController.swift */,
+				C956CD9C1DC1039900D910F7 /* SignUpProfileImageViewController.swift */,
+				C956CD9F1DC11C0800D910F7 /* Sign Up Profile Image Child VCs */,
+				C956CDA01DC11E7E00D910F7 /* SignUpPasswordViewController.swift */,
 			);
 			name = "Login/Sign Up";
 			sourceTree = "<group>";
@@ -402,6 +415,21 @@
 			name = "Choose Caddie";
 			sourceTree = "<group>";
 		};
+		C956CD9E1DC11BF800D910F7 /* Sign Up */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Sign Up";
+			sourceTree = "<group>";
+		};
+		C956CD9F1DC11C0800D910F7 /* Sign Up Profile Image Child VCs */ = {
+			isa = PBXGroup;
+			children = (
+				C956CDA21DC1217F00D910F7 /* InfoProfilePictureViewController.swift */,
+			);
+			name = "Sign Up Profile Image Child VCs";
+			sourceTree = "<group>";
+		};
 		C9B0D3951DA20DD3008C4DDA = {
 			isa = PBXGroup;
 			children = (
@@ -565,15 +593,18 @@
 					C9B0D39D1DA20DD3008C4DDA = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 54DUQP4AYT;
+						LastSwiftMigration = 0800;
 					};
 					C9B0D3B31DA20DD4008C4DDA = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 54DUQP4AYT;
+						LastSwiftMigration = 0800;
 						TestTargetID = C9B0D39D1DA20DD3008C4DDA;
 					};
 					C9B0D3BE1DA20DD4008C4DDA = {
 						CreatedOnToolsVersion = 7.3.1;
 						DevelopmentTeam = 54DUQP4AYT;
+						LastSwiftMigration = 0800;
 						TestTargetID = C9B0D39D1DA20DD3008C4DDA;
 					};
 				};
@@ -778,9 +809,12 @@
 				C944D63D1DA45BC100E56C25 /* ChooseDateViewController.swift in Sources */,
 				C9B0D3A21DA20DD4008C4DDA /* AppDelegate.swift in Sources */,
 				C916990B1DB567AF0010672B /* RatingScaleSegmentedControl.swift in Sources */,
+				C956CDA11DC11E7E00D910F7 /* SignUpPasswordViewController.swift in Sources */,
 				C944D6301DA35B3400E56C25 /* NearbyCoursesContainerViewController.swift in Sources */,
 				C9D3C5191DB6F08F00AC1A15 /* ChangePasswordViewController.swift in Sources */,
+				C956CDA31DC1217F00D910F7 /* InfoProfilePictureViewController.swift in Sources */,
 				C944D6121DA2BC4B00E56C25 /* ConnectionsSegmentedControl.swift in Sources */,
+				C956CD9D1DC1039900D910F7 /* SignUpProfileImageViewController.swift in Sources */,
 				C9B0D3A41DA20DD4008C4DDA /* HomeTabViewController.swift in Sources */,
 				C944D6141DA2C0E800E56C25 /* ReservationsSegmentedControl.swift in Sources */,
 				C944D6251DA2FF7400E56C25 /* RequestedContainerViewController.swift in Sources */,
@@ -788,6 +822,7 @@
 				C944D6271DA3005A00E56C25 /* ReservationsTableViewCell.swift in Sources */,
 				C944D62E1DA356F900E56C25 /* ChooseCourseSegmentedControl.swift in Sources */,
 				C924D34C1DBAC6DF00A30360 /* LoginViewController.swift in Sources */,
+				C956CD9B1DBFEEF500D910F7 /* SignUpInformationViewController.swift in Sources */,
 				C944D6191DA2E73500E56C25 /* SettingsViewController.swift in Sources */,
 				C944D6291DA3415C00E56C25 /* ConfirmedContainerViewController.swift in Sources */,
 				C9D3C5251DB811A700AC1A15 /* EnterPromoCodeViewController.swift in Sources */,
@@ -942,6 +977,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Loop-Golf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -954,6 +990,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Loop-Golf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Release;
 		};
@@ -966,6 +1003,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Loop-GolfTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Loop Golf.app/Loop Golf";
 			};
 			name = Debug;
@@ -979,6 +1017,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Loop-GolfTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Loop Golf.app/Loop Golf";
 			};
 			name = Release;
@@ -991,6 +1030,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Loop-GolfUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Loop Golf";
 			};
 			name = Debug;
@@ -1003,6 +1043,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.example.Loop-GolfUITests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
 				TEST_TARGET_NAME = "Loop Golf";
 			};
 			name = Release;

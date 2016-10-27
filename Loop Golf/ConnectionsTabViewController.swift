@@ -20,37 +20,37 @@ class ConnectionsTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notifyWithSelectedIndex:", name: "selectedIndexNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ConnectionsTabViewController.notifyWithSelectedIndex(_:)), name: NSNotification.Name(rawValue: "selectedIndexNotification"), object: nil)
         
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "LandingPageBackgroundImage")
-        self.view.insertSubview(backgroundImage, atIndex: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
         
-        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
-        navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.white]
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
         
         roundedBackgroundView.layer.cornerRadius = 8
         showCaddiesContainer()
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "selectedIndexNotification", object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "selectedIndexNotification"), object: self.view.window)
     }
 }
 
 extension ConnectionsTabViewController {
     
-    @IBAction func addGolferBarButtonItemPressed(sender: UIBarButtonItem) {
+    @IBAction func addGolferBarButtonItemPressed(_ sender: UIBarButtonItem) {
     }
     
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
-    func notifyWithSelectedIndex (notification: NSNotification) {
+    func notifyWithSelectedIndex (_ notification: Notification) {
         selectedIndex = notification.object! as! Int
         
         switch (selectedIndex) {
@@ -64,17 +64,17 @@ extension ConnectionsTabViewController {
     }
     
     func showCaddiesContainer() {
-        caddiesContainer.hidden = false
-        golfersContainer.hidden = true
-        addGolferBarButtonItem.enabled = false
-        addGolferBarButtonItem.tintColor = UIColor.clearColor()
+        caddiesContainer.isHidden = false
+        golfersContainer.isHidden = true
+        addGolferBarButtonItem.isEnabled = false
+        addGolferBarButtonItem.tintColor = UIColor.clear
     }
     
     func showGolfersContainer() {
-        caddiesContainer.hidden = true
-        golfersContainer.hidden = false
-        addGolferBarButtonItem.enabled = true
-        addGolferBarButtonItem.tintColor = UIColor.whiteColor()
+        caddiesContainer.isHidden = true
+        golfersContainer.isHidden = false
+        addGolferBarButtonItem.isEnabled = true
+        addGolferBarButtonItem.tintColor = UIColor.white
     }
 }
 

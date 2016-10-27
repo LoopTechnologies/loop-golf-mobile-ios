@@ -16,13 +16,13 @@ class HomeTabViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "LandingPageBackgroundImage")
-        self.view.insertSubview(backgroundImage, atIndex: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
         
-        newReservationButton.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.75).CGColor
+        newReservationButton.layer.backgroundColor = UIColor.black.withAlphaComponent(0.75).cgColor
         newReservationButton.layer.cornerRadius = 8
-        newReservationButton.layer.borderColor = UIColor.whiteColor().CGColor
+        newReservationButton.layer.borderColor = UIColor.white.cgColor
         newReservationButton.layer.borderWidth = 1
         
     }
@@ -37,12 +37,12 @@ class HomeTabViewController: UIViewController {
 
 extension HomeTabViewController {
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
-    @IBAction func newReservationButtonPressed(sender: AnyObject) {
-        performSegueWithIdentifier("newReservationFromHomeTabSegue", sender: self)
+    @IBAction func newReservationButtonPressed(_ sender: AnyObject) {
+        performSegue(withIdentifier: "newReservationFromHomeTabSegue", sender: self)
     }
     
 }

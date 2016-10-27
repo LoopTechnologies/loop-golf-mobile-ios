@@ -24,90 +24,90 @@ class RequestedContainerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor.clearColor()
+        tableView.backgroundColor = UIColor.clear
         tableView.contentInset = UIEdgeInsetsMake(-35, 0, -35, 0)
     }
 }
 
 extension RequestedContainerViewController {
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 129
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         var numOfSections: Int = 0
         if (caddieNames.count > 0) {
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
             numOfSections = 1
             tableView.backgroundView = nil
         } else {
-            let noDataLabel: UILabel = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height))
+            let noDataLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             noDataLabel.text = "You don't have any requested reservations."
             noDataLabel.font = UIFont(name: "AvenirNext-Regular", size: 17)
-            noDataLabel.textColor = UIColor.whiteColor()
-            noDataLabel.textAlignment = NSTextAlignment.Center
+            noDataLabel.textColor = UIColor.white
+            noDataLabel.textAlignment = NSTextAlignment.center
             noDataLabel.numberOfLines = 0
-            noDataLabel.lineBreakMode = .ByWordWrapping
+            noDataLabel.lineBreakMode = .byWordWrapping
             tableView.backgroundView = noDataLabel
-            tableView.backgroundColor = UIColor.clearColor()
-            tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            tableView.backgroundColor = UIColor.clear
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         }
         return numOfSections
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return caddieNames.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ReservationsTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ReservationsTableViewCell
         
-        cell.caddieNameLabel.text = caddieNames[indexPath.row] as? String
-        cell.courseNameLabel.text = courseNames[indexPath.row] as? String
-        cell.courseLocationLabel.text = courseLocations[indexPath.row] as? String
-        cell.reservationDateLabel.text = "\(dates[indexPath.row]) at \(times[indexPath.row])" as? String
+        cell.caddieNameLabel.text = caddieNames[(indexPath as NSIndexPath).row] as? String
+        cell.courseNameLabel.text = courseNames[(indexPath as NSIndexPath).row] as? String
+        cell.courseLocationLabel.text = courseLocations[(indexPath as NSIndexPath).row] as? String
+        cell.reservationDateLabel.text = "\(dates[(indexPath as NSIndexPath).row]) at \(times[(indexPath as NSIndexPath).row])" as? String
         cell.statusLabel.layer.borderWidth = 1
         cell.statusLabel.layer.cornerRadius = 8
         
-        if (status[indexPath.row] == "p") {
+        if (status[(indexPath as NSIndexPath).row] == "p") {
             // Pending request.
             cell.statusLabel.text = "PENDING"
             cell.statusLabel.textColor = UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1.0)
-            cell.statusLabel.layer.borderColor = UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1.0).CGColor
-        } else if (status[indexPath.row] == "d") {
+            cell.statusLabel.layer.borderColor = UIColor(red: 255/255, green: 204/255, blue: 0/255, alpha: 1.0).cgColor
+        } else if (status[(indexPath as NSIndexPath).row] == "d") {
             // Declined request.
             cell.statusLabel.text = "DECLINED"
             cell.statusLabel.textColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
-            cell.statusLabel.layer.borderColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0).CGColor
+            cell.statusLabel.layer.borderColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0).cgColor
         }
 
         
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! ReservationsTableViewCell
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ReservationsTableViewCell
         cell.layer.cornerRadius = 8
-        cell.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        cell.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
-        if (status[indexPath.row] == "p") {
+        if (status[(indexPath as NSIndexPath).row] == "p") {
             segueSender = 0
-        } else if (status[indexPath.row] == "d") {
+        } else if (status[(indexPath as NSIndexPath).row] == "d") {
             segueSender = 1
         }
         
-        performSegueWithIdentifier("toRequestSegue", sender: self)
+        performSegue(withIdentifier: "toRequestSegue", sender: self)
         
-        UIView.animateWithDuration(0.1, delay: 0.5, options: .CurveLinear, animations: {
-            cell.backgroundColor =  UIColor.blackColor().colorWithAlphaComponent(0)
+        UIView.animate(withDuration: 0.1, delay: 0.5, options: .curveLinear, animations: {
+            cell.backgroundColor =  UIColor.black.withAlphaComponent(0)
             }, completion: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toRequestSegue") {
             
-            let destinationVC = segue.destinationViewController as! ReservationPopoverViewController
+            let destinationVC = segue.destination as! ReservationPopoverViewController
             destinationVC.senderReceived = segueSender
         }
     }

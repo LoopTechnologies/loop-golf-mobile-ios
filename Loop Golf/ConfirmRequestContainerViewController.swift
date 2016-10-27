@@ -21,7 +21,7 @@ class ConfirmRequestContainerViewController: UITableViewController {
     @IBOutlet weak var feeLabel: UILabel!
     @IBOutlet weak var reservationPriceLabel: UILabel!
     
-    let currencyFormatter = NSNumberFormatter()
+    let currencyFormatter = NumberFormatter()
     var reservationFee = Float()
     
     // Receive data from parent VC via segue.
@@ -40,10 +40,7 @@ class ConfirmRequestContainerViewController: UITableViewController {
         
         reservationFee = Float(coursePriceReceived!)/10
         
-        currencyFormatter.numberStyle = .CurrencyStyle
-        //Swift3: currencyFormatter.numberStyle = .currency
-        //Swift3: currencyFormatter.string(from: reservationFee)
-        
+        currencyFormatter.numberStyle = .currency
         
         caddieNameLabel.text = caddieNameReceived!
         acceptanceRateLabel.text = "\(acceptanceRateReceived!)% of requests accepted"
@@ -52,17 +49,17 @@ class ConfirmRequestContainerViewController: UITableViewController {
         dateLabel.text = fullStyleDateReceived!
         timeLabel.text = timeStringReceived!
         //TO DO: set payment method label
-        feeLabel.text = "\((currencyFormatter.stringFromNumber(reservationFee))!)"
-        reservationPriceLabel.text = "(10% of \((currencyFormatter.stringFromNumber(coursePriceReceived!))!))"
+        feeLabel.text = "\(currencyFormatter.string(from: NSNumber(value: reservationFee))!)"
+        reservationPriceLabel.text = "10% of \(currencyFormatter.string(from: NSNumber(value: coursePriceReceived!))!)"
     }
 }
 
 extension ConfirmRequestContainerViewController {
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 5
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 5
     }
 }

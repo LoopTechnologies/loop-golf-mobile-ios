@@ -22,7 +22,7 @@ class CaddiesContainerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor.clearColor()
+        tableView.backgroundColor = UIColor.clear
         tableView.contentInset = UIEdgeInsetsMake(-35, 0, -35, 0)
         
     }
@@ -30,64 +30,64 @@ class CaddiesContainerViewController: UITableViewController {
 
 extension CaddiesContainerViewController {
     
-    override func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 57
     }
     
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    override func numberOfSections(in tableView: UITableView) -> Int {
         var numOfSections: Int = 0
         if (caddieNames.count > 0) {
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
             numOfSections = 1
             tableView.backgroundView = nil
         } else {
-            let noDataLabel: UILabel = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height))
+            let noDataLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             noDataLabel.text = "You haven't golfed with any Loop caddies. Caddie connections are added after completing rounds of golf."
             noDataLabel.font = UIFont(name: "AvenirNext-Regular", size: 17)
-            noDataLabel.textColor = UIColor.whiteColor()
-            noDataLabel.textAlignment = NSTextAlignment.Center
+            noDataLabel.textColor = UIColor.white
+            noDataLabel.textAlignment = NSTextAlignment.center
             noDataLabel.numberOfLines = 0
-            noDataLabel.lineBreakMode = .ByWordWrapping
+            noDataLabel.lineBreakMode = .byWordWrapping
             tableView.backgroundView = noDataLabel
-            tableView.backgroundColor = UIColor.clearColor()
-            tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            tableView.backgroundColor = UIColor.clear
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         }
         return numOfSections
     }
     
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return caddieNames.count
     }
     
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! ConnectionsTableViewCell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ConnectionsTableViewCell
         
-        cell.nameLabel.text = caddieNames[indexPath.row] as? String
-        cell.secondaryLabel.text = "Last caddied for you \(caddieHistory[indexPath.row])"
+        cell.nameLabel.text = caddieNames[(indexPath as NSIndexPath).row] as? String
+        cell.secondaryLabel.text = "Last caddied for you \(caddieHistory[(indexPath as NSIndexPath).row])"
 
         return cell
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! ConnectionsTableViewCell
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! ConnectionsTableViewCell
         cell.layer.cornerRadius = 8
-        cell.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        cell.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
-        profileNameForSegue = caddieNames[indexPath.row]
-        profileSecondaryInfoForSegue = caddieHistory[indexPath.row]
+        profileNameForSegue = caddieNames[(indexPath as NSIndexPath).row]
+        profileSecondaryInfoForSegue = caddieHistory[(indexPath as NSIndexPath).row]
         
-        performSegueWithIdentifier("toCaddieProfileSegue", sender: self)
+        performSegue(withIdentifier: "toCaddieProfileSegue", sender: self)
         
-        UIView.animateWithDuration(0.1, delay: 0.5, options: .CurveLinear, animations: {
-            cell.backgroundColor =  UIColor.blackColor().colorWithAlphaComponent(0)
+        UIView.animate(withDuration: 0.1, delay: 0.5, options: .curveLinear, animations: {
+            cell.backgroundColor =  UIColor.black.withAlphaComponent(0)
             }, completion: nil)
     }
     
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toCaddieProfileSegue") {
 
-            let destinationVC = segue.destinationViewController as! ConnectionPopoverViewController
+            let destinationVC = segue.destination as! ConnectionPopoverViewController
             destinationVC.senderReceived = segueSender
             destinationVC.profileNameReceived = profileNameForSegue
             destinationVC.profileSecondaryInfoReceived = profileSecondaryInfoForSegue

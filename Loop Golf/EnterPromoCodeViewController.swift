@@ -17,14 +17,14 @@ class EnterPromoCodeViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var promoCodeTextField: UITextField!
     @IBOutlet weak var applyButton: UIButton!
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         promoCodeTextField.becomeFirstResponder()
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController!.navigationBar.tintColor = UIColor.blackColor()
+        navigationController!.navigationBar.tintColor = UIColor.black
         
         applyButtonDisabled()
         applyButton.layer.cornerRadius = 20
@@ -34,18 +34,18 @@ class EnterPromoCodeViewController: UIViewController, UITextFieldDelegate {
 extension EnterPromoCodeViewController {
     
     func applyButtonDisabled() {
-        applyButton.enabled = false
-        applyButton.setTitleColor(UIColor.lightGrayColor(), forState: .Normal)
-        applyButton.layer.backgroundColor = UIColor.groupTableViewBackgroundColor().CGColor
+        applyButton.isEnabled = false
+        applyButton.setTitleColor(UIColor.lightGray, for: UIControlState())
+        applyButton.layer.backgroundColor = UIColor.groupTableViewBackground.cgColor
     }
     
     func applyButtonEnabled() {
-        applyButton.enabled = true
-        applyButton.setTitleColor(UIColor.whiteColor(), forState: .Normal)
-        applyButton.layer.backgroundColor = UIColor.blackColor().CGColor
+        applyButton.isEnabled = true
+        applyButton.setTitleColor(UIColor.white, for: UIControlState())
+        applyButton.layer.backgroundColor = UIColor.black.cgColor
     }
     
-    @IBAction func promoCodeTextFieldEditingChanged(sender: AnyObject) {
+    @IBAction func promoCodeTextFieldEditingChanged(_ sender: AnyObject) {
         if (promoCodeTextField.text!.characters.count < 1) {
             applyButtonDisabled()
         } else {
@@ -53,39 +53,39 @@ extension EnterPromoCodeViewController {
         }
     }
     
-    @IBAction func applyButtonPressed(sender: AnyObject) {
+    @IBAction func applyButtonPressed(_ sender: AnyObject) {
         evaluatePromoCode(promoCodeTextField.text!)
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         evaluatePromoCode(promoCodeTextField.text!)
         return true
     }
     
-    func evaluatePromoCode(enteredPromoCode: String) -> Bool {
+    func evaluatePromoCode(_ enteredPromoCode: String) -> Bool {
         // TODO: Query FirebaseDB for enteredPromoCode.
         if (enteredPromoCode == promoCode) {
-            let alertController = UIAlertController(title: "", message: "Your promo code has been applied.", preferredStyle: .Alert)
-            alertController.view.tintColor = UIColor.blackColor()
-            let doneAction = UIAlertAction(title: "OK", style: .Default) { (action) in
+            let alertController = UIAlertController(title: "", message: "Your promo code has been applied.", preferredStyle: .alert)
+            alertController.view.tintColor = UIColor.black
+            let doneAction = UIAlertAction(title: "OK", style: .default) { (action) in
                 self.promoCodeTextField.resignFirstResponder()
-                self.navigationController?.popViewControllerAnimated(true)
+                self.navigationController?.popViewController(animated: true)
             }
             alertController.addAction(doneAction)
-            self.presentViewController(alertController, animated: true) {
-                alertController.view.tintColor = UIColor.blackColor()
+            self.present(alertController, animated: true) {
+                alertController.view.tintColor = UIColor.black
             }
         } else {
-            let alertController = UIAlertController(title: "", message: "The promo code you entered is invalid. Please try something else.", preferredStyle: .Alert)
-            alertController.view.tintColor = UIColor.blackColor()
-            let tryAgainAction = UIAlertAction(title: "Try Again", style: .Cancel) { (action) in
+            let alertController = UIAlertController(title: "", message: "The promo code you entered is invalid. Please try something else.", preferredStyle: .alert)
+            alertController.view.tintColor = UIColor.black
+            let tryAgainAction = UIAlertAction(title: "Try Again", style: .cancel) { (action) in
                 self.promoCodeTextField.text = ""
                 self.applyButtonDisabled()
                 self.promoCodeTextField.becomeFirstResponder()
             }
             alertController.addAction(tryAgainAction)
-            self.presentViewController(alertController, animated: true) {
-                alertController.view.tintColor = UIColor.blackColor()
+            self.present(alertController, animated: true) {
+                alertController.view.tintColor = UIColor.black
             }
         }
         return true

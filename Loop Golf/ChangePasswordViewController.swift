@@ -35,25 +35,25 @@ class ChangePasswordViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Change Password"
-        navigationController!.navigationBar.tintColor = UIColor.blackColor()
+        navigationController!.navigationBar.tintColor = UIColor.black
         tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
         
-        let saveButton = UIBarButtonItem(title: "Next", style: .Plain, target: self, action: ("rightBarButtonPressed"))
-        saveButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 17)!], forState: UIControlState.Normal)
+        let saveButton = UIBarButtonItem(title: "Next", style: .plain, target: self, action: (#selector(ChangePasswordViewController.rightBarButtonPressed)))
+        saveButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 17)!], for: UIControlState())
         self.navigationItem.rightBarButtonItem = saveButton
-        self.navigationItem.rightBarButtonItem?.enabled = false
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
         
         currentPasswordTextField.delegate = self
         currentPasswordTextField.text = ""
         currentPasswordTextField.becomeFirstResponder()
-        newPasswordHeaderCell.hidden = true
-        newPasswordTableViewCell.hidden = true
+        newPasswordHeaderCell.isHidden = true
+        newPasswordTableViewCell.isHidden = true
         newPasswordTextField.delegate = self
         newPasswordTextField.text = ""
-        confirmNewPasswordTableViewCell.hidden = true
+        confirmNewPasswordTableViewCell.isHidden = true
         confirmNewPasswordTextField.delegate = self
         confirmNewPasswordTextField.text = ""
-        newPasswordFooterCell.hidden = true
+        newPasswordFooterCell.isHidden = true
         
         userIsEditingCurrentPassword = true
         userIsEditingNewPassword = false
@@ -69,23 +69,23 @@ class ChangePasswordViewController: UITableViewController, UITextFieldDelegate {
 
 extension ChangePasswordViewController {
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
     }
     
-    @IBAction func currentPasswordTextFieldEditingChanged(sender: AnyObject) {
+    @IBAction func currentPasswordTextFieldEditingChanged(_ sender: AnyObject) {
         if (currentPasswordTextField.text!.characters.count < 6) {
-            self.navigationItem.rightBarButtonItem?.enabled = false
+            self.navigationItem.rightBarButtonItem?.isEnabled = false
         } else {
-            self.navigationItem.rightBarButtonItem?.enabled = true
+            self.navigationItem.rightBarButtonItem?.isEnabled = true
         }
     }
     
-    func validateCurrentPassword(currentPassword: String) -> Bool {
+    func validateCurrentPassword(_ currentPassword: String) -> Bool {
         
         // Validate current password against password in Firebase DB.
         //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
@@ -95,31 +95,31 @@ extension ChangePasswordViewController {
         return currentPasswordIsValid
     }
     
-    func verifyNewPassword(newPassword: String, confirmedNewPassword: String) -> Bool {
+    func verifyNewPassword(_ newPassword: String, confirmedNewPassword: String) -> Bool {
         if (newPassword != confirmedNewPassword) {
-            let alertController = UIAlertController(title: "", message:  "The two passwords that you entered do not match. Passwords must match to save changes.", preferredStyle: .Alert)
-            alertController.view.tintColor = UIColor.blackColor()
-            let doneAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+            let alertController = UIAlertController(title: "", message:  "The two passwords that you entered do not match. Passwords must match to save changes.", preferredStyle: .alert)
+            alertController.view.tintColor = UIColor.black
+            let doneAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
             }
             alertController.addAction(doneAction)
-            self.presentViewController(alertController, animated: true) {
-                alertController.view.tintColor = UIColor.blackColor()
+            self.present(alertController, animated: true) {
+                alertController.view.tintColor = UIColor.black
             }
         } else if (newPassword == confirmedNewPassword) {
             if (newPassword.characters.count < 6 && confirmedNewPassword.characters.count < 6) {
-                let alertController = UIAlertController(title: "", message:  "The password that you entered is not long enough. Your new password must be at least 6 characters long to save changes.", preferredStyle: .Alert)
-                alertController.view.tintColor = UIColor.blackColor()
-                let doneAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+                let alertController = UIAlertController(title: "", message:  "The password that you entered is not long enough. Your new password must be at least 6 characters long to save changes.", preferredStyle: .alert)
+                alertController.view.tintColor = UIColor.black
+                let doneAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
                 }
                 alertController.addAction(doneAction)
-                self.presentViewController(alertController, animated: true) {
-                    alertController.view.tintColor = UIColor.blackColor()
+                self.present(alertController, animated: true) {
+                    alertController.view.tintColor = UIColor.black
                 }
             } else {
                 // Save changes to account information.
                 passwordToSave = newPassword
                 print(passwordToSave)
-                navigationController?.popViewControllerAnimated(true)
+                navigationController?.popViewController(animated: true)
             }
         }
         
@@ -131,20 +131,20 @@ extension ChangePasswordViewController {
         
         if (userIsEditingCurrentPassword == true) {
             if (currentPasswordIsValid == false) {
-                let alertController = UIAlertController(title: "", message:  "You entered an invalid password. You must enter your current password to create a new one.", preferredStyle: .Alert)
-                alertController.view.tintColor = UIColor.blackColor()
-                let doneAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+                let alertController = UIAlertController(title: "", message:  "You entered an invalid password. You must enter your current password to create a new one.", preferredStyle: .alert)
+                alertController.view.tintColor = UIColor.black
+                let doneAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
                 }
                 alertController.addAction(doneAction)
-                self.presentViewController(alertController, animated: true) {
-                    alertController.view.tintColor = UIColor.blackColor()
+                self.present(alertController, animated: true) {
+                    alertController.view.tintColor = UIColor.black
                 }
             } else {
-                newPasswordHeaderCell.hidden = false
-                newPasswordTableViewCell.hidden = false
-                confirmNewPasswordTableViewCell.hidden = false
-                newPasswordFooterCell.hidden = false
-                currentPasswordTextField.userInteractionEnabled = false
+                newPasswordHeaderCell.isHidden = false
+                newPasswordTableViewCell.isHidden = false
+                confirmNewPasswordTableViewCell.isHidden = false
+                newPasswordFooterCell.isHidden = false
+                currentPasswordTextField.isUserInteractionEnabled = false
                 self.navigationItem.rightBarButtonItem?.title = "Save"
                 userIsEditingCurrentPassword = false
                 userIsEditingNewPassword = true
@@ -155,7 +155,7 @@ extension ChangePasswordViewController {
         }
     }
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField.tag == 2) {
             newPasswordTextFieldOccupied()
         } else if (textField.tag == 3) {
@@ -163,7 +163,7 @@ extension ChangePasswordViewController {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField.tag == 1) {
             rightBarButtonPressed()
         } else if (textField.tag == 2) {
@@ -174,7 +174,7 @@ extension ChangePasswordViewController {
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField.tag == 2) {
             newPasswordTextField.resignFirstResponder()
             if (newPasswordTextField.text == "") {
@@ -193,26 +193,26 @@ extension ChangePasswordViewController {
     }
     
     func newPasswordTextFieldEmpty() {
-        newPasswordCellLabel.hidden = true
-        newPasswordPlaceholder.hidden = false
+        newPasswordCellLabel.isHidden = true
+        newPasswordPlaceholder.isHidden = false
         newPasswordTextFieldBottomConstraint.constant = 6
     }
     
     func newPasswordTextFieldOccupied() {
-        newPasswordCellLabel.hidden = false
-        newPasswordPlaceholder.hidden = true
+        newPasswordCellLabel.isHidden = false
+        newPasswordPlaceholder.isHidden = true
         newPasswordTextFieldBottomConstraint.constant = 0
     }
     
     func confirmNewPasswordTextFieldEmpty() {
-        confirmNewPasswordCellLabel.hidden = true
-        confirmNewPasswordPlaceholder.hidden = false
+        confirmNewPasswordCellLabel.isHidden = true
+        confirmNewPasswordPlaceholder.isHidden = false
         confirmNewPasswordTextFieldBottomConstraint.constant = 6
     }
     
     func confirmNewPasswordTextFieldOccupied() {
-        confirmNewPasswordCellLabel.hidden = false
-        confirmNewPasswordPlaceholder.hidden = true
+        confirmNewPasswordCellLabel.isHidden = false
+        confirmNewPasswordPlaceholder.isHidden = true
         confirmNewPasswordTextFieldBottomConstraint.constant = 0
     }
 }

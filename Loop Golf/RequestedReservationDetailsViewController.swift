@@ -29,11 +29,11 @@ class RequestedReservationDetailsViewController: UITableViewController {
         case 0:
             tableView.contentInset = UIEdgeInsetsMake(-69, 0, 1, 0)
             requestStatusBannerLabel.text = "Every caddie has 12 hours to respond to a reservation request. Your reservation will remain pending until it's confirmed or declined."
-            selectNewButtonCell.hidden = true
+            selectNewButtonCell.isHidden = true
         case 1:
             tableView.contentInset = UIEdgeInsetsMake(-9, 0, 1, 0)
             requestStatusBannerLabel.text = "Unfortunately, your requested caddie is unable to complete your reservation. Don't worry though, finding another caddie is easy."
-            selectNewButtonCell.hidden = false
+            selectNewButtonCell.isHidden = false
         default:
             break
         }
@@ -42,31 +42,31 @@ class RequestedReservationDetailsViewController: UITableViewController {
 
 extension RequestedReservationDetailsViewController {
  
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
         
         if (cell == cancelRequestCell) {
-            let actionSheet = UIAlertController(title: "Cancel this reservation request?", message:  "\n This action will permanently delete this request and is subject to the Loop Golf Terms of Use.", preferredStyle: .ActionSheet)
-            actionSheet.view.tintColor = UIColor.blackColor()
-            let closeAction = UIAlertAction(title: "Close", style: .Cancel) { (action) in
+            let actionSheet = UIAlertController(title: "Cancel this reservation request?", message:  "\n This action will permanently delete this request and is subject to the Loop Golf Terms of Use.", preferredStyle: .actionSheet)
+            actionSheet.view.tintColor = UIColor.black
+            let closeAction = UIAlertAction(title: "Close", style: .cancel) { (action) in
             }
             actionSheet.addAction(closeAction)
             
-            let cancelRequestAction = UIAlertAction(title: "Cancel this request", style: .Destructive) { (action) in
+            let cancelRequestAction = UIAlertAction(title: "Cancel this request", style: .destructive) { (action) in
             }
             actionSheet.addAction(cancelRequestAction)
             
-            self.presentViewController(actionSheet, animated: true) {
-                actionSheet.view.tintColor = UIColor.blackColor()
+            self.present(actionSheet, animated: true) {
+                actionSheet.view.tintColor = UIColor.black
             }
         }
     }

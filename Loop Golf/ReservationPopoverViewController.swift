@@ -11,7 +11,7 @@ import UIKit
 class ReservationPopoverViewController: UIViewController {
     
     //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
-    var otherGolfers = []
+    var otherGolfers: [String] = []
     
     // --------------------------------------------------------------------------------//
 
@@ -28,7 +28,7 @@ class ReservationPopoverViewController: UIViewController {
     // Send data to child VCs via segue.
     var otherGolfersForSegue = [String]()
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         
@@ -41,22 +41,22 @@ class ReservationPopoverViewController: UIViewController {
         switch (senderReceived!) {
         case 0:
             navigationBar.topItem!.title = "Pending Request"
-            requestedReservationContainer.hidden = false
-            confirmedReservationContainer.hidden = true
+            requestedReservationContainer.isHidden = false
+            confirmedReservationContainer.isHidden = true
         case 1:
             navigationBar.topItem!.title = "Declined Request"
-            requestedReservationContainer.hidden = false
-            confirmedReservationContainer.hidden = true
+            requestedReservationContainer.isHidden = false
+            confirmedReservationContainer.isHidden = true
         case 2:
             navigationBar.topItem!.title = "Confirmed Reservation"
-            requestedReservationContainer.hidden = true
-            confirmedReservationContainer.hidden = false
+            requestedReservationContainer.isHidden = true
+            confirmedReservationContainer.isHidden = false
         default:
             break
         }
     
-        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-DemiBold", size: 22)!, NSForegroundColorAttributeName: UIColor.blackColor()]
-        navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-DemiBold", size: 22)!, NSForegroundColorAttributeName: UIColor.black]
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
         
         popoverView.layer.cornerRadius = 8
@@ -66,23 +66,23 @@ class ReservationPopoverViewController: UIViewController {
 
 extension ReservationPopoverViewController {
     
-    @IBAction func dismissVCButtonPressed(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: {})
+    @IBAction func dismissVCButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: {})
         
     }
     
-    @IBAction func backgroundPressed(sender: AnyObject) {
-        self.dismissViewControllerAnimated(true, completion: {})
+    @IBAction func backgroundPressed(_ sender: AnyObject) {
+        self.dismiss(animated: true, completion: {})
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "requestedReservationDetailsSegue") {
-            let destinationVC = segue.destinationViewController as! RequestedReservationDetailsViewController
+            let destinationVC = segue.destination as! RequestedReservationDetailsViewController
             destinationVC.typeOfReservationReceived = senderReceived!
         }
         
         if (segue.identifier == "confirmedReservationDetailsSegue") {
-            let destinationVC = segue.destinationViewController as! ConfirmedReservationDetailsViewController
+            let destinationVC = segue.destination as! ConfirmedReservationDetailsViewController
             otherGolfersForSegue = otherGolfers as! [String]
             
             destinationVC.typeOfReservationReceived = senderReceived!

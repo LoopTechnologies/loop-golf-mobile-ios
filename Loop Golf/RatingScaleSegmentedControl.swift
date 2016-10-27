@@ -10,7 +10,7 @@ import UIKit
 
 @IBDesignable class RatingScaleSegmentedControl: UIControl {
     
-    private var labels = [UILabel]()
+    fileprivate var labels = [UILabel]()
     var thumbView = UIView()
     var lineView = UIView()
     var pillView = UIView()
@@ -43,7 +43,7 @@ import UIKit
     func setupView() {
         
         setupLabels()
-        insertSubview(thumbView, atIndex: 0)
+        insertSubview(thumbView, at: 0)
         
         // Setup the properties for the entire view of segmented controller. This section is where one should set the overall border for the controller, background color, corners, etc. Commented-out code below acts as reference to show.
         /*
@@ -60,13 +60,13 @@ import UIKit
             label.removeFromSuperview()
         }
         
-        labels.removeAll(keepCapacity: true)
+        labels.removeAll(keepingCapacity: true)
         
         for index in 1...items.count {
-            let label = UILabel(frame: CGRectZero)
+            let label = UILabel(frame: CGRect.zero)
             label.text = items[index - 1]
-            label.textAlignment = .Center
-            label.textColor = UIColor.blackColor()
+            label.textAlignment = .center
+            label.textColor = UIColor.black
             label.font = UIFont(name: "AvenirNext-Regular", size: 17)
             self.addSubview(label)
             labels.append(label)
@@ -77,7 +77,7 @@ import UIKit
         super.layoutSubviews()
         
         var selectFrame = self.bounds
-        let newWidth = CGRectGetWidth(selectFrame) / CGFloat(items.count)
+        let newWidth = selectFrame.width / CGFloat(items.count)
         selectFrame.size.width = newWidth
         thumbView.frame = selectFrame
         
@@ -91,31 +91,31 @@ import UIKit
         let labelWidth = self.bounds.width / CGFloat(labels.count)
         
         //lineView.frame = CGRectMake((labelWidth * 0.15), labelHeight - 1.0, (labelWidth * 0.7), 1.5)
-        lineView.frame = CGRectMake((labelWidth * 0.1), labelHeight - 1.0, (labelWidth * 0.8), 2)
-        lineView.backgroundColor = UIColor.blackColor()
+        lineView.frame = CGRect(x: (labelWidth * 0.1), y: labelHeight - 1.0, width: (labelWidth * 0.8), height: 2)
+        lineView.backgroundColor = UIColor.black
         
-        pillView.frame = CGRectMake ((labelWidth * 0.05), 0, (labelWidth * 0.9), labelHeight)
-        pillView.backgroundColor = UIColor.clearColor() //.groupTableViewBackgroundColor()
+        pillView.frame = CGRect (x: (labelWidth * 0.05), y: 0, width: (labelWidth * 0.9), height: labelHeight)
+        pillView.backgroundColor = UIColor.clear //.groupTableViewBackgroundColor()
         pillView.layer.borderWidth = 1
-        pillView.layer.borderColor = UIColor.blackColor().CGColor
+        pillView.layer.borderColor = UIColor.black.cgColor
         pillView.layer.cornerRadius = thumbView.frame.height / 2
         
         thumbView.addSubview(lineView)
         //thumbView.addSubview(pillView)
         
         for index in 0...labels.count - 1 {
-            var label = labels[index]
+            let label = labels[index]
             
             let xPosition = CGFloat(index) * labelWidth
-            label.frame = CGRectMake(xPosition, 0, labelWidth, labelHeight)
+            label.frame = CGRect(x: xPosition, y: 0, width: labelWidth, height: labelHeight)
         }
     }
     
-    override func beginTrackingWithTouch(touch: UITouch, withEvent event: UIEvent?) -> Bool {
-        let location = touch.locationInView(self)
+    override func beginTracking(_ touch: UITouch, with event: UIEvent?) -> Bool {
+        let location = touch.location(in: self)
         
         var calculatedIndex: Int?
-        for(index, item) in EnumerateSequence(labels) {
+        for(index, item) in labels.enumerated() {
             if item.frame.contains(location) {
                 calculatedIndex = index
             }
@@ -123,42 +123,42 @@ import UIKit
         
         if calculatedIndex != nil {
             selectedIndex = calculatedIndex!
-            sendActionsForControlEvents(.ValueChanged)
+            sendActions(for: .valueChanged)
         }
         
         return false
     }
     
     func displayNewSelectedIndex() {
-        var label = labels[selectedIndex]
+        let label = labels[selectedIndex]
         
-        UIView.animateWithDuration(0.5, delay: 0.0, usingSpringWithDamping:  0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.AllowAnimatedContent, animations: {
+        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping:  0.7, initialSpringVelocity: 0.8, options: UIViewAnimationOptions.allowAnimatedContent, animations: {
             self.thumbView.frame = label.frame
             }, completion: nil)
         
-        NSNotificationCenter.defaultCenter().postNotificationName("selectedIndexNotification", object: selectedIndex)
+        NotificationCenter.default.post(name: Notification.Name(rawValue: "selectedIndexNotification"), object: selectedIndex)
     }
     
-    func addIndividualItemConstraints(items: [UIView], mainView: UIView, padding: CGFloat) {
+    func addIndividualItemConstraints(_ items: [UIView], mainView: UIView, padding: CGFloat) {
         
         let constraints = mainView.constraints
         
-        for (index, button) in EnumerateSequence(items) {
+        for (index, button) in items.enumerated() {
             
-            var topConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Top, relatedBy: NSLayoutRelation.Equal, toItem: mainView, attribute: NSLayoutAttribute.Top, multiplier: 1.0, constant: 0)
+            let topConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: mainView, attribute: NSLayoutAttribute.top, multiplier: 1.0, constant: 0)
             
-            var bottomConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Bottom, relatedBy: NSLayoutRelation.Equal, toItem: mainView, attribute: NSLayoutAttribute.Bottom, multiplier: 1.0, constant: 0)
+            let bottomConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: mainView, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: 0)
             
             var rightConstraint : NSLayoutConstraint!
             
             if index == items.count - 1 {
                 
-                rightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: mainView, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: -padding)
+                rightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: mainView, attribute: NSLayoutAttribute.right, multiplier: 1.0, constant: -padding)
                 
             }else{
                 
                 let nextButton = items[index+1]
-                rightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Right, relatedBy: NSLayoutRelation.Equal, toItem: nextButton, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: -padding)
+                rightConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: nextButton, attribute: NSLayoutAttribute.left, multiplier: 1.0, constant: -padding)
             }
             
             
@@ -166,16 +166,16 @@ import UIKit
             
             if index == 0 {
                 
-                leftConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: mainView, attribute: NSLayoutAttribute.Left, multiplier: 1.0, constant: padding)
+                leftConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: mainView, attribute: NSLayoutAttribute.left, multiplier: 1.0, constant: padding)
                 
             }else{
                 
                 let prevButton = items[index-1]
-                leftConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.Left, relatedBy: NSLayoutRelation.Equal, toItem: prevButton, attribute: NSLayoutAttribute.Right, multiplier: 1.0, constant: padding)
+                leftConstraint = NSLayoutConstraint(item: button, attribute: NSLayoutAttribute.left, relatedBy: NSLayoutRelation.equal, toItem: prevButton, attribute: NSLayoutAttribute.right, multiplier: 1.0, constant: padding)
                 
                 let firstItem = items[0]
                 
-                var widthConstraint = NSLayoutConstraint(item: button, attribute: .Width, relatedBy: NSLayoutRelation.Equal, toItem: firstItem, attribute: .Width, multiplier: 1.0  , constant: 0)
+                let widthConstraint = NSLayoutConstraint(item: button, attribute: .width, relatedBy: NSLayoutRelation.equal, toItem: firstItem, attribute: .width, multiplier: 1.0  , constant: 0)
                 
                 mainView.addConstraint(widthConstraint)
             }

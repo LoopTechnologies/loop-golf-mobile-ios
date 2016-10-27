@@ -37,23 +37,23 @@ class DetailsContainerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor.clearColor()
+        self.tableView.backgroundColor = UIColor.clear
         self.tableView.contentInset = UIEdgeInsetsMake(7, 0, 7, 0)
         
         membershipAndLocationCell.contentView.layer.cornerRadius = 8
-        membershipAndLocationCell.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        membershipAndLocationCell.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
         overviewCell.contentView.layer.cornerRadius = 8
-        overviewCell.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        overviewCell.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
         facilitiesCell.contentView.layer.cornerRadius = 8
-        facilitiesCell.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        facilitiesCell.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
 
         amenitiesCell.contentView.layer.cornerRadius = 8
-        amenitiesCell.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        amenitiesCell.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
 
         offersCell.contentView.layer.cornerRadius = 8
-        offersCell.contentView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.4)
+        offersCell.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
         membershipHistoryLabel.text = membershipHistory
         streetAddressLabel.text = streetAddress
@@ -68,11 +68,11 @@ class DetailsContainerViewController: UITableViewController {
 
 extension DetailsContainerViewController {
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 5
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 5
     }
 }

@@ -33,42 +33,42 @@ class ConfirmedReservationDetailsViewController: UITableViewController {
     var typeOfReservationReceived: Int?
     var otherGolfersReceived: [String]?
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         
         switch (otherGolfersReceived!.count) {
         case 0:
             addGolfersLabel.text = "You can include up to three other golfers for this reservation."
-            golfer1NameLabel.hidden = true
-            golfer1RemoveButton.hidden = true
-            golfer2NameLabel.hidden = true
-            golfer2RemoveButton.hidden = true
-            golfer3NameLabel.hidden = true
-            golfer3RemoveButton.hidden = true
+            golfer1NameLabel.isHidden = true
+            golfer1RemoveButton.isHidden = true
+            golfer2NameLabel.isHidden = true
+            golfer2RemoveButton.isHidden = true
+            golfer3NameLabel.isHidden = true
+            golfer3RemoveButton.isHidden = true
         case 1:
             addGolfersLabel.text = "You can include up to two other golfers for this reservation."
-            addGolfer1Button.hidden = true
+            addGolfer1Button.isHidden = true
             golfer1NameLabel.text = otherGolfersReceived![0]
-            golfer2NameLabel.hidden = true
-            golfer2RemoveButton.hidden = true
-            golfer3NameLabel.hidden = true
-            golfer3RemoveButton.hidden = true
+            golfer2NameLabel.isHidden = true
+            golfer2RemoveButton.isHidden = true
+            golfer3NameLabel.isHidden = true
+            golfer3RemoveButton.isHidden = true
         case 2:
             addGolfersLabel.text = "You can include up to one other golfer for this reservation."
-            addGolfer1Button.hidden = true
+            addGolfer1Button.isHidden = true
             golfer1NameLabel.text = otherGolfersReceived![0]
-            addGolfer2Button.hidden = true
+            addGolfer2Button.isHidden = true
             golfer2NameLabel.text = otherGolfersReceived![1]
-            golfer3NameLabel.hidden = true
-            golfer3RemoveButton.hidden = true
+            golfer3NameLabel.isHidden = true
+            golfer3RemoveButton.isHidden = true
         case 3:
             addGolfersLabel.text = "You can't include any other golfers for this reservation."
-            addGolfer1Button.hidden = true
+            addGolfer1Button.isHidden = true
             golfer1NameLabel.text = otherGolfersReceived![0]
-            addGolfer2Button.hidden = true
+            addGolfer2Button.isHidden = true
             golfer2NameLabel.text = otherGolfersReceived![1]
-            addGolfer3Button.hidden = true
+            addGolfer3Button.isHidden = true
             golfer3NameLabel.text = otherGolfersReceived![2]
         default:
             break
@@ -91,68 +91,68 @@ class ConfirmedReservationDetailsViewController: UITableViewController {
 
 extension ConfirmedReservationDetailsViewController {
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 0.1
     }
     
-    @IBAction func addGolfer1ButtonPressed(sender: AnyObject) {
+    @IBAction func addGolfer1ButtonPressed(_ sender: AnyObject) {
         if (otherGolfersReceived!.count == 0) {
-            performSegueWithIdentifier("toAddGolferForReservationSegue", sender: self)
+            performSegue(withIdentifier: "toAddGolferForReservationSegue", sender: self)
         }
     }
     
-    @IBAction func addGolfer2ButtonPressed(sender: AnyObject) {
+    @IBAction func addGolfer2ButtonPressed(_ sender: AnyObject) {
         if (otherGolfersReceived!.count == 1) {
-            performSegueWithIdentifier("toAddGolferForReservationSegue", sender: self)
+            performSegue(withIdentifier: "toAddGolferForReservationSegue", sender: self)
         } else {
-            let alertController = UIAlertController(title: "", message:  "Please add a golfer to the first slot before adding one here.", preferredStyle: .Alert)
-            alertController.view.tintColor = UIColor.blackColor()
-            let doneAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+            let alertController = UIAlertController(title: "", message:  "Please add a golfer to the first slot before adding one here.", preferredStyle: .alert)
+            alertController.view.tintColor = UIColor.black
+            let doneAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
             }
             alertController.addAction(doneAction)
-            self.presentViewController(alertController, animated: true) {
-                alertController.view.tintColor = UIColor.blackColor()
+            self.present(alertController, animated: true) {
+                alertController.view.tintColor = UIColor.black
             }
         }
     }
     
-    @IBAction func addGolfer3ButtonPressed(sender: AnyObject) {
+    @IBAction func addGolfer3ButtonPressed(_ sender: AnyObject) {
         if (otherGolfersReceived!.count == 2) {
-            performSegueWithIdentifier("toAddGolferForReservationSegue", sender: self)
+            performSegue(withIdentifier: "toAddGolferForReservationSegue", sender: self)
         } else {
-            let alertController = UIAlertController(title: "", message:  "Please add golfers to the first and second slots before adding one here.", preferredStyle: .Alert)
-            alertController.view.tintColor = UIColor.blackColor()
-            let doneAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+            let alertController = UIAlertController(title: "", message:  "Please add golfers to the first and second slots before adding one here.", preferredStyle: .alert)
+            alertController.view.tintColor = UIColor.black
+            let doneAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
             }
             alertController.addAction(doneAction)
-            self.presentViewController(alertController, animated: true) {
-                alertController.view.tintColor = UIColor.blackColor()
+            self.present(alertController, animated: true) {
+                alertController.view.tintColor = UIColor.black
             }
         }
     }
     
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
         
         if (cell == cancelReservationCell) {
-            let actionSheet = UIAlertController(title: "Cancel this confirmed reservation?", message:  "\n This action will permanently delete this reservation and is subject to the Loop Golf Terms of Use. Remember, if you're within 24 hours of your Loop round you will forfeit the 10% reservation fee that you've already been charged.", preferredStyle: .ActionSheet)
-            actionSheet.view.tintColor = UIColor.blackColor()
-            let closeAction = UIAlertAction(title: "Close", style: .Cancel) { (action) in
+            let actionSheet = UIAlertController(title: "Cancel this confirmed reservation?", message:  "\n This action will permanently delete this reservation and is subject to the Loop Golf Terms of Use. Remember, if you're within 24 hours of your Loop round you will forfeit the 10% reservation fee that you've already been charged.", preferredStyle: .actionSheet)
+            actionSheet.view.tintColor = UIColor.black
+            let closeAction = UIAlertAction(title: "Close", style: .cancel) { (action) in
             }
             actionSheet.addAction(closeAction)
             
-            let cancelRequestAction = UIAlertAction(title: "Cancel this reservation", style: .Destructive) { (action) in
+            let cancelRequestAction = UIAlertAction(title: "Cancel this reservation", style: .destructive) { (action) in
             }
             actionSheet.addAction(cancelRequestAction)
             
-            self.presentViewController(actionSheet, animated: true) {
-                actionSheet.view.tintColor = UIColor.blackColor()
+            self.present(actionSheet, animated: true) {
+                actionSheet.view.tintColor = UIColor.black
             }
         }
     }

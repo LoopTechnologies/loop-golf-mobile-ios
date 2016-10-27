@@ -28,16 +28,16 @@ class ChooseDateViewController: UIViewController {
     @IBOutlet weak var secondCircle: UIView!
     @IBOutlet weak var thirdCircle: UIView!
     
-    var oneDayAheadOfCurrentDate = NSDate()
-    var threeMonthsAheadOfCurrentDate = NSDate()
+    var oneDayAheadOfCurrentDate = Date()
+    var threeMonthsAheadOfCurrentDate = Date()
     
-    let dateTimeFormatter = NSDateFormatter()
-    let timeFormatter12Hr = NSDateFormatter()
-    let dateFormatterFullStyle = NSDateFormatter()
-    let timeFormatter24Hr = NSDateFormatter()
-    var selected24HrTimeNSDate = NSDate()
-    var validOpen24HrTimeNSDate = NSDate()
-    var validClose24HrTimeNSDate = NSDate()
+    let dateTimeFormatter = DateFormatter()
+    let timeFormatter12Hr = DateFormatter()
+    let dateFormatterFullStyle = DateFormatter()
+    let timeFormatter24Hr = DateFormatter()
+    var selected24HrTimeNSDate = Date()
+    var validOpen24HrTimeNSDate = Date()
+    var validClose24HrTimeNSDate = Date()
 
     // Receive data via segue.
     var courseIDReceived: String?
@@ -55,53 +55,53 @@ class ChooseDateViewController: UIViewController {
     var selected12HrTimeStringForSegue = String()
     var selectedFullStyleDateForSegue = String()
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Date and Time"
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.blackColor()]
-        navigationController?.navigationBar.tintColor = UIColor.blackColor()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.black]
+        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "GolfCourseImage")
-        self.view.insertSubview(backgroundImage, atIndex: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
         
-        navBarShadowView.layer.shadowColor = UIColor.blackColor().CGColor
+        navBarShadowView.layer.shadowColor = UIColor.black.cgColor
         navBarShadowView.layer.shadowOpacity = 0.5
-        navBarShadowView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        navBarShadowView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
         continueButton.layer.cornerRadius = 8
         continueButton.layer.borderWidth = 1
-        continueButton.layer.borderColor = UIColor.whiteColor().CGColor
+        continueButton.layer.borderColor = UIColor.white.cgColor
         
-        topBarView.layer.shadowColor = UIColor.blackColor().CGColor
+        topBarView.layer.shadowColor = UIColor.black.cgColor
         topBarView.layer.shadowOpacity = 0.5
-        topBarView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        topBarView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
         firstCircle.layer.borderWidth = 2
-        firstCircle.layer.borderColor = UIColor.blackColor().CGColor
+        firstCircle.layer.borderColor = UIColor.black.cgColor
         firstCircle.layer.cornerRadius = 15
         
         secondCircle.layer.borderWidth = 2
-        secondCircle.layer.borderColor = UIColor.blackColor().CGColor
+        secondCircle.layer.borderColor = UIColor.black.cgColor
         secondCircle.layer.cornerRadius = 15
         
         thirdCircle.layer.borderWidth = 1
-        thirdCircle.layer.borderColor = UIColor.lightGrayColor().CGColor
+        thirdCircle.layer.borderColor = UIColor.lightGray.cgColor
         thirdCircle.layer.cornerRadius = 15
         
-        calculateOneDayAhead()
-        calculateThreeMonthsAhead()
-        datePicker.setValue(UIColor.whiteColor(), forKeyPath: "textColor")
+        datePicker.setValue(UIColor.white, forKeyPath: "textColor")
         datePicker.setValue(false, forKeyPath: "highlightsToday")
-        datePicker.subviews[0].subviews[1].hidden = true
-        datePicker.subviews[0].subviews[2].hidden = true
+        datePicker.subviews[0].subviews[1].isHidden = true
+        datePicker.subviews[0].subviews[2].isHidden = true
+        
+        
         datePicker.minimumDate = oneDayAheadOfCurrentDate
         datePicker.maximumDate = threeMonthsAheadOfCurrentDate
         
@@ -110,12 +110,12 @@ class ChooseDateViewController: UIViewController {
         timeFormatter12Hr.dateFormat = "h:mm a"
         
         dateFormatterFullStyle.dateFormat = "yyyy-MM-dd"
-        dateFormatterFullStyle.dateStyle = .FullStyle
+        dateFormatterFullStyle.dateStyle = .full
         
         timeFormatter24Hr.dateFormat = "HH:mm"
         
-        validOpen24HrTimeNSDate = timeFormatter24Hr.dateFromString(opHoursOpen)!
-        validClose24HrTimeNSDate = timeFormatter24Hr.dateFromString(opHoursClose)!
+        validOpen24HrTimeNSDate = timeFormatter24Hr.date(from: opHoursOpen)!
+        validClose24HrTimeNSDate = timeFormatter24Hr.date(from: opHoursClose)!
         
         if (courseNameReceived != "") {
             courseNameLabel.text = courseNameReceived!
@@ -126,72 +126,56 @@ class ChooseDateViewController: UIViewController {
         }
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
     }
 }
 
 extension ChooseDateViewController {
     
-    func calculateOneDayAhead() -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        let dateComponents = NSDateComponents()
-        dateComponents.day = +1
-        oneDayAheadOfCurrentDate = calendar.dateByAddingComponents(dateComponents, toDate: NSDate(), options: [])!
-        return oneDayAheadOfCurrentDate
-    }
-    
-    func calculateThreeMonthsAhead() -> NSDate {
-        let calendar = NSCalendar.currentCalendar()
-        let dateComponents = NSDateComponents()
-        dateComponents.month = +3
-        threeMonthsAheadOfCurrentDate = calendar.dateByAddingComponents(dateComponents, toDate: NSDate(), options: [])!
-        return threeMonthsAheadOfCurrentDate
-    }
-    
-    @IBAction func continueButtonPressed(sender: AnyObject) {
+    @IBAction func continueButtonPressed(_ sender: AnyObject) {
         
         // To store in DB and/or pass via segue: full date-time string 'yyyy-MM-dd HH:mm'.
-        selectedDateTimeStringForSegue = dateTimeFormatter.stringFromDate(datePicker.date)
+        selectedDateTimeStringForSegue = dateTimeFormatter.string(from: datePicker.date)
         
         // To pass via segue to display: 12 hour time string 'h:mm a'.
-        selected12HrTimeStringForSegue = timeFormatter12Hr.stringFromDate(datePicker.date)
+        selected12HrTimeStringForSegue = timeFormatter12Hr.string(from: datePicker.date)
         
         // To pass via segue to display: .FullStyle date.
-        selectedFullStyleDateForSegue = dateFormatterFullStyle.stringFromDate(datePicker.date)
+        selectedFullStyleDateForSegue = dateFormatterFullStyle.string(from: datePicker.date)
         
         // To evaluate chosen time versus operating hours: 24 hour time NSDate 'HH:mm'.
-        let selected24HrTimeString = timeFormatter24Hr.stringFromDate(datePicker.date)
-        selected24HrTimeNSDate = timeFormatter24Hr.dateFromString(selected24HrTimeString)!
+        let selected24HrTimeString = timeFormatter24Hr.string(from: datePicker.date)
+        selected24HrTimeNSDate = timeFormatter24Hr.date(from: selected24HrTimeString)!
 
         evaluateSelectedTime(selected24HrTimeNSDate, operatingHoursOpen: validOpen24HrTimeNSDate, operatingHoursClose: validClose24HrTimeNSDate)
         
     }
     
-    func evaluateSelectedTime(selected24HrTimeNSDate: NSDate, operatingHoursOpen: NSDate, operatingHoursClose: NSDate) -> Bool {
+    func evaluateSelectedTime(_ selected24HrTimeNSDate: Date, operatingHoursOpen: Date, operatingHoursClose: Date) -> Bool {
         
-        if (selected24HrTimeNSDate.compare(validOpen24HrTimeNSDate) == NSComparisonResult.OrderedDescending) {
-            if (selected24HrTimeNSDate.compare(validClose24HrTimeNSDate) == NSComparisonResult.OrderedAscending) {
-                performSegueWithIdentifier("toChooseCaddieSegue", sender: self)
+        if (selected24HrTimeNSDate.compare(validOpen24HrTimeNSDate) == ComparisonResult.orderedDescending) {
+            if (selected24HrTimeNSDate.compare(validClose24HrTimeNSDate) == ComparisonResult.orderedAscending) {
+                performSegue(withIdentifier: "toChooseCaddieSegue", sender: self)
                 return true
             }
         }
         
-        let alertController = UIAlertController(title: "Please choose a valid time.", message:  "\n The start time for your caddie reservation must be within the operating hours of your selected course.", preferredStyle: .Alert)
-        alertController.view.tintColor = UIColor.blackColor()
-        let doneAction = UIAlertAction(title: "Try Again", style: .Cancel) { (action) in
+        let alertController = UIAlertController(title: "Please choose a valid time.", message:  "\n The start time for your caddie reservation must be within the operating hours of your selected course.", preferredStyle: .alert)
+        alertController.view.tintColor = UIColor.black
+        let doneAction = UIAlertAction(title: "Try Again", style: .cancel) { (action) in
         }
         alertController.addAction(doneAction)
-        self.presentViewController(alertController, animated: true) {
-            alertController.view.tintColor = UIColor.blackColor()
+        self.present(alertController, animated: true) {
+            alertController.view.tintColor = UIColor.black
         }
         return false
         
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toChooseCaddieSegue") {
-            let destinationVC = segue.destinationViewController as! ChooseCaddieViewController
+            let destinationVC = segue.destination as! ChooseCaddieViewController
             courseNameForSegue = courseNameReceived!
             courseLocationForSegue = courseLocationReceived!
             coursePriceForSegue = coursePriceReceived!

@@ -24,7 +24,7 @@ class CourseSearchRadiusViewController: UIViewController {
     @IBOutlet weak var sliderValuePopupLabel: UILabel!
     
     
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     var circle = MKCircle()
     var userCoordinateLocation = CLLocation()
@@ -41,7 +41,7 @@ class CourseSearchRadiusViewController: UIViewController {
     var currentSliderValue = Double()
     var sliderDisplayValue = String()
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         userCoordinateLocation = appDelegate.userCoordinateLocation
         adjustMapRegionRadius(previouslySavedRadius)
@@ -52,31 +52,31 @@ class CourseSearchRadiusViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Search Radius"
-        navigationController!.navigationBar.tintColor = UIColor.blackColor()
+        navigationController!.navigationBar.tintColor = UIColor.black
         
-        topViewBackground.layer.shadowColor = UIColor.blackColor().CGColor
+        topViewBackground.layer.shadowColor = UIColor.black.cgColor
         topViewBackground.layer.shadowOpacity = 0.5
-        topViewBackground.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        topViewBackground.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
-        bottomViewBackground.layer.shadowColor = UIColor.blackColor().CGColor
+        bottomViewBackground.layer.shadowColor = UIColor.black.cgColor
         bottomViewBackground.layer.shadowOpacity = 0.5
-        bottomViewBackground.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        bottomViewBackground.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
-        sliderValuePopupView.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6)
+        sliderValuePopupView.backgroundColor = UIColor.black.withAlphaComponent(0.6)
         sliderValuePopupView.alpha = 0
         
-        let saveButton = UIBarButtonItem(barButtonSystemItem: .Save, target: self, action: ("saveChanges"))
-        saveButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 17)!], forState: UIControlState.Normal)
+        let saveButton = UIBarButtonItem(barButtonSystemItem: .save, target: self, action: (#selector(CourseSearchRadiusViewController.saveChanges)))
+        saveButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 17)!], for: UIControlState())
         self.navigationItem.rightBarButtonItem = saveButton
-        self.navigationItem.rightBarButtonItem?.enabled = false
+        self.navigationItem.rightBarButtonItem?.isEnabled = false
     }
 }
 
 extension CourseSearchRadiusViewController: MKMapViewDelegate {
     
-    @IBAction func sliderValueChanged(sender: UISlider) {
+    @IBAction func sliderValueChanged(_ sender: UISlider) {
         
-        UIView.animateWithDuration(0.1, delay: 0, options: .CurveEaseOut, animations: {
+        UIView.animate(withDuration: 0.1, delay: 0, options: .curveEaseOut, animations: {
             self.sliderValuePopupView.alpha = 1
         }, completion: nil)
         
@@ -84,10 +84,10 @@ extension CourseSearchRadiusViewController: MKMapViewDelegate {
         var newValue: Float = sender.value / increment
         sender.value = floor(newValue) * increment
         var formatted: String {
-            let formatter = NSNumberFormatter()
-            formatter.numberStyle = NSNumberFormatterStyle.DecimalStyle
+            let formatter = NumberFormatter()
+            formatter.numberStyle = NumberFormatter.Style.decimal
             formatter.minimumFractionDigits = 0
-            return formatter.stringFromNumber(sender.value) ?? ""
+            return formatter.string(from: NSNumber(value: sender.value)) ?? ""
         }
         currentSliderValue = Double(sender.value)
         sliderDisplayValue = formatted
@@ -97,46 +97,46 @@ extension CourseSearchRadiusViewController: MKMapViewDelegate {
         adjustMapRegionRadius(currentSliderValue)
         centerMapOnLocation(userCoordinateLocation, regionRadius: regionRadiusToSetMap)
         sliderValuePopupLabel.text = "\(sliderDisplayValue) mi"
-        self.navigationItem.rightBarButtonItem?.enabled = true
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
     }
     
-    @IBAction func sliderTouchUpInside(sender: UISlider) {
+    @IBAction func sliderTouchUpInside(_ sender: UISlider) {
         sliderEditingEnded()
     }
     
-    @IBAction func sliderTouchUpOutside(sender: UISlider) {
+    @IBAction func sliderTouchUpOutside(_ sender: UISlider) {
         sliderEditingEnded()
     }
     
     func sliderEditingEnded() {
-        UIView.animateWithDuration(0.2, delay: 0.4, options: .CurveEaseOut, animations: {
+        UIView.animate(withDuration: 0.2, delay: 0.4, options: .curveEaseOut, animations: {
             self.sliderValuePopupView.alpha = 0
             }, completion: nil)
     }
     
-    func centerMapOnLocation(location: CLLocation, regionRadius: CLLocationDistance) {
+    func centerMapOnLocation(_ location: CLLocation, regionRadius: CLLocationDistance) {
         let coordinateRegion = MKCoordinateRegionMakeWithDistance(location.coordinate, regionRadius, regionRadius)
         mapView.setRegion(coordinateRegion, animated: true)
     }
     
-    func addRadiusCircle(location: CLLocation, savedRadius: Double) {
+    func addRadiusCircle(_ location: CLLocation, savedRadius: Double) {
         self.mapView.delegate = self
-        circle = MKCircle(centerCoordinate: location.coordinate, radius: savedRadius as CLLocationDistance)
-        self.mapView.addOverlay(circle)
+        circle = MKCircle(center: location.coordinate, radius: savedRadius as CLLocationDistance)
+        self.mapView.add(circle)
     }
     
-    func adjustCircleSize(location: CLLocation, newRadius: Double) {
+    func adjustCircleSize(_ location: CLLocation, newRadius: Double) {
         self.mapView.delegate = self
-        self.mapView.removeOverlay(circle)
-        circle = MKCircle(centerCoordinate: location.coordinate, radius: newRadius as CLLocationDistance)
-        self.mapView.addOverlay(circle)
+        self.mapView.remove(circle)
+        circle = MKCircle(center: location.coordinate, radius: newRadius as CLLocationDistance)
+        self.mapView.add(circle)
     }
     
-    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         if overlay is MKCircle {
-            var circleRenderer = MKCircleRenderer(overlay: overlay)
-            circleRenderer.strokeColor = UIColor.blackColor()
-            circleRenderer.fillColor = UIColor.blackColor().colorWithAlphaComponent(0.1)
+            let circleRenderer = MKCircleRenderer(overlay: overlay)
+            circleRenderer.strokeColor = UIColor.black
+            circleRenderer.fillColor = UIColor.black.withAlphaComponent(0.1)
             circleRenderer.lineWidth = 2
             return circleRenderer
         } else {
@@ -144,7 +144,7 @@ extension CourseSearchRadiusViewController: MKMapViewDelegate {
         }
     }
     
-    func adjustMapRegionRadius(regionRadius: Double) -> Double {
+    func adjustMapRegionRadius(_ regionRadius: Double) -> Double {
         
         if (regionRadius <= 5) {
             regionRadiusToSetMap = mile5RegionRadius
@@ -166,7 +166,7 @@ extension CourseSearchRadiusViewController: MKMapViewDelegate {
     func saveChanges() {
         // Save currentSliderValue.
         print("radius to save: \(currentSliderValue)")
-        navigationController?.popViewControllerAnimated(true)
+        navigationController?.popViewController(animated: true)
     }
 }
 

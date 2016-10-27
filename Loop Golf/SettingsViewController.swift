@@ -20,11 +20,11 @@ class SettingsViewController: UITableViewController {
     @IBOutlet weak var rateInAppStoreCell: UITableViewCell!
     @IBOutlet weak var signOutCell: UITableViewCell!
     
-    let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
         displayLocationServicesStatusLabel()
         displayNotificationsStatusLabel()
@@ -33,7 +33,7 @@ class SettingsViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsetsMake(10, 0, 10, 0)
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.blackColor()]
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.black]
     }
 }
 
@@ -42,7 +42,7 @@ extension SettingsViewController {
     func displayLocationServicesStatusLabel() {
         if ((appDelegate.locationServicesEnabled)! == true) {
             locationServicesStatusLabel.text = "Enabled"
-            locationServicesStatusLabel.textColor = UIColor.darkGrayColor()
+            locationServicesStatusLabel.textColor = UIColor.darkGray
         } else if ((appDelegate.locationServicesEnabled)! == false) {
             locationServicesStatusLabel.text = "Disabled"
             locationServicesStatusLabel.textColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
@@ -52,60 +52,60 @@ extension SettingsViewController {
     func displayNotificationsStatusLabel() {
         if ((appDelegate.notificationsEnabled)! == true) {
             notificationsStatusLabel.text = "Enabled"
-            notificationsStatusLabel.textColor = UIColor.darkGrayColor()
+            notificationsStatusLabel.textColor = UIColor.darkGray
         } else if ((appDelegate.notificationsEnabled)! == false) {
             notificationsStatusLabel.text = "Disabled"
             notificationsStatusLabel.textColor = UIColor(red: 255/255, green: 0/255, blue: 0/255, alpha: 1.0)
         }
     }
     
-    @IBAction func dismissSettingsButtonPressed(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: {})
+    @IBAction func dismissSettingsButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: {})
     }
     
-    override func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         return 10
     }
     
-    override func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+    override func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
         return 10
     }
     
-    override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath)
-        tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath)
+        tableView.deselectRow(at: indexPath, animated: true)
         
         // User selects Location Services cell.
         if (cell == locationServicesCell) {
-            let locServicesAlertController = UIAlertController(title: "Location Services - Required", message: "Your device's location is used to show nearby courses and track reservations. Required to use Loop Golf (you must have location services enabled to reserve caddies).", preferredStyle: .Alert)
-            locServicesAlertController.view.tintColor = UIColor.blackColor()
-            let locServicesSettingsAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
-                if let appSettings = NSURL(string: UIApplicationOpenSettingsURLString) {
-                    UIApplication.sharedApplication().openURL(appSettings)
+            let locServicesAlertController = UIAlertController(title: "Location Services - Required", message: "Your device's location is used to show nearby courses and track reservations. Required to use Loop Golf (you must have location services enabled to reserve caddies).", preferredStyle: .alert)
+            locServicesAlertController.view.tintColor = UIColor.black
+            let locServicesSettingsAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
+                if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+                    UIApplication.shared.openURL(appSettings)
                 }
             }
             locServicesAlertController.addAction(locServicesSettingsAction)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
             locServicesAlertController.addAction(cancelAction)
-            presentViewController(locServicesAlertController, animated: true) {
-                locServicesAlertController.view.tintColor = UIColor.blackColor()
+            present(locServicesAlertController, animated: true) {
+                locServicesAlertController.view.tintColor = UIColor.black
             }
         }
         
         // User selects Notifications cell.
         if (cell == notificationsCell) {
-            let notificationsAlertController = UIAlertController(title: "Push Notifications - Recommended", message: "Receive push notifications about responses to requests, upcoming reservations, new connections, and more. Suggested for an improved experience with Loop Golf.", preferredStyle: .Alert)
-            notificationsAlertController.view.tintColor = UIColor.blackColor()
-            let notificationSettingsAction = UIAlertAction(title: "Open Settings", style: .Default) { (action) in
-                if let appSettings = NSURL(string: UIApplicationOpenSettingsURLString) {
-                    UIApplication.sharedApplication().openURL(appSettings)
+            let notificationsAlertController = UIAlertController(title: "Push Notifications - Recommended", message: "Receive push notifications about responses to requests, upcoming reservations, new connections, and more. Suggested for an improved experience with Loop Golf.", preferredStyle: .alert)
+            notificationsAlertController.view.tintColor = UIColor.black
+            let notificationSettingsAction = UIAlertAction(title: "Open Settings", style: .default) { (action) in
+                if let appSettings = URL(string: UIApplicationOpenSettingsURLString) {
+                    UIApplication.shared.openURL(appSettings)
                 }
             }
             notificationsAlertController.addAction(notificationSettingsAction)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in }
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in }
             notificationsAlertController.addAction(cancelAction)
-            presentViewController(notificationsAlertController, animated: true) {
-                notificationsAlertController.view.tintColor = UIColor.blackColor()
+            present(notificationsAlertController, animated: true) {
+                notificationsAlertController.view.tintColor = UIColor.black
             }
         }
         
@@ -116,12 +116,12 @@ extension SettingsViewController {
         
         // User selects Go To LoopGolf.com cell.
         if (cell == goToWebsiteCell) {
-            UIApplication.sharedApplication().openURL(NSURL(string: "http://www.loopgolf.com")!)
+            UIApplication.shared.openURL(URL(string: "http://www.loopgolf.com")!)
         }
         
         // User selects Like On Facebook cell.
         if (cell == likeOnFacebookCell) {
-            UIApplication.sharedApplication().openURL(NSURL(string: "http://www.facebook.com")!)
+            UIApplication.shared.openURL(URL(string: "http://www.facebook.com")!)
         }
         
         // User selects Rate In App Store cell.
@@ -131,9 +131,9 @@ extension SettingsViewController {
         
         // User selects Sign Out cell.
         if (cell == signOutCell) {
-            let actionSheetController = UIAlertController(title: "Are you sure you want to sign out?", message: "", preferredStyle: .ActionSheet)
-            actionSheetController.view.tintColor = UIColor.blackColor()
-            let signOutAction = UIAlertAction(title: "Sign Out", style: .Destructive) { (action) in
+            let actionSheetController = UIAlertController(title: "Are you sure you want to sign out?", message: "\n There's really no need to leave.", preferredStyle: .actionSheet)
+            actionSheetController.view.tintColor = UIColor.black
+            let signOutAction = UIAlertAction(title: "Sign Out", style: .destructive) { (action) in
                 
                 /*
                 if FIRAuth.auth()?.currentUser != nil {
@@ -147,15 +147,15 @@ extension SettingsViewController {
  
  
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let loginViewController = storyboard.instantiateViewControllerWithIdentifier("LoginViewController")
-                self.presentViewController(loginViewController, animated: true, completion: nil)
+                let loginViewController = storyboard.instantiateViewController(withIdentifier: "LoginViewController")
+                self.present(loginViewController, animated: true, completion: nil)
             }
             actionSheetController.addAction(signOutAction)
-            let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel) { (action) in
+            let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
             }
             actionSheetController.addAction(cancelAction)
-            presentViewController(actionSheetController, animated: true) {
-                actionSheetController.view.tintColor = UIColor.blackColor()
+            present(actionSheetController, animated: true) {
+                actionSheetController.view.tintColor = UIColor.black
             }
 
         }

@@ -24,43 +24,43 @@ class ReservationsTabViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notifyWithSelectedIndex:", name: "selectedIndexNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ReservationsTabViewController.notifyWithSelectedIndex(_:)), name: NSNotification.Name(rawValue: "selectedIndexNotification"), object: nil)
         
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "LandingPageBackgroundImage")
-        self.view.insertSubview(backgroundImage, atIndex: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
         
-        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.whiteColor()]
-        navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.white]
+        navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
         
         roundedBackgroundView.layer.cornerRadius = 8
 
-        confirmedContainer.hidden = true
+        confirmedContainer.isHidden = true
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "selectedIndexNotification", object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "selectedIndexNotification"), object: self.view.window)
     }
 }
 
 extension ReservationsTabViewController {
     
-    override func preferredStatusBarStyle() -> UIStatusBarStyle {
-        return UIStatusBarStyle.LightContent
+    override var preferredStatusBarStyle : UIStatusBarStyle {
+        return UIStatusBarStyle.lightContent
     }
     
     
-    func notifyWithSelectedIndex (notification: NSNotification) {
+    func notifyWithSelectedIndex (_ notification: Notification) {
         selectedIndex = notification.object! as! Int
         
         if (selectedIndex == 0) {
-            requestedContainer.hidden = false
-            confirmedContainer.hidden = true
+            requestedContainer.isHidden = false
+            confirmedContainer.isHidden = true
         } else if (selectedIndex == 1) {
-            requestedContainer.hidden = true
-            confirmedContainer.hidden = false
+            requestedContainer.isHidden = true
+            confirmedContainer.isHidden = false
         }
     }
 }

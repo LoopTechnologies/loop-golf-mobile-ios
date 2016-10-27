@@ -13,7 +13,7 @@ class PaymentMethodsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Payment Methods"
-        navigationController!.navigationBar.tintColor = UIColor.blackColor()
+        navigationController!.navigationBar.tintColor = UIColor.black
     }
 }
 

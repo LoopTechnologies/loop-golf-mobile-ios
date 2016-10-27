@@ -28,20 +28,20 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         emailTextField.delegate = self
         passwordTextField.delegate = self
         
-        backgroundButton.hidden = true
+        backgroundButton.isHidden = true
         
         emailTextField.tag = 1
         passwordTextField.tag = 2
         
         emailBackgroundView.layer.cornerRadius = 8
-        emailBackgroundView.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.6).CGColor
+        emailBackgroundView.layer.backgroundColor = UIColor.white.withAlphaComponent(0.6).cgColor
 
         passwordBackgroundView.layer.cornerRadius = 8
-        passwordBackgroundView.layer.backgroundColor = UIColor.whiteColor().colorWithAlphaComponent(0.6).CGColor
+        passwordBackgroundView.layer.backgroundColor = UIColor.white.withAlphaComponent(0.6).cgColor
 
         loginButton.layer.cornerRadius = 8
-        loginButton.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.75).CGColor
-        loginButton.layer.borderColor = UIColor.whiteColor().CGColor
+        loginButton.layer.backgroundColor = UIColor.black.withAlphaComponent(0.75).cgColor
+        loginButton.layer.borderColor = UIColor.white.cgColor
         loginButton.layer.borderWidth = 1
         
         if (emailTextField.text == "") {
@@ -60,17 +60,17 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 extension LoginViewController {
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField.tag == 1) {
-            backgroundButton.hidden = false
+            backgroundButton.isHidden = false
             emailTextFieldOccupied()
         } else if (textField.tag == 2) {
-            backgroundButton.hidden = false
+            backgroundButton.isHidden = false
             passwordTextFieldOccupied()
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField.tag == 1) {
             emailTextField.resignFirstResponder()
             passwordTextField.becomeFirstResponder()
@@ -80,7 +80,7 @@ extension LoginViewController {
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField.tag == 1) {
             emailTextField.resignFirstResponder()
             if (emailTextField.text == "") {
@@ -96,46 +96,47 @@ extension LoginViewController {
                 passwordTextFieldOccupied()
             }
         }
-        backgroundButton.hidden = true
+        backgroundButton.isHidden = true
     }
     
-    @IBAction func backgroundButtonPressed(sender: AnyObject) {
-        if (emailTextField.isFirstResponder()) {
+    @IBAction func backgroundButtonPressed(_ sender: AnyObject) {
+        if (emailTextField.isFirstResponder) {
             emailTextField.resignFirstResponder()
-        } else if (passwordTextField.isFirstResponder()) {
+        } else if (passwordTextField.isFirstResponder) {
             passwordTextField.resignFirstResponder()
             
         }
     }
     
     func emailTextFieldEmpty() {
-        emailCellLabel.hidden = true
-        emailPlaceholder.hidden = false
+        emailCellLabel.isHidden = true
+        emailPlaceholder.isHidden = false
         emailTextFieldBottomConstraint.constant = 6
     }
     
     func emailTextFieldOccupied() {
-        emailCellLabel.hidden = false
-        emailPlaceholder.hidden = true
+        emailCellLabel.isHidden = false
+        emailPlaceholder.isHidden = true
         emailTextFieldBottomConstraint.constant = 0
     }
     
     func passwordTextFieldEmpty() {
-        passwordCellLabel.hidden = true
-        passwordPlaceholder.hidden = false
+        passwordCellLabel.isHidden = true
+        passwordPlaceholder.isHidden = false
         passwordTextFieldBottomConstraint.constant = 6
     }
     
     func passwordTextFieldOccupied() {
-        passwordCellLabel.hidden = false
-        passwordPlaceholder.hidden = true
+        passwordCellLabel.isHidden = false
+        passwordPlaceholder.isHidden = true
         passwordTextFieldBottomConstraint.constant = 0
     }
     
-    @IBAction func loginButtonPressed(sender: AnyObject) {
+    @IBAction func loginButtonPressed(_ sender: AnyObject) {
     }
     
-    @IBAction func signUpButtonPressed(sender: AnyObject) {
+    @IBAction func signUpButtonPressed(_ sender: AnyObject) {
+        performSegue(withIdentifier: "toSignUpSegue", sender: self)
     }
     
 }

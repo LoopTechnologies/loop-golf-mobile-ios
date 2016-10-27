@@ -33,72 +33,72 @@ class ChooseCourseViewController: UIViewController {
     var courseDistancesForChild = [Double]()
     var coursePricesForChild = [Int]()
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.blackColor()]
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.black]
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "notifyWithSelectedIndex:", name: "selectedIndexNotification", object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(ChooseCourseViewController.notifyWithSelectedIndex(_:)), name: NSNotification.Name(rawValue: "selectedIndexNotification"), object: nil)
 
-        segmentedControlBackgroundView.layer.shadowColor = UIColor.blackColor().CGColor
+        segmentedControlBackgroundView.layer.shadowColor = UIColor.black.cgColor
         segmentedControlBackgroundView.layer.shadowOpacity = 0.5
-        segmentedControlBackgroundView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        segmentedControlBackgroundView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
-        progressBarView.layer.shadowColor = UIColor.blackColor().CGColor
+        progressBarView.layer.shadowColor = UIColor.black.cgColor
         progressBarView.layer.shadowOpacity = 0.5
-        progressBarView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        progressBarView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
         firstCircle.layer.borderWidth = 2
-        firstCircle.layer.borderColor = UIColor.blackColor().CGColor
+        firstCircle.layer.borderColor = UIColor.black.cgColor
         firstCircle.layer.cornerRadius = 15
         
         secondCircle.layer.borderWidth = 1
-        secondCircle.layer.borderColor = UIColor.lightGrayColor().CGColor
+        secondCircle.layer.borderColor = UIColor.lightGray.cgColor
         secondCircle.layer.cornerRadius = 15
         
         thirdCircle.layer.borderWidth = 1
-        thirdCircle.layer.borderColor = UIColor.lightGrayColor().CGColor
+        thirdCircle.layer.borderColor = UIColor.lightGray.cgColor
         thirdCircle.layer.cornerRadius = 15
         
-        favoriteCoursesContainer.hidden = true
+        favoriteCoursesContainer.isHidden = true
         
     }
     
-    override func viewWillDisappear(animated: Bool) {
+    override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
-        NSNotificationCenter.defaultCenter().removeObserver(self, name: "selectedIndexNotification", object: self.view.window)
+        NotificationCenter.default.removeObserver(self, name: NSNotification.Name(rawValue: "selectedIndexNotification"), object: self.view.window)
     }
 }
 
 extension ChooseCourseViewController {
     
-    func notifyWithSelectedIndex (notification: NSNotification) {
+    func notifyWithSelectedIndex (_ notification: Notification) {
         selectedIndex = notification.object! as! Int
         
         switch (selectedIndex) {
         case 0:
-            nearbyCoursesContainer.hidden = false
-            favoriteCoursesContainer.hidden = true
+            nearbyCoursesContainer.isHidden = false
+            favoriteCoursesContainer.isHidden = true
         case 1:
-            nearbyCoursesContainer.hidden = true
-            favoriteCoursesContainer.hidden = false
+            nearbyCoursesContainer.isHidden = true
+            favoriteCoursesContainer.isHidden = false
         default:
             break
         }
     }
     
-    @IBAction func dismissVCButtonPressed(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: {})
+    @IBAction func dismissVCButtonPressed(_ sender: UIBarButtonItem) {
+        self.dismiss(animated: true, completion: {})
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         courseNamesForChild = courseNames
         courseLocationsForChild = courseLocations
@@ -106,7 +106,7 @@ extension ChooseCourseViewController {
         coursePricesForChild = coursePrices
 
         if (segue.identifier == "nearbyCoursesContainerSegue") {
-            let nearbyCoursesContainer = segue.destinationViewController as! NearbyCoursesContainerViewController
+            let nearbyCoursesContainer = segue.destination as! NearbyCoursesContainerViewController
             nearbyCoursesContainer.courseNamesReceived = courseNamesForChild
             nearbyCoursesContainer.courseLocationsReceived = courseLocationsForChild
             nearbyCoursesContainer.courseDistancesReceived = courseDistancesForChild
@@ -114,7 +114,7 @@ extension ChooseCourseViewController {
         }
         
         if (segue.identifier == "favoriteCoursesContainerSegue") {
-            let favoriteCoursesContainer = segue.destinationViewController as! FavoriteCoursesContainerViewController
+            let favoriteCoursesContainer = segue.destination as! FavoriteCoursesContainerViewController
             favoriteCoursesContainer.courseNamesReceived = courseNamesForChild
             favoriteCoursesContainer.courseLocationsReceived = courseLocationsForChild
             favoriteCoursesContainer.courseDistancesReceived = courseDistancesForChild

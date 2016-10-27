@@ -39,10 +39,10 @@ class ChooseCaddieViewController: UIViewController, UITableViewDelegate, UITable
     @IBOutlet weak var secondCircle: UIView!
     @IBOutlet weak var thirdCircle: UIView!
     
-    let timeFormatter12Hr = NSDateFormatter()
-    var timeNSDate = NSDate()
-    let dateFormatter = NSDateFormatter()
-    var dateNSDate = NSDate()
+    let timeFormatter12Hr = DateFormatter()
+    var timeNSDate = Date()
+    let dateFormatter = DateFormatter()
+    var dateNSDate = Date()
     
     // Receive data via segue.
     var courseIDReceived: String?
@@ -64,9 +64,9 @@ class ChooseCaddieViewController: UIViewController, UITableViewDelegate, UITable
     var acceptanceRateForSegue = Int()
     
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func viewDidLoad() {
@@ -76,33 +76,33 @@ class ChooseCaddieViewController: UIViewController, UITableViewDelegate, UITable
         tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0)
         
         navigationItem.title = "Nearby Caddies"
-        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.blackColor()]
-        navigationController?.navigationBar.tintColor = UIColor.blackColor()
-        navigationController?.navigationBar.setBackgroundImage(UIImage(), forBarMetrics: .Default)
+        navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.black]
+        navigationController?.navigationBar.tintColor = UIColor.black
+        navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationController?.navigationBar.shadowImage = UIImage()        
         
-        let backgroundImage = UIImageView(frame: UIScreen.mainScreen().bounds)
+        let backgroundImage = UIImageView(frame: UIScreen.main.bounds)
         backgroundImage.image = UIImage(named: "GolfCourseImage")
-        self.view.insertSubview(backgroundImage, atIndex: 0)
+        self.view.insertSubview(backgroundImage, at: 0)
         
-        navBarShadowView.layer.shadowColor = UIColor.blackColor().CGColor
+        navBarShadowView.layer.shadowColor = UIColor.black.cgColor
         navBarShadowView.layer.shadowOpacity = 0.5
-        navBarShadowView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        navBarShadowView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
-        topBarView.layer.shadowColor = UIColor.blackColor().CGColor
+        topBarView.layer.shadowColor = UIColor.black.cgColor
         topBarView.layer.shadowOpacity = 0.5
-        topBarView.layer.shadowOffset = CGSizeMake(0.0, 0.0)
+        topBarView.layer.shadowOffset = CGSize(width: 0.0, height: 0.0)
         
         firstCircle.layer.borderWidth = 2
-        firstCircle.layer.borderColor = UIColor.blackColor().CGColor
+        firstCircle.layer.borderColor = UIColor.black.cgColor
         firstCircle.layer.cornerRadius = 15
         
         secondCircle.layer.borderWidth = 2
-        secondCircle.layer.borderColor = UIColor.blackColor().CGColor
+        secondCircle.layer.borderColor = UIColor.black.cgColor
         secondCircle.layer.cornerRadius = 15
         
         thirdCircle.layer.borderWidth = 2
-        thirdCircle.layer.borderColor = UIColor.blackColor().CGColor
+        thirdCircle.layer.borderColor = UIColor.black.cgColor
         thirdCircle.layer.cornerRadius = 15
 
         
@@ -116,107 +116,112 @@ class ChooseCaddieViewController: UIViewController, UITableViewDelegate, UITable
 
 extension ChooseCaddieViewController {
     
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+    @objc(tableView:heightForRowAtIndexPath:)
+    func tableView (_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 190
     }
     
-    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+    @objc(numberOfSectionsInTableView:)
+    func numberOfSections(in tableView: UITableView) -> Int {
         var numOfSections: Int = 0
         if (caddieNames.count > 0) {
-            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.SingleLine
+            self.tableView.separatorStyle = UITableViewCellSeparatorStyle.singleLine
             numOfSections = 1
             tableView.backgroundView = nil
         } else {
-            let noDataLabel: UILabel = UILabel(frame: CGRectMake(0, 0, tableView.bounds.size.width, tableView.bounds.size.height))
+            let noDataLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             noDataLabel.text = "Unfortunately no caddies appear to be available for your selected course, date, and time."
             noDataLabel.font = UIFont(name: "AvenirNext-Regular", size: 17)
-            noDataLabel.textColor = UIColor.whiteColor()
-            noDataLabel.textAlignment = NSTextAlignment.Center
+            noDataLabel.textColor = UIColor.white
+            noDataLabel.textAlignment = NSTextAlignment.center
             noDataLabel.numberOfLines = 0
-            noDataLabel.lineBreakMode = .ByWordWrapping
+            noDataLabel.lineBreakMode = .byWordWrapping
             tableView.backgroundView = noDataLabel
-            tableView.backgroundColor = UIColor.clearColor()
-            tableView.separatorStyle = UITableViewCellSeparatorStyle.None
+            tableView.backgroundColor = UIColor.clear
+            tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         }
         return numOfSections
     }
     
-    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return caddieNames.count
     }
     
-    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("cell", forIndexPath: indexPath) as! CaddieTableViewCell
+    
+    @objc(tableView:cellForRowAtIndexPath:)
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CaddieTableViewCell
         
-        cell.cellBackgroundView.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor
+        cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.6).cgColor
         
         cell.profileImageView.image = UIImage(named: "DefaultProfileImage")
         cell.profileImageView.layer.cornerRadius = 40
         
-        cell.nameLabel.text = caddieNames[indexPath.row]
-        cell.acceptanceRateLabel.text = "\(acceptanceRates[indexPath.row])% of requests accepted"
+        cell.nameLabel.text = caddieNames[(indexPath as NSIndexPath).row]
+        cell.acceptanceRateLabel.text = "\(acceptanceRates[(indexPath as NSIndexPath).row])% of requests accepted"
         
         
-        if (sunAvailability[indexPath.row] == true) {
-            cell.sunAvailabilityLabel.textColor = UIColor.whiteColor()
-            cell.sunAvailabilityLabel.font = UIFont.boldSystemFontOfSize(14)
+        if (sunAvailability[(indexPath as NSIndexPath).row] == true) {
+            cell.sunAvailabilityLabel.textColor = UIColor.white
+            cell.sunAvailabilityLabel.font = UIFont.boldSystemFont(ofSize: 14)
         }
         
-        if (monAvailability[indexPath.row] == true) {
-            cell.monAvailabilityLabel.textColor = UIColor.whiteColor()
-            cell.monAvailabilityLabel.font = UIFont.boldSystemFontOfSize(14)
+        if (monAvailability[(indexPath as NSIndexPath).row] == true) {
+            cell.monAvailabilityLabel.textColor = UIColor.white
+            cell.monAvailabilityLabel.font = UIFont.boldSystemFont(ofSize: 14)
         }
         
-        if (tueAvailability[indexPath.row] == true) {
-            cell.tueAvailabilityLabel.textColor = UIColor.whiteColor()
-            cell.tueAvailabilityLabel.font = UIFont.boldSystemFontOfSize(14)
+        if (tueAvailability[(indexPath as NSIndexPath).row] == true) {
+            cell.tueAvailabilityLabel.textColor = UIColor.white
+            cell.tueAvailabilityLabel.font = UIFont.boldSystemFont(ofSize: 14)
         }
         
-        if (wedAvailability[indexPath.row] == true) {
-            cell.wedAvailabilityLabel.textColor = UIColor.whiteColor()
-            cell.wedAvailabilityLabel.font = UIFont.boldSystemFontOfSize(14)
+        if (wedAvailability[(indexPath as NSIndexPath).row] == true) {
+            cell.wedAvailabilityLabel.textColor = UIColor.white
+            cell.wedAvailabilityLabel.font = UIFont.boldSystemFont(ofSize: 14)
         }
         
-        if (thuAvailability[indexPath.row] == true) {
-            cell.thuAvailabilityLabel.textColor = UIColor.whiteColor()
-            cell.thuAvailabilityLabel.font = UIFont.boldSystemFontOfSize(14)
+        if (thuAvailability[(indexPath as NSIndexPath).row] == true) {
+            cell.thuAvailabilityLabel.textColor = UIColor.white
+            cell.thuAvailabilityLabel.font = UIFont.boldSystemFont(ofSize: 14)
         }
         
-        if (friAvailability[indexPath.row] == true) {
-            cell.friAvailabilityLabel.textColor = UIColor.whiteColor()
-            cell.friAvailabilityLabel.font = UIFont.boldSystemFontOfSize(14)
+        if (friAvailability[(indexPath as NSIndexPath).row] == true) {
+            cell.friAvailabilityLabel.textColor = UIColor.white
+            cell.friAvailabilityLabel.font = UIFont.boldSystemFont(ofSize: 14)
         }
         
-        if (satAvailability[indexPath.row] == true) {
-            cell.satAvailabilityLabel.textColor = UIColor.whiteColor()
-            cell.satAvailabilityLabel.font = UIFont.boldSystemFontOfSize(14)
+        if (satAvailability[(indexPath as NSIndexPath).row] == true) {
+            cell.satAvailabilityLabel.textColor = UIColor.white
+            cell.satAvailabilityLabel.font = UIFont.boldSystemFont(ofSize: 14)
         }
         
-        cell.golfKnowledgeRatingLabel.text = "\(golfKnowledge[indexPath.row])"
-        cell.greenReadingRatingLabel.text = "\(greenReading[indexPath.row])"
-        cell.customerSatisfactionRatingLabel.text = "\(customerSatisfaction[indexPath.row])"
+        cell.golfKnowledgeRatingLabel.text = "\(golfKnowledge[(indexPath as NSIndexPath).row])"
+        cell.greenReadingRatingLabel.text = "\(greenReading[(indexPath as NSIndexPath).row])"
+        cell.customerSatisfactionRatingLabel.text = "\(customerSatisfaction[(indexPath as NSIndexPath).row])"
         
         return cell
     }
     
-    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        let cell = tableView.cellForRowAtIndexPath(indexPath) as! CaddieTableViewCell
-        cell.cellBackgroundView.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.8).CGColor
+    @objc(tableView:didSelectRowAtIndexPath:)
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.cellForRow(at: indexPath) as! CaddieTableViewCell
+        cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.8).cgColor
         
-        caddieNameForSegue = caddieNames[indexPath.row]
-        acceptanceRateForSegue = acceptanceRates[indexPath.row]
+        caddieNameForSegue = caddieNames[(indexPath as NSIndexPath).row]
+        acceptanceRateForSegue = acceptanceRates[(indexPath as NSIndexPath).row]
         
-        performSegueWithIdentifier("toConfirmReservationSegue", sender: self)
+        performSegue(withIdentifier: "toConfirmReservationSegue", sender: self)
         
-        UIView.animateWithDuration(0.1, delay: 0.5, options: .CurveLinear, animations: {
-            cell.cellBackgroundView.layer.backgroundColor = UIColor.blackColor().colorWithAlphaComponent(0.6).CGColor
+        UIView.animate(withDuration: 0.1, delay: 0.5, options: .curveLinear, animations: {
+            cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.6).cgColor
         }, completion: nil)
     }
     
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         
         if (segue.identifier == "toConfirmReservationSegue") {
-            let destinationVC = segue.destinationViewController as! ConfirmRequestViewController
+            let destinationVC = segue.destination as! ConfirmRequestViewController
 
             courseNameForSegue = courseNameReceivedAgain!
             courseLocationForSegue = courseLocationReceivedAgain!

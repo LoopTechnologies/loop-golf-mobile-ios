@@ -13,7 +13,7 @@ class AboutUsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "About Us"
-        navigationController!.navigationBar.tintColor = UIColor.blackColor()
+        navigationController!.navigationBar.tintColor = UIColor.black
     }
 }
 

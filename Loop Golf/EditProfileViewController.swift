@@ -43,15 +43,15 @@ class EditProfileViewController: UITableViewController, UITextFieldDelegate {
     var emailToSave = String()
     var phoneToSave = String()
     
-    override func viewWillAppear(animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .Plain, target: nil, action: nil)
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         navigationItem.title = "Edit Profile"
-        navigationController!.navigationBar.tintColor = UIColor.blackColor()
+        navigationController!.navigationBar.tintColor = UIColor.black
         tableView.contentInset = UIEdgeInsetsMake(-35, 0, -35, 0)
         
         profileImageView.layer.cornerRadius = 8
@@ -69,10 +69,10 @@ class EditProfileViewController: UITableViewController, UITextFieldDelegate {
         emailTextField.tag = 3
         phoneTextField.tag = 4
         
-        let doneButton = UIBarButtonItem(barButtonSystemItem: .Done, target: self, action: ("saveChanges"))
-        doneButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 17)!], forState: UIControlState.Normal)
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: (#selector(EditProfileViewController.saveChanges)))
+        doneButton.setTitleTextAttributes([NSFontAttributeName: UIFont(name: "AvenirNext-Regular", size: 17)!], for: UIControlState())
         self.navigationItem.rightBarButtonItem = doneButton
-        self.navigationItem.rightBarButtonItem?.enabled = true
+        self.navigationItem.rightBarButtonItem?.isEnabled = true
         
         if (firstNameTextField.text == "") {
             firstNameTextFieldEmpty()
@@ -102,7 +102,7 @@ class EditProfileViewController: UITableViewController, UITextFieldDelegate {
 
 extension EditProfileViewController {
     
-    func textFieldDidBeginEditing(textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: UITextField) {
         if (textField.tag == 1) {
             firstNameTextFieldOccupied()
         } else if (textField.tag == 2) {
@@ -114,7 +114,7 @@ extension EditProfileViewController {
         }
     }
     
-    func textFieldShouldReturn(textField: UITextField) -> Bool {
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         if (textField.tag == 1) {
             firstNameTextField.resignFirstResponder()
         } else if (textField.tag == 2) {
@@ -127,7 +127,7 @@ extension EditProfileViewController {
         return true
     }
     
-    func textFieldDidEndEditing(textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: UITextField) {
         if (textField.tag == 1) {
             firstNameTextField.resignFirstResponder()
             if (firstNameTextField.text == "") {
@@ -160,57 +160,57 @@ extension EditProfileViewController {
     }
     
     func firstNameTextFieldEmpty() {
-        firstNameCellLabel.hidden = true
-        firstNamePlaceholder.hidden = false
+        firstNameCellLabel.isHidden = true
+        firstNamePlaceholder.isHidden = false
         firstNameTextFieldBottomConstraint.constant = 6
     }
     
     func firstNameTextFieldOccupied() {
-        firstNameCellLabel.hidden = false
-        firstNamePlaceholder.hidden = true
+        firstNameCellLabel.isHidden = false
+        firstNamePlaceholder.isHidden = true
         firstNameTextFieldBottomConstraint.constant = 0
     }
     
     func lastNameTextFieldEmpty() {
-        lastNameCellLabel.hidden = true
-        lastNamePlaceholder.hidden = false
+        lastNameCellLabel.isHidden = true
+        lastNamePlaceholder.isHidden = false
         lastNameTextFieldBottomConstraint.constant = 6
     }
     
     func lastNameTextFieldOccupied() {
-        lastNameCellLabel.hidden = false
-        lastNamePlaceholder.hidden = true
+        lastNameCellLabel.isHidden = false
+        lastNamePlaceholder.isHidden = true
         lastNameTextFieldBottomConstraint.constant = 0
     }
     
     func emailTextFieldEmpty() {
-        emailCellLabel.hidden = true
-        emailPlaceholder.hidden = false
+        emailCellLabel.isHidden = true
+        emailPlaceholder.isHidden = false
         emailTextFieldBottomConstraint.constant = 6
     }
     
     func emailTextFieldOccupied() {
-        emailCellLabel.hidden = false
-        emailPlaceholder.hidden = true
+        emailCellLabel.isHidden = false
+        emailPlaceholder.isHidden = true
         emailTextFieldBottomConstraint.constant = 0
     }
     
     func phoneTextFieldEmpty() {
-        phoneCellLabel.hidden = true
-        phonePlaceholder.hidden = false
+        phoneCellLabel.isHidden = true
+        phonePlaceholder.isHidden = false
         phoneTextFieldBottomConstraint.constant = 6
     }
     
     func phoneTextFieldOccupied() {
-        phoneCellLabel.hidden = false
-        phonePlaceholder.hidden = true
+        phoneCellLabel.isHidden = false
+        phonePlaceholder.isHidden = true
         phoneTextFieldBottomConstraint.constant = 0
     }
     
-    func validateEmail(emailString: String) -> Bool {
+    func validateEmail(_ emailString: String) -> Bool {
         let emailFormat = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,64}"
         let emailPredicate = NSPredicate(format:"SELF MATCHES %@", emailFormat)
-        emailIsValid = emailPredicate.evaluateWithObject(emailString)
+        emailIsValid = emailPredicate.evaluate(with: emailString)
         return emailIsValid
     }
     
@@ -219,31 +219,31 @@ extension EditProfileViewController {
         phoneToValidate = phoneTextField.text!
         
         if (firstNameTextField.text == "" || lastNameTextField.text == "") {
-            let alertController = UIAlertController(title: "", message:  "You must enter a first and last name to save changes.", preferredStyle: .Alert)
-            alertController.view.tintColor = UIColor.blackColor()
-            let doneAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+            let alertController = UIAlertController(title: "", message:  "You must enter a first and last name to save changes.", preferredStyle: .alert)
+            alertController.view.tintColor = UIColor.black
+            let doneAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
             }
             alertController.addAction(doneAction)
-            self.presentViewController(alertController, animated: true) {
-                alertController.view.tintColor = UIColor.blackColor()
+            self.present(alertController, animated: true) {
+                alertController.view.tintColor = UIColor.black
             }
         } else if (emailIsValid == false) {
-            let alertController = UIAlertController(title: "", message:  "You must enter a valid email to save changes.", preferredStyle: .Alert)
-            alertController.view.tintColor = UIColor.blackColor()
-            let doneAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+            let alertController = UIAlertController(title: "", message:  "You must enter a valid email to save changes.", preferredStyle: .alert)
+            alertController.view.tintColor = UIColor.black
+            let doneAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
             }
             alertController.addAction(doneAction)
-            self.presentViewController(alertController, animated: true) {
-                alertController.view.tintColor = UIColor.blackColor()
+            self.present(alertController, animated: true) {
+                alertController.view.tintColor = UIColor.black
             }
         } else if (phoneToValidate.characters.count <= 9) {
-            let alertController = UIAlertController(title: "", message:  "You must enter a valid phone number to save changes.", preferredStyle: .Alert)
-            alertController.view.tintColor = UIColor.blackColor()
-            let doneAction = UIAlertAction(title: "OK", style: .Cancel) { (action) in
+            let alertController = UIAlertController(title: "", message:  "You must enter a valid phone number to save changes.", preferredStyle: .alert)
+            alertController.view.tintColor = UIColor.black
+            let doneAction = UIAlertAction(title: "OK", style: .cancel) { (action) in
             }
             alertController.addAction(doneAction)
-            self.presentViewController(alertController, animated: true) {
-                alertController.view.tintColor = UIColor.blackColor()
+            self.present(alertController, animated: true) {
+                alertController.view.tintColor = UIColor.black
             }
         } else {
             // Save changes to account information.
@@ -255,7 +255,7 @@ extension EditProfileViewController {
             print(lastNameToSave)
             print(emailToSave)
             print(phoneToSave)
-            navigationController?.popViewControllerAnimated(true)
+            navigationController?.popViewController(animated: true)
         }
     }
 }
