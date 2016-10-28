@@ -11,7 +11,7 @@ import UIKit
 class ConfirmedContainerViewController: UITableViewController {
     
     //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
-    var caddieNames = ["Jerry Marshall"]
+    var caddieNames: [String] = ["Jerry Marshall"]
     var courseNames = ["The Woodlands Country Club: Palmer Course"]
     var courseLocations = ["Spring, Texas"]
     var dates = ["November 25, 2016"]
@@ -24,15 +24,15 @@ class ConfirmedContainerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor.clear
-        tableView.contentInset = UIEdgeInsetsMake(-35, 0, -35, 0)
+        tableView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        tableView.contentInset = UIEdgeInsetsMake(-34, 0, -34, 0)
     }
 }
 
 extension ConfirmedContainerViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 129
+        return 138
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,13 +44,13 @@ extension ConfirmedContainerViewController {
         } else {
             let noDataLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             noDataLabel.text = "You don't have any confirmed reservations."
-            noDataLabel.font = UIFont(name: "AvenirNext-Regular", size: 17)
+            noDataLabel.font = UIFont(name: "AvenirNext-Regular", size: 20)
             noDataLabel.textColor = UIColor.white
             noDataLabel.textAlignment = NSTextAlignment.center
             noDataLabel.numberOfLines = 0
             noDataLabel.lineBreakMode = .byWordWrapping
             tableView.backgroundView = noDataLabel
-            tableView.backgroundColor = UIColor.clear
+            tableView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
             tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         }
         return numOfSections
@@ -62,6 +62,9 @@ extension ConfirmedContainerViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ReservationsTableViewCell
+        
+        cell.cellBackgroundView.layer.cornerRadius = 8
+        cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.4).cgColor
         
         cell.caddieNameLabel.text = caddieNames[(indexPath as NSIndexPath).row] as? String
         cell.courseNameLabel.text = courseNames[(indexPath as NSIndexPath).row] as? String
@@ -77,12 +80,12 @@ extension ConfirmedContainerViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ReservationsTableViewCell
         cell.layer.cornerRadius = 8
-        cell.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.6).cgColor
         
         performSegue(withIdentifier: "toConfirmedSegue", sender: self)
         
         UIView.animate(withDuration: 0.1, delay: 0.5, options: .curveLinear, animations: {
-            cell.backgroundColor =  UIColor.black.withAlphaComponent(0)
+            cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.4).cgColor
             }, completion: nil)
     }
     

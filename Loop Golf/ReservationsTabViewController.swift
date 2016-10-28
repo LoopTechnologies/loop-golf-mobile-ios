@@ -16,7 +16,6 @@ class ReservationsTabViewController: UIViewController {
     // --------------------------------------------------------------------------------//
     
     @IBOutlet weak var navigationBar: UINavigationBar!
-    @IBOutlet weak var roundedBackgroundView: UIView!
     @IBOutlet weak var requestedContainer: UIView!
     @IBOutlet weak var confirmedContainer: UIView!
     
@@ -34,8 +33,6 @@ class ReservationsTabViewController: UIViewController {
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
         
-        roundedBackgroundView.layer.cornerRadius = 8
-
         confirmedContainer.isHidden = true
     }
     

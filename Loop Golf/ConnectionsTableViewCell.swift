@@ -10,6 +10,7 @@ import UIKit
 
 class ConnectionsTableViewCell: UITableViewCell {
     
+    @IBOutlet weak var cellBackgroundView: UIView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var secondaryLabel: UILabel!
     

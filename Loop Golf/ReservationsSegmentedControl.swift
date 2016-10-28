@@ -91,7 +91,7 @@ import UIKit
         let labelWidth = self.bounds.width / CGFloat(labels.count)
         
         //lineView.frame = CGRectMake((labelWidth * 0.15), labelHeight - 1.0, (labelWidth * 0.7), 1.5)
-        lineView.frame = CGRect(x: (labelWidth * 0.1), y: labelHeight - 1.0, width: (labelWidth * 0.8), height: 1.2)
+        lineView.frame = CGRect(x: (labelWidth * 0.1), y: labelHeight - 1.0, width: (labelWidth * 0.8), height: 2)
         lineView.backgroundColor = UIColor.white
         
         pillView.frame = CGRect (x: (labelWidth * 0.05), y: 0, width: (labelWidth * 0.9), height: labelHeight)

@@ -102,8 +102,10 @@ class ChooseDateViewController: UIViewController {
         datePicker.subviews[0].subviews[2].isHidden = true
         
         
-        datePicker.minimumDate = oneDayAheadOfCurrentDate
-        datePicker.maximumDate = threeMonthsAheadOfCurrentDate
+        //datePicker.minimumDate = oneDayAheadOfCurrentDate
+        datePicker.minimumDate = Calendar.current.date(byAdding: .day, value: 1, to: Date())
+        //datePicker.maximumDate = threeMonthsAheadOfCurrentDate
+        datePicker.maximumDate = Calendar.current.date(byAdding: .month, value: 3, to: Date())
         
         dateTimeFormatter.dateFormat = "yyyy-MM-dd H:mm"
         

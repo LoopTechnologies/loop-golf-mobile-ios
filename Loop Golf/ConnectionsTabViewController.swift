@@ -12,7 +12,6 @@ class ConnectionsTabViewController: UIViewController {
     
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var addGolferBarButtonItem: UIBarButtonItem!
-    @IBOutlet weak var roundedBackgroundView: UIView!
     @IBOutlet weak var caddiesContainer: UIView!
     @IBOutlet weak var golfersContainer: UIView!
     
@@ -30,7 +29,6 @@ class ConnectionsTabViewController: UIViewController {
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
         
-        roundedBackgroundView.layer.cornerRadius = 8
         showCaddiesContainer()
     }
     

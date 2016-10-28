@@ -11,7 +11,7 @@ import UIKit
 class GolfersContainerViewController: UITableViewController {
     
     //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
-    var golferNames = ["Larry David", "Jackie Chan"]
+    var golferNames: [String] = ["Larry David", "Jackie Chan"]
     var userNames = ["larry-david", "jack-chan-2"]
     // --------------------------------------------------------------------------------//
     
@@ -22,8 +22,8 @@ class GolfersContainerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.backgroundColor = UIColor.clear
-        tableView.contentInset = UIEdgeInsetsMake(-35, 0, -35, 0)
+        tableView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        tableView.contentInset = UIEdgeInsetsMake(-34, 0, -34, 0)
         
     }
 }
@@ -31,7 +31,7 @@ class GolfersContainerViewController: UITableViewController {
 extension GolfersContainerViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 57
+        return 81
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -43,13 +43,13 @@ extension GolfersContainerViewController {
         } else {
             let noDataLabel: UILabel = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
             noDataLabel.text = "You don't have any golfer connections to show. Connect with your friends on Loop to start golfing together."
-            noDataLabel.font = UIFont(name: "AvenirNext-Regular", size: 17)
+            noDataLabel.font = UIFont(name: "AvenirNext-Regular", size: 20)
             noDataLabel.textColor = UIColor.white
             noDataLabel.textAlignment = NSTextAlignment.center
             noDataLabel.numberOfLines = 0
             noDataLabel.lineBreakMode = .byWordWrapping
             tableView.backgroundView = noDataLabel
-            tableView.backgroundColor = UIColor.clear
+            tableView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
             tableView.separatorStyle = UITableViewCellSeparatorStyle.none
         }
         return numOfSections
@@ -62,6 +62,9 @@ extension GolfersContainerViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ConnectionsTableViewCell
         
+        cell.cellBackgroundView.layer.cornerRadius = 8
+        cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.4).cgColor
+        
         cell.nameLabel.text = golferNames[(indexPath as NSIndexPath).row] as? String
         cell.secondaryLabel.text = "@\(userNames[(indexPath as NSIndexPath).row])"
         
@@ -71,7 +74,7 @@ extension GolfersContainerViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ConnectionsTableViewCell
         cell.layer.cornerRadius = 8
-        cell.backgroundColor = UIColor.black.withAlphaComponent(0.4)
+        cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.6).cgColor
         
         profileNameForSegue = golferNames[(indexPath as NSIndexPath).row]
         profileSecondaryInfoForSegue = userNames[(indexPath as NSIndexPath).row]
@@ -79,7 +82,7 @@ extension GolfersContainerViewController {
         performSegue(withIdentifier: "toGolferProfileSegue", sender: self)
         
         UIView.animate(withDuration: 0.1, delay: 0.5, options: .curveLinear, animations: {
-            cell.backgroundColor =  UIColor.black.withAlphaComponent(0)
+            cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.4).cgColor
             }, completion: nil)
     }
     
