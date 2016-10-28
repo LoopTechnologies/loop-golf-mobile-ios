@@ -24,7 +24,7 @@ class CaddiesContainerViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
-        tableView.contentInset = UIEdgeInsetsMake(-34, 0, -34, 0)
+        tableView.contentInset = UIEdgeInsetsMake(-35, 0, -35, 0)
         
     }
 }
@@ -74,7 +74,6 @@ extension CaddiesContainerViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ConnectionsTableViewCell
         
-        cell.cellBackgroundView.layer.cornerRadius = 8
         cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.6).cgColor
         
         profileNameForSegue = caddieNames[(indexPath as NSIndexPath).row]

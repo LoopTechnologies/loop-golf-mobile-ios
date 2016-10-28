@@ -16,11 +16,15 @@ class ConnectionPopoverViewController: UIViewController {
     @IBOutlet weak var caddieContainer: UIView!
     @IBOutlet weak var golferContainer: UIView!
 
-    
     // Receive data via segue.
     var senderReceived: Int?
     var profileNameReceived: String?
     var profileSecondaryInfoReceived: String?
+    
+    // Send data to child VCs via segue.
+    var profileNameForChild = String()
+    var profileSecondaryInfoForChild = String()
+    
     
     var connectionType = String()
     
@@ -83,6 +87,26 @@ extension ConnectionPopoverViewController {
         
         self.present(actionSheet, animated: true) {
             actionSheet.view.tintColor = UIColor.black
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toCaddieConnectionContainerSegue") {
+            let destinationVC = segue.destination as! CaddieConnectionDetailsViewController
+            profileNameForChild = profileNameReceived!
+            profileSecondaryInfoForChild = profileSecondaryInfoReceived!
+                
+            destinationVC.profileNameReceived = profileNameForChild
+            destinationVC.profileSecondaryInfoReceived = profileSecondaryInfoForChild
+        }
+        
+        if (segue.identifier == "toGolferConnectionContainerSegue") {
+            let destinationVC = segue.destination as! GolferConnectionDetailsViewController
+            profileNameForChild = profileNameReceived!
+            profileSecondaryInfoForChild = profileSecondaryInfoReceived!
+            
+            destinationVC.profileNameReceived = profileNameForChild
+            destinationVC.profileSecondaryInfoReceived = profileSecondaryInfoForChild
         }
     }
 }

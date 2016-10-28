@@ -10,9 +10,25 @@ import UIKit
 
 class GolferConnectionDetailsViewController: UITableViewController {
     
+    @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var secondaryLabel: UILabel!
+    @IBOutlet weak var addToReservationButton: UIButton!
+    @IBOutlet weak var lifetimeRoundsLabel: UILabel!
+    @IBOutlet weak var mostRecentLabel: UILabel!
+    
+    // Receive from parent VC via segue.
+    var profileNameReceived: String?
+    var profileSecondaryInfoReceived: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsetsMake(-19, 0, 1, 0)
+        profileImageView.layer.cornerRadius = 8
+        addToReservationButton.layer.cornerRadius = 8
+        
+        nameLabel.text = profileNameReceived!
+        secondaryLabel.text = "@\(profileSecondaryInfoReceived!)"
     }
 }
 

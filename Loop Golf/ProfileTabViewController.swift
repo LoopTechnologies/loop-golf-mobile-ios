@@ -10,9 +10,24 @@ import UIKit
 
 class ProfileTabViewController: UIViewController {
     
+    //----------- DUMMY VARIABLES - SIMULATE INTERACTION WITH DATABASE ----------------//
+    var firstName = "Mark"
+    var lastName = "Johnson"
+    var username = "mark-johnson"
+    var membershipHistory = "September 2016"
+    var lifetimeRounds = 3
+    var credit = 5
+    // --------------------------------------------------------------------------------//
+    
     @IBOutlet weak var navigationBar: UINavigationBar!
     @IBOutlet weak var roundedBackgroundView: UIView!
     @IBOutlet weak var profileImageView: UIImageView!
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var usernameLabel: UILabel!
+    @IBOutlet weak var membershipHistoryLabel: UILabel!
+    @IBOutlet weak var lifetimeRoundsLabel: UILabel!
+    @IBOutlet weak var creditLabel: UILabel!
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,9 +40,12 @@ class ProfileTabViewController: UIViewController {
         navigationBar.setBackgroundImage(UIImage(), for: .default)
         navigationBar.shadowImage = UIImage()
         
-        roundedBackgroundView.layer.cornerRadius = 8
-        
         profileImageView.layer.cornerRadius = 50
+        nameLabel.text = "\(firstName) \(lastName)"
+        usernameLabel.text = "@\(username)"
+        membershipHistoryLabel.text = "Member since \(membershipHistory)"
+        lifetimeRoundsLabel.text = "\(lifetimeRounds)"
+        creditLabel.text = "$\(credit)"
     }
 }
 

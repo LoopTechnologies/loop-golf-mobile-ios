@@ -9,8 +9,7 @@
 import UIKit
 
 class CaddieConnectionDetailsViewController: UITableViewController {
-    
-    
+
     @IBOutlet weak var profileImageView: UIImageView!
     @IBOutlet weak var nameLabel: UILabel!
     @IBOutlet weak var secondaryLabel: UILabel!
@@ -26,14 +25,17 @@ class CaddieConnectionDetailsViewController: UITableViewController {
     @IBOutlet weak var saveChangesCell: UITableViewCell!
     @IBOutlet weak var saveChangesButton: UIButton!
     
-    
+    // Receive from parent VC via segue.
+    var profileNameReceived: String?
+    var profileSecondaryInfoReceived: String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.contentInset = UIEdgeInsetsMake(-19, 0, -331, 0)
-        reserveAgainButton.layer.cornerRadius = 15
-        editRatingsButton.layer.cornerRadius = 15
-        saveChangesButton.layer.cornerRadius = 15
+        profileImageView.layer.cornerRadius = 8
+        reserveAgainButton.layer.cornerRadius = 8
+        editRatingsButton.layer.cornerRadius = 8
+        saveChangesButton.layer.cornerRadius = 8
         
         editRatingsButton.isHidden = false
         golfKnowledgeCellPrimaryLabel.text = "Have you rated this caddie?"
@@ -42,6 +44,9 @@ class CaddieConnectionDetailsViewController: UITableViewController {
         greenReadingRatingCell.isHidden = true
         customerSatisfactionRatingCell.isHidden = true
         saveChangesCell.isHidden = true
+        
+        nameLabel.text = profileNameReceived!
+        secondaryLabel.text = "Member since \(profileSecondaryInfoReceived!)"
     }
 }
 

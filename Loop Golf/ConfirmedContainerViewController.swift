@@ -25,7 +25,7 @@ class ConfirmedContainerViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
-        tableView.contentInset = UIEdgeInsetsMake(-34, 0, -34, 0)
+        tableView.contentInset = UIEdgeInsetsMake(-35, 0, -35, 0)
     }
 }
 
@@ -63,7 +63,6 @@ extension ConfirmedContainerViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! ReservationsTableViewCell
         
-        cell.cellBackgroundView.layer.cornerRadius = 8
         cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.4).cgColor
         
         cell.caddieNameLabel.text = caddieNames[(indexPath as NSIndexPath).row] as? String
@@ -79,7 +78,6 @@ extension ConfirmedContainerViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath) as! ReservationsTableViewCell
-        cell.layer.cornerRadius = 8
         cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.6).cgColor
         
         performSegue(withIdentifier: "toConfirmedSegue", sender: self)

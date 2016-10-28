@@ -37,22 +37,17 @@ class DetailsContainerViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tableView.backgroundColor = UIColor.clear
-        self.tableView.contentInset = UIEdgeInsetsMake(7, 0, 7, 0)
+        tableView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        self.tableView.contentInset = UIEdgeInsetsMake(-5, 0, -5, 0)
         
-        membershipAndLocationCell.contentView.layer.cornerRadius = 8
         membershipAndLocationCell.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
-        overviewCell.contentView.layer.cornerRadius = 8
         overviewCell.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
-        facilitiesCell.contentView.layer.cornerRadius = 8
         facilitiesCell.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
 
-        amenitiesCell.contentView.layer.cornerRadius = 8
         amenitiesCell.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
 
-        offersCell.contentView.layer.cornerRadius = 8
         offersCell.contentView.backgroundColor = UIColor.black.withAlphaComponent(0.4)
         
         membershipHistoryLabel.text = membershipHistory

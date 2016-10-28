@@ -73,7 +73,8 @@ class ChooseCaddieViewController: UIViewController, UITableViewDelegate, UITable
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.contentInset = UIEdgeInsetsMake(0, 0, 10, 0)
+        tableView.backgroundColor = UIColor.black.withAlphaComponent(0.2)
+        tableView.contentInset = UIEdgeInsetsMake(-10, 0, 0, 0)
         
         navigationItem.title = "Nearby Caddies"
         navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName: UIFont(name:"AvenirNext-Regular", size: 26)!, NSForegroundColorAttributeName: UIColor.black]
@@ -152,7 +153,7 @@ extension ChooseCaddieViewController {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath) as! CaddieTableViewCell
         
-        cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.6).cgColor
+        cell.cellBackgroundView.layer.backgroundColor = UIColor.black.withAlphaComponent(0.4).cgColor
         
         cell.profileImageView.image = UIImage(named: "DefaultProfileImage")
         cell.profileImageView.layer.cornerRadius = 40
