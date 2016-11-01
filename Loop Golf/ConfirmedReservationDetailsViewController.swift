@@ -85,7 +85,7 @@ class ConfirmedReservationDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsetsMake(-9, 0, 1, 0)
+        tableView.contentInset = UIEdgeInsetsMake(-10, 0, 0, 0)
     }
 }
 

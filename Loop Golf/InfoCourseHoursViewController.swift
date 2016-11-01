@@ -1,14 +1,14 @@
 //
-//  InfoProfilePictureViewController.swift
+//  InfoCourseHoursViewController.swift
 //  Loop Golf
 //
-//  Created by Matt Hills on 10/26/16.
+//  Created by Matt Hills on 10/31/16.
 //  Copyright © 2016 Loop Sports Technologies LLC. All rights reserved.
 //
 
 import UIKit
 
-class InfoProfilePictureViewController: UIViewController {
+class InfoCourseHoursViewController: UIViewController {
     
     @IBOutlet weak var backgroundButton: UIButton!
     @IBOutlet weak var popoverView: UIView!
@@ -26,13 +26,13 @@ class InfoProfilePictureViewController: UIViewController {
     }
 }
 
-extension InfoProfilePictureViewController {
-    
+extension InfoCourseHoursViewController {
     @IBAction func dismissVCButtonPressed(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true, completion: {})
     }
     
     @IBAction func backgroundButtonPressed(_ sender: AnyObject) {
         self.dismiss(animated: true, completion: {})
-    } 
+    }
+    
 }

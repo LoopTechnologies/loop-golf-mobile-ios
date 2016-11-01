@@ -27,11 +27,11 @@ class RequestedReservationDetailsViewController: UITableViewController {
         
         switch (typeOfReservationReceived!) {
         case 0:
-            tableView.contentInset = UIEdgeInsetsMake(-69, 0, 1, 0)
+            tableView.contentInset = UIEdgeInsetsMake(-70, 0, 0, 0)
             requestStatusBannerLabel.text = "Every caddie has 12 hours to respond to a reservation request. Your reservation will remain pending until it's confirmed or declined."
             selectNewButtonCell.isHidden = true
         case 1:
-            tableView.contentInset = UIEdgeInsetsMake(-9, 0, 1, 0)
+            tableView.contentInset = UIEdgeInsetsMake(-10, 0, 0, 0)
             requestStatusBannerLabel.text = "Unfortunately, your requested caddie is unable to complete your reservation. Don't worry though, finding another caddie is easy."
             selectNewButtonCell.isHidden = false
         default:

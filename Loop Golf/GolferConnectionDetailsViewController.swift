@@ -23,7 +23,7 @@ class GolferConnectionDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsetsMake(-19, 0, 1, 0)
+        tableView.contentInset = UIEdgeInsetsMake(-20, 0, 2, 0)
         profileImageView.layer.cornerRadius = 8
         addToReservationButton.layer.cornerRadius = 8
         

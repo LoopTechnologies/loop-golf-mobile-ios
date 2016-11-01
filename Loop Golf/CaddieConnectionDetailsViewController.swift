@@ -31,7 +31,7 @@ class CaddieConnectionDetailsViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tableView.contentInset = UIEdgeInsetsMake(-19, 0, -331, 0)
+        tableView.contentInset = UIEdgeInsetsMake(-20, 0, -332, 0)
         profileImageView.layer.cornerRadius = 8
         reserveAgainButton.layer.cornerRadius = 8
         editRatingsButton.layer.cornerRadius = 8

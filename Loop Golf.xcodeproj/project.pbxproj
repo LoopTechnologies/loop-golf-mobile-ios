@@ -45,6 +45,7 @@
 		C956CD9D1DC1039900D910F7 /* SignUpProfileImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956CD9C1DC1039900D910F7 /* SignUpProfileImageViewController.swift */; };
 		C956CDA11DC11E7E00D910F7 /* SignUpPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956CDA01DC11E7E00D910F7 /* SignUpPasswordViewController.swift */; };
 		C956CDA31DC1217F00D910F7 /* InfoProfilePictureViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C956CDA21DC1217F00D910F7 /* InfoProfilePictureViewController.swift */; };
+		C97A62591DC844E500C9DCF5 /* InfoCourseHoursViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C97A62581DC844E500C9DCF5 /* InfoCourseHoursViewController.swift */; };
 		C98A9A7C1DA83749009202DD /* ConfirmRequestContainerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C98A9A7B1DA83749009202DD /* ConfirmRequestContainerViewController.swift */; };
 		C9B0D3A21DA20DD4008C4DDA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */; };
 		C9B0D3A41DA20DD4008C4DDA /* HomeTabViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C9B0D3A31DA20DD4008C4DDA /* HomeTabViewController.swift */; };
@@ -124,6 +125,7 @@
 		C956CD9C1DC1039900D910F7 /* SignUpProfileImageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpProfileImageViewController.swift; sourceTree = "<group>"; };
 		C956CDA01DC11E7E00D910F7 /* SignUpPasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpPasswordViewController.swift; sourceTree = "<group>"; };
 		C956CDA21DC1217F00D910F7 /* InfoProfilePictureViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoProfilePictureViewController.swift; sourceTree = "<group>"; };
+		C97A62581DC844E500C9DCF5 /* InfoCourseHoursViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InfoCourseHoursViewController.swift; sourceTree = "<group>"; };
 		C98A9A7B1DA83749009202DD /* ConfirmRequestContainerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ConfirmRequestContainerViewController.swift; sourceTree = "<group>"; };
 		C9B0D39E1DA20DD3008C4DDA /* Loop Golf.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Loop Golf.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C9B0D3A11DA20DD4008C4DDA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -362,6 +364,7 @@
 			isa = PBXGroup;
 			children = (
 				C944D63C1DA45BC100E56C25 /* ChooseDateViewController.swift */,
+				C97A62581DC844E500C9DCF5 /* InfoCourseHoursViewController.swift */,
 			);
 			name = "Choose Date";
 			sourceTree = "<group>";
@@ -787,6 +790,7 @@
 				C944D6211DA2F8D100E56C25 /* GolfersContainerViewController.swift in Sources */,
 				C9D3C51F1DB80D1E00AC1A15 /* CourseSearchRadiusViewController.swift in Sources */,
 				C9B0D3A61DA20DD4008C4DDA /* ConnectionsTabViewController.swift in Sources */,
+				C97A62591DC844E500C9DCF5 /* InfoCourseHoursViewController.swift in Sources */,
 				C9D3C5271DB813A800AC1A15 /* BecomeACaddieViewController.swift in Sources */,
 				C944D6381DA3704200E56C25 /* CourseDetailsViewController.swift in Sources */,
 				C91699031DB122300010672B /* ConfirmedReservationDetailsViewController.swift in Sources */,

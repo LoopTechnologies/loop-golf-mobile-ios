@@ -1505,7 +1505,7 @@ Favorites</string>
                                 <rect key="frame" x="0.0" y="28" width="414" height="251"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="3ec-V9-wAo" id="VmH-zC-8a0">
-                                    <frame key="frameInset" width="414" height="251"/>
+                                    <frame key="frameInset" width="414" height="250"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66m-cx-9x2">
@@ -1800,6 +1800,9 @@ Favorites</string>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="detailDisclosure" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DF8-Mr-XE6">
                                 <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <connections>
+                                    <segue destination="2eq-th-ckY" kind="presentation" modalPresentationStyle="overFullScreen" id="RaA-ky-fAE"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your selected course is open from" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="maF-Lx-GFC">
                                 <constraints>
@@ -2593,7 +2596,7 @@ Satisfaction</string>
             <objects>
                 <tableViewController id="u3H-c1-mBB" customClass="ConfirmRequestContainerViewController" customModule="Loop_Golf" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="static" style="grouped" separatorStyle="none" rowHeight="44" sectionHeaderHeight="18" sectionFooterHeight="18" id="L9y-mV-yqf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="390"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="389"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="separatorColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -3631,8 +3634,8 @@ Satisfaction</string>
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" alpha="0.59999999999999998" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5k-Uo-jma">
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5k-Uo-jma">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <connections>
                                     <action selector="backgroundButtonPressed:" destination="r3M-vq-re9" eventType="touchUpInside" id="Bsq-Se-rfg"/>
                                 </connections>
@@ -3651,7 +3654,7 @@ Satisfaction</string>
                                             </navigationItem>
                                         </items>
                                     </navigationBar>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Our Profile Picture Policy" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="e4W-m1-WFK">
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Profile Pictures" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="e4W-m1-WFK">
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
                                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -3689,24 +3692,24 @@ Satisfaction</string>
                                     <constraint firstItem="oOm-o3-PX5" firstAttribute="leading" secondItem="ECy-xu-iQe" secondAttribute="leading" id="2hQ-cF-4dM"/>
                                     <constraint firstItem="MJj-ce-ebc" firstAttribute="centerX" secondItem="j2p-yD-gwG" secondAttribute="centerX" id="741-8H-E09"/>
                                     <constraint firstItem="MJj-ce-ebc" firstAttribute="width" secondItem="j2p-yD-gwG" secondAttribute="width" id="7Vf-rl-0LG"/>
+                                    <constraint firstItem="e4W-m1-WFK" firstAttribute="centerY" secondItem="MJj-ce-ebc" secondAttribute="centerY" id="8wl-0u-CJZ"/>
                                     <constraint firstItem="Kk3-0W-mtJ" firstAttribute="top" secondItem="Lhp-ZO-i35" secondAttribute="bottom" constant="30" id="EpG-Qt-PY8"/>
-                                    <constraint firstItem="e4W-m1-WFK" firstAttribute="leading" secondItem="j2p-yD-gwG" secondAttribute="leading" constant="10" id="Fcv-Tb-bnt"/>
+                                    <constraint firstItem="e4W-m1-WFK" firstAttribute="leading" secondItem="j2p-yD-gwG" secondAttribute="leading" constant="50" id="Fcv-Tb-bnt"/>
                                     <constraint firstItem="oOm-o3-PX5" firstAttribute="trailing" secondItem="ECy-xu-iQe" secondAttribute="trailing" id="PWg-fx-cGQ"/>
                                     <constraint firstItem="Kk3-0W-mtJ" firstAttribute="trailing" secondItem="Lhp-ZO-i35" secondAttribute="trailing" id="XvJ-c7-Hfm"/>
                                     <constraint firstItem="oOm-o3-PX5" firstAttribute="top" secondItem="ECy-xu-iQe" secondAttribute="bottom" constant="30" id="YAH-ol-CIc"/>
                                     <constraint firstItem="ECy-xu-iQe" firstAttribute="trailing" secondItem="Kk3-0W-mtJ" secondAttribute="trailing" id="a2K-kP-Jg8"/>
-                                    <constraint firstItem="Lhp-ZO-i35" firstAttribute="top" secondItem="e4W-m1-WFK" secondAttribute="bottom" constant="10" id="bhT-gP-N1P"/>
+                                    <constraint firstItem="Lhp-ZO-i35" firstAttribute="top" secondItem="e4W-m1-WFK" secondAttribute="bottom" constant="20" id="bhT-gP-N1P"/>
                                     <constraint firstItem="ECy-xu-iQe" firstAttribute="leading" secondItem="Kk3-0W-mtJ" secondAttribute="leading" id="eev-vH-ZGh"/>
                                     <constraint firstAttribute="trailing" secondItem="Lhp-ZO-i35" secondAttribute="trailing" constant="20" id="enH-F3-s7U"/>
                                     <constraint firstItem="Kk3-0W-mtJ" firstAttribute="leading" secondItem="Lhp-ZO-i35" secondAttribute="leading" id="jrF-bo-waJ"/>
                                     <constraint firstItem="MJj-ce-ebc" firstAttribute="top" secondItem="j2p-yD-gwG" secondAttribute="top" constant="8" id="lQl-xY-avY"/>
                                     <constraint firstItem="e2h-NS-iwC" firstAttribute="trailing" secondItem="oOm-o3-PX5" secondAttribute="trailing" id="m9e-lK-y7w"/>
-                                    <constraint firstAttribute="trailing" secondItem="e4W-m1-WFK" secondAttribute="trailing" constant="10" id="m9f-SC-d16"/>
+                                    <constraint firstAttribute="trailing" secondItem="e4W-m1-WFK" secondAttribute="trailing" constant="50" id="m9f-SC-d16"/>
                                     <constraint firstItem="Lhp-ZO-i35" firstAttribute="leading" secondItem="j2p-yD-gwG" secondAttribute="leading" constant="20" id="qg1-Jn-oyx"/>
                                     <constraint firstItem="e2h-NS-iwC" firstAttribute="top" secondItem="oOm-o3-PX5" secondAttribute="bottom" constant="5" id="s6P-CX-CqG"/>
                                     <constraint firstItem="e2h-NS-iwC" firstAttribute="leading" secondItem="oOm-o3-PX5" secondAttribute="leading" id="t3f-Zh-Atx"/>
                                     <constraint firstItem="ECy-xu-iQe" firstAttribute="top" secondItem="Kk3-0W-mtJ" secondAttribute="bottom" constant="5" id="tnR-iX-c6u"/>
-                                    <constraint firstItem="e4W-m1-WFK" firstAttribute="top" secondItem="MJj-ce-ebc" secondAttribute="bottom" constant="10" id="vv5-eu-ku6"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -3861,7 +3864,7 @@ Satisfaction</string>
                         <outlet property="profileImageView" destination="1HZ-rS-lHW" id="19m-VU-oEN"/>
                         <outlet property="skipButton" destination="p2i-A1-x2i" id="wSk-Ba-yzD"/>
                         <outlet property="welcomeLabel" destination="RLG-KD-lca" id="S0d-s4-ChZ"/>
-                        <segue destination="r3M-vq-re9" kind="presentation" identifier="toInfoSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="hzd-j2-KQC"/>
+                        <segue destination="r3M-vq-re9" kind="presentation" identifier="toInfoSegue" modalPresentationStyle="overFullScreen" id="hzd-j2-KQC"/>
                         <segue destination="pxC-UY-ELn" kind="show" identifier="toSignUpPasswordSegue" id="NKH-en-6wx"/>
                     </connections>
                 </viewController>
@@ -3903,10 +3906,10 @@ Satisfaction</string>
                         <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="81" id="Jq8-aM-BxT" customClass="ConnectionsTableViewCell" customModule="Loop_Golf" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55" width="414" height="81"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Jq8-aM-BxT" id="0Fn-zA-SnN">
-                                    <frame key="frameInset" width="381" height="81"/>
+                                    <frame key="frameInset" width="381" height="80"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dwl-21-CTr">
@@ -4156,7 +4159,7 @@ Satisfaction</string>
                         <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="81" id="9hN-f4-3ef" customClass="ConnectionsTableViewCell" customModule="Loop_Golf" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55" width="414" height="81"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="81"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9hN-f4-3ef" id="uFR-d2-8n6">
                                     <frame key="frameInset" width="381" height="81"/>
@@ -4284,7 +4287,7 @@ Satisfaction</string>
                         <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="138" id="DuP-FF-hVP" customClass="ReservationsTableViewCell" customModule="Loop_Golf" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55" width="414" height="138"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="138"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="DuP-FF-hVP" id="WPp-BQ-yms">
                                     <frame key="frameInset" width="381" height="138"/>
@@ -4424,7 +4427,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="35" width="414" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Boq-Od-iDw" id="tO1-6n-6M5">
-                                            <frame key="frameInset" width="414" height="20"/>
+                                            <frame key="frameInset" width="414" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="MY ACCOUNT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thu-EH-bzX">
@@ -4447,7 +4450,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="55" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="WWy-ng-Gr9" id="3gR-0k-O3P">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Edit Profile" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wlj-6v-g0M">
@@ -4469,7 +4472,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="99" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="4EA-ca-96A" id="5UQ-GR-QMe">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="My Course Search Radius" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jzC-OI-Z9r">
@@ -4491,7 +4494,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="143" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="VvU-yF-I2Y" id="B3i-ak-laY">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payment Methods" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="h3a-9r-tzB">
@@ -4513,7 +4516,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="187" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="G1l-JQ-bLd" id="Vu3-aO-roQ">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Promo Code" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="msS-Ea-KPP">
@@ -4535,7 +4538,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="231" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aYU-ba-cWb" id="ezr-Zr-qpf">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Become a Caddie" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vo8-Oh-EDK">
@@ -4561,7 +4564,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="311" width="414" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="MkK-AS-eIx" id="gVt-SB-Utr">
-                                            <frame key="frameInset" width="414" height="20"/>
+                                            <frame key="frameInset" width="414" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SYSTEM SETTINGS" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="09l-HX-bto">
@@ -4584,7 +4587,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="331" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Ssm-R0-BsC" id="w2N-ei-ojG">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Location Services" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LCy-gQ-Sag">
@@ -4620,7 +4623,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="375" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="0b3-2o-LBX" id="Iq0-jg-3u6">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notifications" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g0q-Ve-ggs">
@@ -4660,7 +4663,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="455" width="414" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fAr-Xy-EH7" id="7X3-c6-goG">
-                                            <frame key="frameInset" width="414" height="20"/>
+                                            <frame key="frameInset" width="414" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="KEEP IN CONTACT" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8A8-54-Pg0">
@@ -4683,7 +4686,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="475" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="uFz-sY-eGQ" id="wSt-zd-OiP">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Help &amp; Support" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qPX-pr-HHm">
@@ -4702,7 +4705,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="519" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SfD-ao-PbA" id="bT8-BX-jZS">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send Feedback" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Od4-jJ-evf">
@@ -4725,7 +4728,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="599" width="414" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="E9W-c0-uzm" id="BaD-2I-oho">
-                                            <frame key="frameInset" width="414" height="20"/>
+                                            <frame key="frameInset" width="414" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OTHER STUFF" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LzW-Aj-Hpr">
@@ -4748,7 +4751,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="619" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="xh6-ag-mw4" id="vz6-Vo-C0j">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="About Us" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="V0A-hd-vja">
@@ -4770,7 +4773,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="663" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kR4-Ur-WY9" id="muR-EJ-9AV">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Go to LoopGolf.com" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m6u-sO-z9Z">
@@ -4789,7 +4792,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="707" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Utg-4L-liN" id="nUQ-1B-l3r">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Like Us on Facebook" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Bq2-kk-eDf">
@@ -4808,7 +4811,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="751" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="gJN-sg-YRR" id="ZdD-Gl-CAx">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Rate in the App Store" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wId-ga-mvi">
@@ -4827,7 +4830,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="795" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="x6h-kT-mNr" id="PAl-eR-NWL">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Terms of Use" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gvu-hP-5OB">
@@ -4850,7 +4853,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="875" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="c9T-0P-ZfN" id="dEi-Ox-S6k">
-                                            <frame key="frameInset" width="414" height="44"/>
+                                            <frame key="frameInset" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sign Out" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O3h-qT-WRh">
@@ -4869,7 +4872,7 @@ Satisfaction</string>
                                         <rect key="frame" x="0.0" y="919" width="414" height="40"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="QZ4-mJ-u76" id="9qb-0z-C4g">
-                                            <frame key="frameInset" width="414" height="40"/>
+                                            <frame key="frameInset" width="414" height="39"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Loop Golf version 0.1.0 - copyright 2016 Loop Sports Technologies, LLC" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JvS-sX-2qm">
@@ -5470,7 +5473,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="35" width="414" height="157"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="z6u-1T-84j" id="tDL-GJ-v4k">
-                                            <frame key="frameInset" width="414" height="157"/>
+                                            <frame key="frameInset" width="414" height="156"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="DefaultProfileImage" translatesAutoresizingMaskIntoConstraints="NO" id="Ef6-Wh-7fd">
@@ -5505,7 +5508,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="192" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="mt8-Mh-qZz" id="8H4-iA-Gmq">
-                                            <frame key="frameInset" width="414" height="44"/>
+                                            <frame key="frameInset" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="First Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EwN-aR-3Iy">
@@ -5548,7 +5551,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="236" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Te0-po-eRt" id="bU2-Zd-WhU">
-                                            <frame key="frameInset" width="414" height="44"/>
+                                            <frame key="frameInset" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Last Name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMQ-Kc-Bg8">
@@ -5595,7 +5598,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="316" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ovd-23-xWO" id="c2g-Eg-0He">
-                                            <frame key="frameInset" width="414" height="44"/>
+                                            <frame key="frameInset" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7cC-RJ-wgl">
@@ -5638,7 +5641,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="360" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="M4s-LX-LUZ" id="TQj-aR-Nqh">
-                                            <frame key="frameInset" width="414" height="44"/>
+                                            <frame key="frameInset" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Phone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HaS-QK-LkS">
@@ -5685,7 +5688,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="440" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2MH-fz-6zP" id="xdN-es-590">
-                                            <frame key="frameInset" width="381" height="44"/>
+                                            <frame key="frameInset" width="381" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Change Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rBu-9A-0Fd">
@@ -5753,7 +5756,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="35" width="414" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="qtL-ga-hWA" id="f2R-ni-AD1">
-                                            <frame key="frameInset" width="414" height="20"/>
+                                            <frame key="frameInset" width="414" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENTER YOUR CURRENT PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EdA-9P-AlL">
@@ -5776,7 +5779,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="55" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lc4-7t-jHG" id="KOe-PL-m4Q">
-                                            <frame key="frameInset" width="414" height="44"/>
+                                            <frame key="frameInset" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="CURRENT PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PIe-bG-TTu">
@@ -5816,7 +5819,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="135" width="414" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rrq-od-Nwf" id="Uaq-dl-t8J">
-                                            <frame key="frameInset" width="414" height="20"/>
+                                            <frame key="frameInset" width="414" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ENTER &amp; CONFIRM A NEW PASSWORD" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6E1-mH-KtX">
@@ -5839,7 +5842,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="155" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2xt-eH-xE1" id="12D-Qj-feb">
-                                            <frame key="frameInset" width="414" height="44"/>
+                                            <frame key="frameInset" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="New Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bOV-TF-IXR">
@@ -5882,7 +5885,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="199" width="414" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Go2-T6-510" id="Rau-WK-n1g">
-                                            <frame key="frameInset" width="414" height="44"/>
+                                            <frame key="frameInset" width="414" height="43"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Confirm New Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7VD-7Q-W9n">
@@ -5925,7 +5928,7 @@ Adjusting your search radius will change the available golf courses that are sho
                                         <rect key="frame" x="0.0" y="243" width="414" height="20"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="BSP-vs-wek" id="BR5-Ef-NJ6">
-                                            <frame key="frameInset" width="414" height="20"/>
+                                            <frame key="frameInset" width="414" height="19"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your new password must be at least 6 characters long" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wzN-0b-YiY">
@@ -7833,7 +7836,7 @@ Adjusting your search radius will change the available golf courses that are sho
                         <color key="separatorColor" red="0.0" green="0.0" blue="0.0" alpha="0.0" colorSpace="custom" customColorSpace="sRGB"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" rowHeight="138" id="lkH-R7-h4K" customClass="ReservationsTableViewCell" customModule="Loop_Golf" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="55" width="414" height="138"/>
+                                <rect key="frame" x="0.0" y="56" width="414" height="138"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lkH-R7-h4K" id="DXQ-WP-c6y">
                                     <frame key="frameInset" width="381" height="138"/>
@@ -8358,6 +8361,104 @@ deserves a caddie.</string>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bWC-EQ-oMK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="25" y="-1051"/>
+        </scene>
+        <!--Info Course Hours View Controller-->
+        <scene sceneID="Iv9-Fc-Mt5">
+            <objects>
+                <viewController id="2eq-th-ckY" customClass="InfoCourseHoursViewController" customModule="Loop_Golf" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gpm-Du-9ms"/>
+                        <viewControllerLayoutGuide type="bottom" id="Oj0-Kf-Gw5"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="6QN-nz-YjK">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="McH-AJ-2w1">
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <action selector="backgroundButtonPressed:" destination="2eq-th-ckY" eventType="touchUpInside" id="tGC-Hs-Wze"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bMY-HN-EEn">
+                                <subviews>
+                                    <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ccP-wZ-kSz">
+                                        <items>
+                                            <navigationItem id="COs-nE-EtH">
+                                                <barButtonItem key="leftBarButtonItem" systemItem="stop" id="Nad-35-NUG">
+                                                    <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <connections>
+                                                        <action selector="dismissVCButtonPressed:" destination="2eq-th-ckY" id="9am-Am-hDY"/>
+                                                    </connections>
+                                                </barButtonItem>
+                                            </navigationItem>
+                                        </items>
+                                    </navigationBar>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Operating Hours" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" minimumFontSize="16" translatesAutoresizingMaskIntoConstraints="NO" id="BNZ-Jp-QuI">
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="26"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FOJ-3b-am3">
+                                        <string key="text">Golf courses give us information about their operating hours to help us set times during which caddies should be available. These operating hours are designated as those during which tee times are typically available at the golf course.</string>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4st-5R-Igy">
+                                        <string key="text">Loop Golf does not allow golfers to reserve caddies during times that are not within the operating hours supplied by the golf course.</string>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tZ3-eN-jO3">
+                                        <string key="text">While reserving a caddie, remember that this reservation does not substitute or replace your actual tee time with the golf course. The date and time you select here simply lets the caddie know when to arrive, and it should be identical with the tee time you have secured with the golf course.</string>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="14"/>
+                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstItem="tZ3-eN-jO3" firstAttribute="trailing" secondItem="4st-5R-Igy" secondAttribute="trailing" id="Bas-fv-0v4"/>
+                                    <constraint firstItem="4st-5R-Igy" firstAttribute="leading" secondItem="FOJ-3b-am3" secondAttribute="leading" id="CaP-9m-Wmu"/>
+                                    <constraint firstItem="tZ3-eN-jO3" firstAttribute="top" secondItem="4st-5R-Igy" secondAttribute="bottom" constant="30" id="DQu-aB-7AG"/>
+                                    <constraint firstItem="BNZ-Jp-QuI" firstAttribute="leading" secondItem="bMY-HN-EEn" secondAttribute="leading" constant="50" id="KKY-BG-AFP"/>
+                                    <constraint firstItem="FOJ-3b-am3" firstAttribute="top" secondItem="BNZ-Jp-QuI" secondAttribute="bottom" constant="20" id="MSG-t3-5N7"/>
+                                    <constraint firstItem="BNZ-Jp-QuI" firstAttribute="centerY" secondItem="ccP-wZ-kSz" secondAttribute="centerY" id="Ry9-jk-aoi"/>
+                                    <constraint firstAttribute="trailing" secondItem="BNZ-Jp-QuI" secondAttribute="trailing" constant="50" id="SWK-JK-Oiu"/>
+                                    <constraint firstItem="ccP-wZ-kSz" firstAttribute="centerX" secondItem="bMY-HN-EEn" secondAttribute="centerX" id="SwU-Xy-xZc"/>
+                                    <constraint firstItem="ccP-wZ-kSz" firstAttribute="width" secondItem="bMY-HN-EEn" secondAttribute="width" id="Sz5-bl-ccC"/>
+                                    <constraint firstItem="4st-5R-Igy" firstAttribute="trailing" secondItem="FOJ-3b-am3" secondAttribute="trailing" id="YsZ-T6-zbB"/>
+                                    <constraint firstItem="4st-5R-Igy" firstAttribute="top" secondItem="FOJ-3b-am3" secondAttribute="bottom" constant="30" id="dhL-G4-JzY"/>
+                                    <constraint firstItem="FOJ-3b-am3" firstAttribute="leading" secondItem="bMY-HN-EEn" secondAttribute="leading" constant="20" id="fwd-FS-Cll"/>
+                                    <constraint firstItem="tZ3-eN-jO3" firstAttribute="leading" secondItem="4st-5R-Igy" secondAttribute="leading" id="xlW-EV-Vi7"/>
+                                    <constraint firstItem="ccP-wZ-kSz" firstAttribute="top" secondItem="bMY-HN-EEn" secondAttribute="top" constant="8" id="z6E-pS-lt8"/>
+                                    <constraint firstAttribute="trailing" secondItem="FOJ-3b-am3" secondAttribute="trailing" constant="20" id="zfK-bn-dy5"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailingMargin" secondItem="bMY-HN-EEn" secondAttribute="trailing" id="5aY-OW-NPR"/>
+                            <constraint firstItem="Oj0-Kf-Gw5" firstAttribute="top" secondItem="bMY-HN-EEn" secondAttribute="bottom" constant="20" id="O9E-gp-bBR"/>
+                            <constraint firstItem="bMY-HN-EEn" firstAttribute="leading" secondItem="6QN-nz-YjK" secondAttribute="leadingMargin" id="QjE-S7-bzW"/>
+                            <constraint firstItem="McH-AJ-2w1" firstAttribute="width" secondItem="6QN-nz-YjK" secondAttribute="width" id="Y8J-du-V2r"/>
+                            <constraint firstItem="McH-AJ-2w1" firstAttribute="height" secondItem="6QN-nz-YjK" secondAttribute="height" id="gTI-5W-C9G"/>
+                            <constraint firstItem="bMY-HN-EEn" firstAttribute="top" secondItem="6QN-nz-YjK" secondAttribute="topMargin" constant="20" id="o9f-a6-oDU"/>
+                            <constraint firstItem="McH-AJ-2w1" firstAttribute="centerY" secondItem="6QN-nz-YjK" secondAttribute="centerY" id="tHZ-6k-xuX"/>
+                            <constraint firstItem="McH-AJ-2w1" firstAttribute="centerX" secondItem="6QN-nz-YjK" secondAttribute="centerX" id="zbP-X4-lEb"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="backgroundButton" destination="McH-AJ-2w1" id="NMy-Yj-CMT"/>
+                        <outlet property="navigationBar" destination="ccP-wZ-kSz" id="5GB-TU-G76"/>
+                        <outlet property="popoverView" destination="bMY-HN-EEn" id="ros-UP-71n"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="juh-o9-y25" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3760.8695652173915" y="-45.652173913043484"/>
         </scene>
     </scenes>
     <resources>

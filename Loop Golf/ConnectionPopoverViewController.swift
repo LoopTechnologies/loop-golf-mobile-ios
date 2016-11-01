@@ -62,7 +62,7 @@ extension ConnectionPopoverViewController {
     
     @IBAction func moreBarButtonPressed(_ sender: UIBarButtonItem) {
         
-        let actionSheet = UIAlertController(title: "Options for connections", message:  "\n You can report a golfer or caddie for unacceptable actions such as profanity or harrassment. If you decide to remove a connection, that person will be permanently deleted from your connections list.", preferredStyle: .actionSheet)
+        let actionSheet = UIAlertController(title: "", message:  "You can report a golfer or caddie for unacceptable actions such as profanity or harrassment. If you decide to remove a connection, that person will be permanently deleted from your connections list.", preferredStyle: .actionSheet)
         actionSheet.view.tintColor = UIColor.black
         let cancelAction = UIAlertAction(title: "Cancel", style: .cancel) { (action) in
         }
